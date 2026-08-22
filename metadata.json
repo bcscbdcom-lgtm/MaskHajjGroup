@@ -1,0 +1,6 @@
+{
+  "name": "MASK Hajj Group",
+  "description": "Official portal and verified package showcase for MASK Hajj Group - Ministry of Religious Affairs Licence No. 15630.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

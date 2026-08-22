@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+
+    <!-- Studio Glow -->
+    <radialGradient id="studioGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#f1f5f9" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#cbd5e1" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Skin Tone Gradients -->
+    <linearGradient id="skinBase" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#f2b694" />
+      <stop offset="50%" stop-color="#df9a75" />
+      <stop offset="100%" stop-color="#c67e56" />
+    </linearGradient>
+    <linearGradient id="skinShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c47850" />
+      <stop offset="100%" stop-color="#a85d38" />
+    </linearGradient>
+
+    <!-- White Cap Gradient & Patterns -->
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+    <pattern id="capMesh" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="1.5" fill="#94a3b8" opacity="0.35" />
+      <path d="M0,6 Q6,0 12,6 Q6,12 0,6" fill="none" stroke="#cbd5e1" stroke-width="0.75" opacity="0.5" />
+    </pattern>
+
+    <!-- Grey Vest / Mujib Coat Gradient -->
+    <linearGradient id="vestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="40%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="vestFabric" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Beard Texture / Soft Gradient -->
+    <linearGradient id="beardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Silver Pen Gradient -->
+    <linearGradient id="silverPen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cbd5e1" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="600" height="800" fill="url(#bgGrad)" />
+  <circle cx="300" cy="320" r="280" fill="url(#studioGlow)" />
+
+  <!-- Shoulders & White Kurta Shirt Base -->
+  <path d="M120,530 Q200,480 300,480 Q400,480 480,530 L540,800 L60,800 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+  
+  <!-- Kurta Sleeves & Wrinkles -->
+  <path d="M120,530 L60,800 L160,800 L190,560 Z" fill="#f1f5f9" />
+  <path d="M480,530 L540,800 L440,800 L410,560 Z" fill="#e2e8f0" />
+  <path d="M140,580 Q160,650 150,720" stroke="#cbd5e1" stroke-width="2" fill="none" />
+  <path d="M460,580 Q440,650 450,720" stroke="#cbd5e1" stroke-width="2" fill="none" />
+
+  <!-- Charcoal/Grey Mujib Coat (Sleeveless Waistcoat) -->
+  <!-- Left Vest Flap -->
+  <path d="M190,535 Q220,500 270,490 L295,490 L295,800 L160,800 L180,560 Z" fill="url(#vestGrad)" />
+  <!-- Right Vest Flap -->
+  <path d="M410,535 Q380,500 330,490 L305,490 L305,800 L440,800 L420,560 Z" fill="url(#vestFabric)" />
+  <!-- Center Placket Overlap -->
+  <path d="M285,490 L315,490 L315,800 L285,800 Z" fill="#1e293b" />
+
+  <!-- Mandarin Collar of Vest -->
+  <path d="M245,495 C245,465 355,465 355,495 L340,505 C340,485 260,485 260,505 Z" fill="#0f172a" />
+  <!-- White Inner Kurta Collar -->
+  <path d="M255,475 C255,455 345,455 345,475 L340,485 C340,470 260,470 260,485 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+
+  <!-- Vest Pocket & Silver Clip Pen (Left Chest) -->
+  <rect x="370" y="580" width="48" height="6" rx="2" fill="#1e293b" />
+  <!-- Silver Pen Body & Clip -->
+  <rect x="388" y="565" width="8" height="28" rx="2" fill="url(#silverPen)" />
+  <rect x="390" y="568" width="2.5" height="20" rx="1" fill="#475569" />
+  <circle cx="392" cy="567" r="1.5" fill="#f8fafc" />
+
+  <!-- 5 Dark Vest Buttons -->
+  <!-- Button 1 -->
+  <circle cx="300" cy="530" r="8" fill="#0f172a" stroke="#475569" stroke-width="1" />
+  <circle cx="300" cy="530" r="3" fill="#334155" />
+  <!-- Button 2 -->
+  <circle cx="300" cy="590" r="8" fill="#0f172a" stroke="#475569" stroke-width="1" />
+  <circle cx="300" cy="590" r="3" fill="#334155" />
+  <!-- Button 3 -->
+  <circle cx="300" cy="650" r="8" fill="#0f172a" stroke="#475569" stroke-width="1" />
+  <circle cx="300" cy="650" r="3" fill="#334155" />
+  <!-- Button 4 -->
+  <circle cx="300" cy="710" r="8" fill="#0f172a" stroke="#475569" stroke-width="1" />
+  <circle cx="300" cy="710" r="3" fill="#334155" />
+  <!-- Button 5 -->
+  <circle cx="300" cy="770" r="8" fill="#0f172a" stroke="#475569" stroke-width="1" />
+  <circle cx="300" cy="770" r="3" fill="#334155" />
+
+  <!-- Neck -->
+  <path d="M265,420 L265,490 Q300,510 335,490 L335,420 Z" fill="url(#skinShadow)" />
+  <path d="M275,430 Q300,450 325,430 L325,480 Q300,495 275,480 Z" fill="url(#skinBase)" opacity="0.9" />
+
+  <!-- Head Base (Face) -->
+  <ellipse cx="300" cy="330" rx="100" ry="120" fill="url(#skinBase)" />
+
+  <!-- Ears -->
+  <path d="M198,320 C190,320 188,360 200,375 C205,380 208,365 208,350 Z" fill="url(#skinShadow)" />
+  <path d="M402,320 C410,320 412,360 400,375 C395,380 392,365 392,350 Z" fill="url(#skinShadow)" />
+
+  <!-- Islamic Prayer Cap (White Taqiyah/Kufi) -->
+  <path d="M198,285 C198,180 402,180 402,285 C402,305 198,305 198,285 Z" fill="url(#capGrad)" stroke="#e2e8f0" stroke-width="2" />
+  <!-- Cap Embroidery Mesh Overlay -->
+  <path d="M198,285 C198,180 402,180 402,285 C402,305 198,305 198,285 Z" fill="url(#capMesh)" />
+  <!-- Cap Rim Border -->
+  <path d="M198,285 C250,305 350,305 402,285 C402,298 198,298 198,285 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+  <path d="M210,290 C260,300 340,300 390,290" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3" fill="none" />
+
+  <!-- Forehead & Eyebrows -->
+  <!-- Natural Eyebrows -->
+  <path d="M240,312 Q265,302 285,312 Q265,306 240,312 Z" fill="#0f172a" />
+  <path d="M315,312 Q335,302 360,312 Q335,306 315,312 Z" fill="#0f172a" />
+
+  <!-- Eyes with Warm Compassion -->
+  <!-- Left Eye -->
+  <ellipse cx="262" cy="326" rx="14" ry="7.5" fill="#ffffff" stroke="#a85d38" stroke-width="1" />
+  <circle cx="262" cy="326" r="6" fill="#2d1a0e" />
+  <circle cx="262" cy="326" r="3" fill="#020617" />
+  <circle cx="260" cy="324" r="1.5" fill="#ffffff" />
+  <!-- Left Eyelid Fold -->
+  <path d="M246,320 Q262,314 278,320" stroke="#a85d38" stroke-width="1.5" fill="none" />
+
+  <!-- Right Eye -->
+  <ellipse cx="338" cy="326" rx="14" ry="7.5" fill="#ffffff" stroke="#a85d38" stroke-width="1" />
+  <circle cx="338" cy="326" r="6" fill="#2d1a0e" />
+  <circle cx="338" cy="326" r="3" fill="#020617" />
+  <circle cx="336" cy="324" r="1.5" fill="#ffffff" />
+  <!-- Right Eyelid Fold -->
+  <path d="M322,320 Q338,314 354,320" stroke="#a85d38" stroke-width="1.5" fill="none" />
+
+  <!-- Nose & Bridge -->
+  <path d="M300,315 L296,360 Q286,372 300,374 Q314,372 304,360 Z" fill="url(#skinShadow)" opacity="0.6" />
+  <path d="M294,368 Q300,373 306,368" stroke="#8c4722" stroke-width="2" fill="none" />
+  <!-- Nostrils -->
+  <ellipse cx="292" cy="370" rx="3.5" ry="2" fill="#713214" />
+  <ellipse cx="308" cy="370" rx="3.5" ry="2" fill="#713214" />
+
+  <!-- Lips & Calm Smile -->
+  <path d="M280,392 Q300,402 320,392" stroke="#9e4a2a" stroke-width="2.5" fill="none" stroke-linecap="round" />
+  <path d="M284,394 Q300,404 316,394" fill="#c46440" opacity="0.8" />
+
+  <!-- Prominent Scholar Beard & Mustache (Dark Charcoal/Black Groomed Beard) -->
+  <!-- Mustache -->
+  <path d="M272,382 Q290,380 300,388 Q310,380 328,382 Q316,394 300,392 Q284,394 272,382 Z" fill="url(#beardGrad)" />
+  <!-- Soul Patch under Lower Lip -->
+  <path d="M294,402 L306,402 L303,425 L297,425 Z" fill="#0f172a" />
+
+  <!-- Full Majestic Beard Framing the Face and Chin -->
+  <path d="M200,350 C195,440 230,550 300,555 C370,550 405,440 400,350 C388,410 375,450 350,470 C330,485 270,485 250,470 C225,450 212,410 200,350 Z" fill="url(#beardGrad)" />
+  
+  <!-- Subtle Beard Texture Hair Strands -->
+  <path d="M220,380 Q240,470 290,530" stroke="#334155" stroke-width="1.5" fill="none" opacity="0.4" />
+  <path d="M380,380 Q360,470 310,530" stroke="#334155" stroke-width="1.5" fill="none" opacity="0.4" />
+  <path d="M250,430 Q270,510 300,545" stroke="#1e293b" stroke-width="2" fill="none" opacity="0.6" />
+  <path d="M350,430 Q330,510 300,545" stroke="#1e293b" stroke-width="2" fill="none" opacity="0.6" />
+  <path d="M280,450 Q300,520 300,550" stroke="#0f172a" stroke-width="2.5" fill="none" />
+
+  <!-- Subtle Studio Highlight on Cap & Shoulders -->
+  <ellipse cx="300" cy="210" rx="40" ry="12" fill="#ffffff" opacity="0.4" />
+  <path d="M190,535 Q220,510 260,500" stroke="#ffffff" stroke-width="1" opacity="0.25" fill="none" />
+  <path d="M410,535 Q380,510 340,500" stroke="#ffffff" stroke-width="1" opacity="0.25" fill="none" />
+</svg>

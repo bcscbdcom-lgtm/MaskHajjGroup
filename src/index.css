@@ -1,0 +1,313 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hind Siliguri', sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .dark body {
+    background-color: #0b0f19;
+    color: #f1f5f9;
+  }
+}
+
+.font-bn {
+  font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-arabic {
+  font-family: 'Amiri', serif;
+}
+
+/* Professional Polish Action Buttons */
+.pro-primary-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pro-primary-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.pro-dark-btn {
+  background-color: #0f172a;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pro-dark-btn:hover {
+  background-color: #1e293b;
+  box-shadow: 0 4px 14px 0 rgba(15, 23, 42, 0.2);
+  transform: translateY(-1px);
+}
+
+.teal-gradient-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teal-gradient-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.28);
+  transform: translateY(-1px);
+}
+
+.cta-gradient-box {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1e40af 100%);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+}
+
+.soft-shadow {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+}
+
+.soft-shadow-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.soft-shadow-hover:hover {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Subtle Form Field Highlight Animation */
+@keyframes fieldHighlightPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45);
+    border-color: #3b82f6;
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.25);
+    border-color: #2563eb;
+    transform: translateY(-1px);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    border-color: inherit;
+    transform: translateY(0);
+  }
+}
+
+.field-highlight-pulse {
+  animation: fieldHighlightPulse 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Premium Modal Entry/Exit Animations (Slide-in from bottom) */
+@keyframes modalSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalBackdropFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-modal-slide-up {
+  animation: modalSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-backdrop-fade {
+  animation: modalBackdropFade 0.25s ease-out forwards;
+}
+
+/* Print-only brand header defaults (hidden on screen) */
+.print-only-header {
+  display: none;
+}
+
+/* -------------------------------------------------------------
+   CSS Print Media Query
+   Formatted & readable Hajj & Umrah package printouts
+   ------------------------------------------------------------- */
+@media print {
+  /* Page margins and canvas setup */
+  @page {
+    margin: 1.2cm;
+    size: A4 portrait;
+  }
+
+  /* Hide interactive, navigation, and floating UI elements */
+  header,
+  nav,
+  footer,
+  #themeToggleBtn,
+  #topBarLangToggleBtn,
+  #langToggleBtn,
+  #notice-banner,
+  .floating-actions,
+  .no-print,
+  button,
+  a[href^="https://wa.me"],
+  a[href^="tel:"],
+  iframe,
+  #home,
+  #about,
+  #services,
+  #guides,
+  #tools,
+  #why-choose-us,
+  #testimonials,
+  #contact,
+  #blog,
+  #faqs {
+    display: none !important;
+  }
+
+  /* Clean monochrome / high-contrast base print palette */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dark html,
+  .dark body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Print Agency Letterhead Header */
+  .print-only-header {
+    display: block !important;
+    border-bottom: 2px solid #0f172a !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Section Title & Subheaders */
+  #packages,
+  #umrah {
+    display: block !important;
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+    page-break-before: auto;
+  }
+
+  #packages h2,
+  #umrah h2 {
+    color: #0f172a !important;
+    font-size: 17pt !important;
+    font-weight: 800 !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Clean 2-column Grid for Cards on A4 Paper */
+  #packages .grid,
+  #umrah .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  /* Package Cards Print Formatting */
+  #packages .grid > div,
+  #umrah .grid > div {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    padding: 12px 14px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Headings inside cards */
+  #packages h3,
+  #umrah h3 {
+    color: #0f172a !important;
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    margin-top: 4px !important;
+  }
+
+  /* Pricing visibility */
+  #packages .font-mono,
+  #umrah .font-mono {
+    color: #1d4ed8 !important;
+    font-size: 13pt !important;
+    font-weight: 800 !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Inclusions / Highlights lists */
+  #packages ul,
+  #umrah ul {
+    border-top: 1px dashed #cbd5e1 !important;
+    padding-top: 6px !important;
+    margin-top: 6px !important;
+    space-y: 1 !important;
+  }
+
+  #packages li,
+  #umrah li {
+    color: #334155 !important;
+    font-size: 9pt !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Schedule Table in Umrah Section */
+  #umrah .border {
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* FAQ Print Formatting & A4 Document Sheet */
+  .faq-print-document,
+  .faq-printable-sheet,
+  .faq-a4-preview-sheet {
+    display: block !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-before: auto;
+  }
+
+  .faq-print-item {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1.5px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    padding: 10px 12px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+
