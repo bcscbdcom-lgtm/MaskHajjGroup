@@ -120,13 +120,13 @@ export const NoticeBanner: React.FC<NoticeBannerProps> = ({ lang, notice, onDism
   if (!notice || !notice.active) return null;
 
   return (
-    <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white py-2 px-3 sm:px-4 text-xs font-semibold relative shadow-xs z-50 border-b border-blue-600/50">
+    <div className="bg-gradient-to-r from-[#064E3B] via-[#0F5132] to-[#064E3B] text-white py-2 px-3 sm:px-4 text-xs font-semibold relative shadow-xs z-50 border-b border-[#C5A059]/30">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         
         {/* Notice icon and announcement text */}
         <div className="flex items-center gap-2.5 flex-1 min-w-0">
-          <span className="flex-shrink-0 bg-white/20 p-1 rounded-md">
-            <Megaphone className="w-3.5 h-3.5 text-white animate-pulse" />
+          <span className="flex-shrink-0 bg-amber-400/20 text-amber-300 p-1 rounded-md border border-amber-400/30">
+            <Megaphone className="w-3.5 h-3.5 animate-pulse" />
           </span>
           <p className="truncate text-[11px] sm:text-xs tracking-wide">
             {lang === 'en' ? notice.textEn : notice.textBn}

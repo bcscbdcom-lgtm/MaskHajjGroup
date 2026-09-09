@@ -9,40 +9,32 @@ import {
   AlertCircle,
   ThumbsUp,
   ThumbsDown,
-  ChevronsUpDown,
   ChevronsDown,
   ChevronsUp,
   Flame,
   Sparkles,
-  Send,
   CheckCircle2,
-  UserCheck,
   ShieldCheck,
   BookOpen,
   ArrowRight,
   RefreshCw,
   PhoneCall,
-  Star,
-  Users,
   Clock,
   Compass,
   FileQuestion,
-  ExternalLink,
-  MessageCircle,
-  Award,
   Printer,
   Mail,
-  FileDown,
   Download,
   Copy,
   Check,
-  Share2,
   Eye,
-  Info
+  Info,
+  Award,
+  UserCheck,
+  Star
 } from 'lucide-react';
 import { Language, FAQItem } from '../types';
 import { faqsData } from '../data/faqs';
-import { agencyLeadershipData } from '../data/leadership';
 import { toBengaliNumber } from '../utils/dateFormatter';
 import { AskScholarModal } from './AskScholarModal';
 import { FaqPrintPreviewModal } from './FaqPrintPreviewModal';
@@ -95,6 +87,31 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenPreReg, onOp
     type: 'yes' | 'no';
   } | null>(null);
 
+  // Copied FAQ Link ID state
+  const [copiedFaqId, setCopiedFaqId] = useState<string | null>(null);
+
+  const handleShareFaq = (e: React.MouseEvent, item: FAQItem, platform: 'copy' | 'whatsapp' | 'email') => {
+    e.stopPropagation();
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+    const faqUrl = `${origin}${pathname}#faq-item-${item.id}`;
+    const title = lang === 'en' ? item.questionEn : item.questionBn;
+    const answer = lang === 'en' ? item.answerEn : item.answerBn;
+
+    if (platform === 'copy') {
+      navigator.clipboard.writeText(`${title}\n\n${answer}\n\nLink: ${faqUrl}`);
+      setCopiedFaqId(item.id);
+      setTimeout(() => setCopiedFaqId(null), 2500);
+    } else if (platform === 'whatsapp') {
+      const text = encodeURIComponent(`*${title}*\n\n${answer}\n\n${faqUrl}`);
+      window.open(`https://wa.me/?text=${text}`, '_blank');
+    } else if (platform === 'email') {
+      const subject = encodeURIComponent(`FAQ: ${title}`);
+      const body = encodeURIComponent(`${title}\n\n${answer}\n\nDirect link: ${faqUrl}`);
+      window.open(`mailto:?subject=${subject}&body=${body}`);
+    }
+  };
+
   // Search input ref & container ref for outside click handling
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
@@ -123,25 +140,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenPreReg, onOp
     }
     return {};
   });
-
-  // Inline 'Ask a Scholar' sidebar form state
-  const [selectedScholarId, setSelectedScholarId] = useState<string>('khalilur-rahman');
-  const [scholarQuestion, setScholarQuestion] = useState('');
-  const [pilgrimName, setPilgrimName] = useState('');
-  const [pilgrimPhone, setPilgrimPhone] = useState('');
-  const [scholarSubmitted, setScholarSubmitted] = useState(false);
-  const [isSubmittingScholar, setIsSubmittingScholar] = useState(false);
-
-  // Filter scholars who are religious directors / mentors
-  const scholars = useMemo(() => {
-    return agencyLeadershipData.filter(
-      (m) => m.id === 'khalilur-rahman' || m.id === 'mufti-mahmud' || m.id === 'farhana-yasmin'
-    );
-  }, []);
-
-  const selectedScholar = useMemo(() => {
-    return scholars.find((s) => s.id === selectedScholarId) || scholars[0];
-  }, [scholars, selectedScholarId]);
 
   // Click outside search container to close auto-suggest popup
   useEffect(() => {
@@ -374,25 +372,6 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenPreReg, onOp
     setIsAskScholarModalOpen(true);
   };
 
-  // Submit religious question in sidebar form
-  const handleScholarSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!scholarQuestion.trim() || !pilgrimName.trim() || !pilgrimPhone.trim()) return;
-
-    setIsSubmittingScholar(true);
-    setTimeout(() => {
-      setIsSubmittingScholar(false);
-      setScholarSubmitted(true);
-    }, 600);
-  };
-
-  const handleResetScholarForm = () => {
-    setScholarSubmitted(false);
-    setScholarQuestion('');
-    setPilgrimName('');
-    setPilgrimPhone('');
-  };
-
   const handleClearSearch = () => {
     setSearchQuery('');
     setActiveCategory('all');
@@ -476,7 +455,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
   };
 
   return (
-    <section id="faqs" className="py-20 bg-slate-50/70 dark:bg-slate-900/60 border-t border-slate-200/60 dark:border-slate-800 scroll-mt-16 relative">
+    <section id="faqs" className="py-20 bg-sky-50/40 dark:bg-slate-900/60 border-t border-sky-100 dark:border-slate-800 scroll-mt-16 relative">
       
       {/* 1. Modal Component for 'Ask a Scholar' with Pre-populated Templates */}
       <AskScholarModal
@@ -657,7 +636,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6">
-          <span className="inline-flex items-center gap-1.5 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <span className="inline-flex items-center gap-1.5 bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             <HelpCircle className="w-3.5 h-3.5" />
             {lang === 'en' ? 'Knowledge Base & FAQs' : 'সাধারণ জিজ্ঞাসা ও নির্ভরযোগ্য প্রশ্নোত্তর'}
           </span>
@@ -1287,371 +1266,136 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
           </div>
         </div>
 
-        {/* 2-Column Layout: Left = FAQ Accordion List, Right = 'Ask a Scholar' Interactive Widget */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left: FAQ Accordion List (col-span-7) */}
-          <div className="lg:col-span-7 space-y-3.5">
-            {filteredFaqs.map((item) => {
-              const isOpen = openIds.has(item.id);
-              const isHighlighted = highlightedFaqId === item.id;
-              const feedback = feedbackMap[item.id];
-              const views = clickCounts[item.id] || item.initialClicks || 100;
+        {/* Full-width High-Density Compact Badge-Driven FAQ Accordion List */}
+        <div className="max-w-4xl mx-auto space-y-2.5">
+          {filteredFaqs.map((item) => {
+            const isOpen = openIds.has(item.id);
+            const isHighlighted = highlightedFaqId === item.id;
+            const feedback = feedbackMap[item.id];
 
-              return (
-                <div
-                  key={item.id}
-                  id={`faq-item-${item.id}`}
-                  className={`bg-white dark:bg-slate-800/90 rounded-2xl border transition-all duration-300 overflow-hidden soft-shadow ${
-                    isHighlighted
-                      ? 'border-blue-500 ring-4 ring-blue-500/20 shadow-lg scale-[1.01]'
-                      : isOpen
-                      ? 'border-blue-200 dark:border-blue-900/60 shadow-sm'
-                      : 'border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600'
-                  }`}
+            return (
+              <div
+                key={item.id}
+                id={`faq-item-${item.id}`}
+                className={`bg-white dark:bg-slate-800/90 rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isHighlighted
+                    ? 'border-sky-500 ring-4 ring-sky-500/20 shadow-md'
+                    : isOpen
+                    ? 'border-sky-300 dark:border-sky-800/80 shadow-xs'
+                    : 'border-slate-200/80 dark:border-slate-700/80 hover:border-slate-300 dark:hover:border-slate-600'
+                }`}
+              >
+                {/* Compact Accordion Header */}
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion(item.id)}
+                  className="w-full py-3 px-4 sm:px-5 text-left flex items-center justify-between gap-3 font-semibold text-xs sm:text-sm text-slate-800 dark:text-white hover:text-sky-700 dark:hover:text-sky-300 transition-colors cursor-pointer"
                 >
-                  <button
-                    type="button"
-                    onClick={() => toggleAccordion(item.id)}
-                    className="w-full p-5 text-left flex items-start justify-between gap-4 font-bold text-sm sm:text-base text-slate-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors cursor-pointer"
-                  >
-                    <span className="flex items-start gap-3">
-                      <HelpCircle
-                        className={`w-4 h-4 mt-1 flex-shrink-0 transition-colors ${
-                          isOpen ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400'
-                        }`}
-                      />
-                      <div>
-                        <span>{lang === 'en' ? item.questionEn : item.questionBn}</span>
-                        <div className="flex flex-wrap items-center gap-2 mt-1 text-[11px] font-normal text-slate-600 dark:text-slate-300">
-                          <span className="capitalize font-semibold text-blue-600 dark:text-blue-400">{item.category}</span>
-                          {item.segment && (
-                            <>
-                              <span>•</span>
-                              <span className="capitalize text-slate-600 dark:text-slate-300">{item.segment}</span>
-                            </>
-                          )}
-                          <span>•</span>
-                          <span className="text-slate-600 dark:text-slate-300">{lang === 'en' ? `${views} views` : `${toBengaliNumber(views)} বার পড়া হয়েছে`}</span>
-                          {item.helpfulScore && (
-                            <>
-                              <span>•</span>
-                              <span className="text-amber-800 dark:text-amber-300 font-bold flex items-center gap-0.5">
-                                <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                                {item.helpfulScore}%
-                              </span>
-                            </>
-                          )}
-                        </div>
-                      </div>
+                  <div className="flex items-center gap-3 min-w-0 pr-2">
+                    {/* Category Badge */}
+                    <span className="bg-sky-50 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800 text-[11px] px-2.5 py-0.5 rounded-full font-bold shrink-0 capitalize">
+                      {item.category}
                     </span>
-                    <ChevronDown
-                      className={`w-4 h-4 text-slate-400 flex-shrink-0 mt-1 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''
-                      }`}
-                    />
-                  </button>
+                    <span className="truncate leading-snug">
+                      {lang === 'en' ? item.questionEn : item.questionBn}
+                    </span>
+                  </div>
+                  <ChevronDown
+                    className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 text-sky-600 dark:text-sky-400' : ''
+                    }`}
+                  />
+                </button>
 
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.25 }}
-                      >
-                        <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-850">
-                          <p>{lang === 'en' ? item.answerEn : item.answerBn}</p>
+                {/* Expanded Answer Content */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="px-4 sm:px-5 pb-4 pt-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-sky-100/60 dark:border-slate-700/80 bg-sky-50/30 dark:bg-slate-850/60">
+                        <p>{lang === 'en' ? item.answerEn : item.answerBn}</p>
 
-                          {/* Tags */}
-                          {item.tags && item.tags.length > 0 && (
-                            <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                              {item.tags.map((tag, tIdx) => (
-                                <span
-                                  key={tIdx}
-                                  className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-200/60 dark:bg-slate-750 text-slate-600 dark:text-slate-300"
-                                >
-                                  #{tag}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-
-                          {/* 'Was this helpful?' Feedback Mechanism */}
-                          <div className="mt-4 pt-3.5 border-t border-slate-200/60 dark:border-slate-700/60 flex flex-wrap items-center justify-between gap-3 text-xs">
-                            <span className="text-slate-500 dark:text-slate-400 font-medium">
-                              {lang === 'en' ? 'Was this answer helpful?' : 'এই উত্তরটি কি সহায়ক ছিল?'}
+                        {/* Minimalist Action Bar */}
+                        <div className="mt-3 pt-2.5 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between gap-3 text-xs">
+                          <div className="flex items-center gap-2">
+                            <span className="text-slate-400 dark:text-slate-500 text-[11px]">
+                              {lang === 'en' ? 'Helpful?' : 'সহায়ক?'}
                             </span>
-
                             {feedback ? (
-                              <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-200 dark:border-emerald-800">
+                              <span className="text-emerald-600 dark:text-emerald-400 font-bold text-[11px] flex items-center gap-1">
                                 <CheckCircle2 className="w-3.5 h-3.5" />
-                                <span>
-                                  {lang === 'en'
-                                    ? 'Thank you for your feedback! Jazakallahu Khairan.'
-                                    : 'মতামতের জন্য ধন্যবাদ! জাযাকাল্লাহু খাইরান।'}
-                                </span>
-                              </div>
+                                {lang === 'en' ? 'Recorded!' : 'সংরক্ষিত!'}
+                              </span>
                             ) : (
-                              <div className="flex items-center gap-2">
+                              <div className="flex items-center gap-1">
                                 <button
                                   type="button"
                                   onClick={() => handleFeedback(item.id, 'yes')}
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:border-emerald-300 dark:hover:border-emerald-700 hover:text-emerald-700 dark:hover:text-emerald-300 text-slate-600 dark:text-slate-300 font-semibold transition cursor-pointer"
+                                  className="p-1 px-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-600 dark:text-slate-300 text-[11px] font-bold transition cursor-pointer flex items-center gap-1"
                                 >
-                                  <ThumbsUp className="w-3.5 h-3.5" />
+                                  <ThumbsUp className="w-3 h-3 text-emerald-600" />
                                   <span>{lang === 'en' ? 'Yes' : 'হ্যাঁ'}</span>
                                 </button>
                                 <button
                                   type="button"
                                   onClick={() => handleFeedback(item.id, 'no')}
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 hover:border-rose-300 dark:hover:border-rose-700 hover:text-rose-700 dark:hover:text-rose-300 text-slate-600 dark:text-slate-300 font-semibold transition cursor-pointer"
+                                  className="p-1 px-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-600 dark:text-slate-300 text-[11px] font-bold transition cursor-pointer flex items-center gap-1"
                                 >
-                                  <ThumbsDown className="w-3.5 h-3.5" />
+                                  <ThumbsDown className="w-3 h-3 text-rose-500" />
                                   <span>{lang === 'en' ? 'No' : 'না'}</span>
                                 </button>
                               </div>
                             )}
                           </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
 
-            {filteredFaqs.length === 0 && (
-              <div className="text-center py-12 bg-white dark:bg-slate-800/80 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6">
-                <AlertCircle className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-                <h4 className="font-bold text-slate-800 dark:text-slate-200 text-sm">
-                  {lang === 'en' ? 'No matching questions found' : 'আপনার অনুসন্ধানের সাথে কোনো প্রশ্ন মেলেনি'}
-                </h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-                  {lang === 'en'
-                    ? 'Try switching tabs or open our Ask a Scholar template modal for direct guidance.'
-                    : 'অন্য কোনো শব্দ দিয়ে খুঁজুন অথবা আমাদের বিজ্ঞ আলেমদের কাছে সরাসরি প্রশ্ন পাঠান।'}
-                </p>
-                <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-                  <button
-                    onClick={handleClearSearch}
-                    className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-600 transition cursor-pointer"
-                  >
-                    {lang === 'en' ? 'Clear All Filters' : 'ফিল্টার মুছুন'}
-                  </button>
-                  <button
-                    onClick={() => handleOpenAskScholarModal(0)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 transition cursor-pointer"
-                  >
-                    {lang === 'en' ? 'Open Scholar Template Modal' : 'আলেমের নিকট প্রশ্ন পাঠান'}
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Right: 'Ask a Scholar' Interactive Widget (col-span-5) */}
-          <div className="lg:col-span-5">
-            <div className="sticky top-24 bg-white dark:bg-slate-800/95 rounded-3xl border border-blue-200/70 dark:border-blue-900/60 p-6 sm:p-7 soft-shadow overflow-hidden relative">
-              
-              {/* Top Accent Gradient Ribbon */}
-              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-500 to-amber-500" />
-
-              <div className="flex items-center justify-between gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                  <BookOpen className="w-3.5 h-3.5" />
-                  {lang === 'en' ? 'Ask a Scholar Widget' : 'বিজ্ঞ আলেমদের সরাসরি জিজ্ঞাসা'}
-                </span>
-                <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  {lang === 'en' ? 'Free Shariah Guidance' : 'ফ্রি ফতোয়া ও পরামর্শ'}
-                </span>
-              </div>
-
-              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-snug">
-                {lang === 'en' ? 'Submit Your Religious Question Directly' : 'হজ বা ওমরাহর মাসআলা সরাসরি জানুন'}
-              </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                {lang === 'en'
-                  ? 'Select one of our resident scholars to receive authentic Quran & Sunnah guidance on your specific pilgrimage questions.'
-                  : 'আমাদের সার্বক্ষণিক বরিষ্ঠ আলেমদের নিকট হজের খুঁটিনাটি মাসায়েল বা বিধান জানতে সরাসরি প্রশ্ন পাঠান।'}
-              </p>
-
-              {scholarSubmitted ? (
-                <div className="mt-6 py-6 text-center space-y-4 bg-blue-50/60 dark:bg-blue-950/40 rounded-2xl p-5 border border-blue-100 dark:border-blue-900">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-md">
-                    <CheckCircle2 className="w-7 h-7" />
-                  </div>
-                  <h4 className="font-bold text-base text-slate-900 dark:text-white">
-                    {lang === 'en' ? 'Question Forwarded to Scholar!' : 'আপনার প্রশ্নটি আলেমের নিকট প্রেরিত হয়েছে!'}
-                  </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed max-w-sm mx-auto">
-                    {lang === 'en'
-                      ? `Jazakallahu Khairan, ${pilgrimName || 'Respected Pilgrim'}. ${selectedScholar.nameEn} and our Shariah team will review your query and contact you at ${pilgrimPhone || 'your number'}.`
-                      : `জাযাকাল্লাহু খাইরান, ${pilgrimName || 'সম্মানিত হাজী সাহেব'}। ${selectedScholar.nameBn} আপনার প্রশ্নের উত্তর পর্যালোচনা করে ${pilgrimPhone || 'আপনার নম্বরে'} কল বা বার্তা পাঠাবেন।`}
-                  </p>
-                  <div className="pt-2 flex flex-col gap-2">
-                    <button
-                      type="button"
-                      onClick={handleResetScholarForm}
-                      className="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition shadow-xs cursor-pointer"
-                    >
-                      {lang === 'en' ? 'Ask Another Question' : 'আরেকটি প্রশ্ন পাঠান'}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleOpenAskScholarModal(0)}
-                      className="w-full py-2 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold hover:bg-slate-200 dark:hover:bg-slate-600 transition cursor-pointer"
-                    >
-                      {lang === 'en' ? 'Open Template Modal' : 'টেমপ্লেট মোডাল খুলুন'}
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleScholarSubmit} className="mt-5 space-y-4">
-                  
-                  {/* Scholar Picker */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                      {lang === 'en' ? '1. Select Scholar / Advisor' : '১. বিজ্ঞ আলেম বা পরামর্শক নির্বাচন করুন'}
-                    </label>
-                    <div className="space-y-2">
-                      {scholars.map((scholar) => {
-                        const isSelected = selectedScholarId === scholar.id;
-                        return (
-                          <div
-                            key={scholar.id}
-                            onClick={() => setSelectedScholarId(scholar.id)}
-                            className={`p-2.5 rounded-2xl border transition-all flex items-center gap-3 cursor-pointer ${
-                              isSelected
-                                ? 'bg-blue-50/80 dark:bg-blue-950/60 border-blue-600 ring-2 ring-blue-600/20'
-                                : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-slate-300'
-                            }`}
+                          <button
+                            type="button"
+                            onClick={(e) => handleShareFaq(e, item, 'copy')}
+                            className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-sky-600 text-[11px] font-medium transition cursor-pointer"
                           >
-                            <img
-                              src={scholar.image}
-                              alt={scholar.nameEn}
-                              className="w-10 h-10 rounded-xl object-cover border border-slate-200 dark:border-slate-600"
-                            />
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-1.5">
-                                <p className="text-xs font-extrabold text-slate-900 dark:text-white truncate">
-                                  {lang === 'en' ? scholar.nameEn : scholar.nameBn}
-                                </p>
-                                {scholar.hasVerifiedCertificate && (
-                                  <ShieldCheck className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                                )}
-                              </div>
-                              <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
-                                {lang === 'en' ? scholar.roleEn : scholar.roleBn}
-                              </p>
-                            </div>
-                            <div
-                              className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 ${
-                                isSelected ? 'border-blue-600 bg-blue-600' : 'border-slate-300 dark:border-slate-600'
-                              }`}
-                            >
-                              {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                            {copiedFaqId === item.id ? (
+                              <span className="text-emerald-600 font-bold">{lang === 'en' ? 'Copied' : 'কপি হয়েছে'}</span>
+                            ) : (
+                              <>
+                                <Copy className="w-3 h-3" />
+                                <span>{lang === 'en' ? 'Copy Link' : 'কপি লিংক'}</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
 
-                  {/* Question Textarea */}
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                        {lang === 'en' ? '2. Your Question / Masail Details *' : '২. আপনার প্রশ্ন বা মাসআলার বিবরণ *'}
-                      </label>
-                      <button
-                        type="button"
-                        onClick={() => handleOpenAskScholarModal(0)}
-                        className="text-[11px] text-blue-600 dark:text-blue-400 hover:underline font-bold flex items-center gap-0.5 cursor-pointer"
-                      >
-                        <Sparkles className="w-3 h-3 text-amber-500" />
-                        <span>{lang === 'en' ? 'Use Template' : 'টেমপ্লেট ব্যবহার'}</span>
-                      </button>
-                    </div>
-                    <textarea
-                      required
-                      rows={3}
-                      value={scholarQuestion}
-                      onChange={(e) => setScholarQuestion(e.target.value)}
-                      placeholder={
-                        lang === 'en'
-                          ? `Ask ${selectedScholar.nameEn} regarding Ihram, Tawaf, wheelchair rules, Dam, or package details...`
-                          : `${selectedScholar.nameBn}-এর নিকট ইহরাম, তাওয়াফ, কুরবানী, প্রবীণদের নিয়ম বা জরুরি মাসআলা লিখুন...`
-                      }
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
-                    />
-                  </div>
-
-                  {/* Name & Phone */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                        {lang === 'en' ? 'Your Name *' : 'আপনার নাম *'}
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={pilgrimName}
-                        onChange={(e) => setPilgrimName(e.target.value)}
-                        placeholder={lang === 'en' ? 'e.g. Brother Tariq' : 'যেমন: তারিক হাসান'}
-                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                        {lang === 'en' ? 'Mobile / WhatsApp *' : 'মোবাইল / হোয়াটসঅ্যাপ *'}
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={pilgrimPhone}
-                        onChange={(e) => setPilgrimPhone(e.target.value)}
-                        placeholder="017XX-XXXXXX"
-                        className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmittingScholar}
-                    className="w-full bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-xs font-bold py-3 rounded-xl shadow-sm transition flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    {isSubmittingScholar ? (
-                      <>
-                        <RefreshCw className="w-4 h-4 animate-spin" />
-                        <span>{lang === 'en' ? 'Submitting to Scholar...' : 'আলেমের নিকট পাঠানো হচ্ছে...'}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4" />
-                        <span>
-                          {lang === 'en'
-                            ? `Submit to ${selectedScholar.nameEn.split(' ')[1] || 'Scholar'}`
-                            : `${selectedScholar.nameBn}-কে প্রশ্ন পাঠান`}
-                        </span>
-                      </>
-                    )}
-                  </button>
-
-                  <p className="text-[10px] text-center text-slate-400 dark:text-slate-400">
-                    {lang === 'en'
-                      ? 'Guaranteed response within 12–24 hours via phone call or WhatsApp message.'
-                      : '১২ থেকে ২৪ ঘণ্টার মধ্যে সরাসরি ফোন কল অথবা হোয়াটসঅ্যাপে নির্ভরযোগ্য উত্তর প্রদান করা হবে।'}
-                  </p>
-                </form>
-              )}
-
+          {filteredFaqs.length === 0 && (
+            <div className="text-center py-12 bg-white dark:bg-slate-800/80 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-6">
+              <AlertCircle className="w-8 h-8 text-slate-400 mx-auto mb-2" />
+              <h4 className="font-bold text-slate-800 dark:text-slate-200 text-sm">
+                {lang === 'en' ? 'No matching questions found' : 'আপনার অনুসন্ধানের সাথে কোনো প্রশ্ন মেলেনি'}
+              </h4>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+                {lang === 'en'
+                  ? 'Try clearing your search query or switching categories.'
+                  : 'অন্য কোনো শব্দ দিয়ে খুঁজুন অথবা ফিল্টার পরিবর্তন করুন।'}
+              </p>
+              <div className="mt-4 flex justify-center">
+                <button
+                  onClick={handleClearSearch}
+                  className="px-4 py-2 bg-sky-600 text-white rounded-xl text-xs font-bold hover:bg-sky-700 transition cursor-pointer"
+                >
+                  {lang === 'en' ? 'Clear All Filters' : 'ফিল্টার মুছুন'}
+                </button>
+              </div>
             </div>
-          </div>
-
+          )}
         </div>
 
         {/* Bottom Consultation Assistance Banner */}

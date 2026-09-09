@@ -41,7 +41,7 @@ interface HajjPackagesSectionProps {
 }
 
 type PriceRange = 'all' | 'under600k' | '600kTo1m' | 'above1m';
-type SortOption = 'recommended' | 'priceLowHigh' | 'priceHighLow';
+type SortOption = 'recommended' | 'priceLowHigh' | 'priceHighLow' | 'duration' | 'durationDesc';
 
 export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
   lang,
@@ -184,6 +184,14 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
     .sort((a, b) => {
       if (sortBy === 'priceLowHigh') return a.priceNumeric - b.priceNumeric;
       if (sortBy === 'priceHighLow') return b.priceNumeric - a.priceNumeric;
+      if (sortBy === 'duration') {
+        const getDurDays = (dur: string) => parseInt(dur.match(/\d+/)?.[0] || '0', 10);
+        return getDurDays(a.durationEn) - getDurDays(b.durationEn);
+      }
+      if (sortBy === 'durationDesc') {
+        const getDurDays = (dur: string) => parseInt(dur.match(/\d+/)?.[0] || '0', 10);
+        return getDurDays(b.durationEn) - getDurDays(a.durationEn);
+      }
       return 0; // Default recommended order
     });
 
@@ -359,6 +367,8 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
               <option value="recommended">{lang === 'en' ? 'Recommended' : 'প্রস্তাবিত'}</option>
               <option value="priceLowHigh">{lang === 'en' ? 'Price: Low to High' : 'মূল্য: কম থেকে বেশি'}</option>
               <option value="priceHighLow">{lang === 'en' ? 'Price: High to Low' : 'মূল্য: বেশি থেকে কম'}</option>
+              <option value="duration">{lang === 'en' ? 'Duration: Short to Long' : 'মেয়াদ: কম থেকে বেশি'}</option>
+              <option value="durationDesc">{lang === 'en' ? 'Duration: Long to Short' : 'মেয়াদ: বেশি থেকে কম'}</option>
             </select>
           </div>
         </div>
@@ -389,7 +399,7 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
               onClick={() => handleFilterChange('all')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
                 activeFilter === 'all' && !selectedTag
-                  ? 'bg-slate-900 dark:bg-blue-600 text-white shadow-xs'
+                  ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -399,7 +409,7 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
               onClick={() => handleFilterChange('budget')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
                 activeFilter === 'budget'
-                  ? 'bg-blue-600 text-white shadow-xs'
+                  ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -409,7 +419,7 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
               onClick={() => handleFilterChange('economy')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
                 activeFilter === 'economy'
-                  ? 'bg-blue-600 text-white shadow-xs'
+                  ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -419,7 +429,7 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
               onClick={() => handleFilterChange('standard')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
                 activeFilter === 'standard'
-                  ? 'bg-blue-600 text-white shadow-xs'
+                  ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -429,7 +439,7 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
               onClick={() => handleFilterChange('vip')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer ${
                 activeFilter === 'vip'
-                  ? 'bg-slate-900 dark:bg-blue-600 text-white shadow-xs'
+                  ? 'bg-sky-600 text-white shadow-xs'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -619,11 +629,7 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => onOpenPreReg(lang === 'en' ? pkg.nameEn : pkg.nameBn)}
-                      className={`flex-1 py-2.5 rounded-xl text-xs font-bold text-center transition cursor-pointer ${
-                        isPop
-                          ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-xs'
-                          : 'bg-slate-900 hover:bg-blue-600 dark:bg-slate-700 dark:hover:bg-blue-600 text-white'
-                      }`}
+                      className="flex-1 py-2.5 rounded-xl text-xs font-bold text-center bg-sky-600 hover:bg-sky-700 text-white shadow-xs transition cursor-pointer"
                     >
                       {lang === 'en' ? 'Enquire / Book' : 'বুকিং আবেদন'}
                     </button>

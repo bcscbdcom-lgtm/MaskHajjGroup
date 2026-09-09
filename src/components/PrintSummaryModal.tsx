@@ -79,7 +79,6 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
     { id: 'faqs', labelEn: 'FAQ & Shariah Guide', labelBn: 'প্রশ্নোত্তর ও শরিয়াহ নির্দেশিকা', show: true },
     { id: 'full', labelEn: 'Complete Brochure', labelBn: 'সম্পূর্ণ ব্রোশিউর', show: true },
     { id: 'packages', labelEn: 'Package Pricing Matrix', labelBn: 'প্যাকেজ মূল্যতালিকা', show: true },
-    { id: 'planner', labelEn: '5-Day Hajj Itinerary', labelBn: 'দৈনিক সফরসূচি', show: true },
     { id: 'checklist', labelEn: 'Packing Checklist', labelBn: 'প্রস্তুতি চেকলিস্ট', show: true },
   ];
 
@@ -373,22 +372,6 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
                     ))}
                   </tbody>
                 </table>
-              </div>
-            )}
-
-            {/* 5-Day Planner */}
-            {printSection === 'planner' && (
-              <div className="space-y-2">
-                <div className="font-bold text-sm text-blue-900">
-                  {lang === 'en' ? '5 Core Days of Hajj Itinerary Plan' : 'হজের প্রধান ৫ দিনের গুরুত্বপূর্ণ সফরসূচি'}
-                </div>
-                <ul className="space-y-1.5 text-[11px] list-disc list-inside text-slate-700">
-                  <li><strong>8th Dhul Hijjah (Tarwiyah):</strong> Move to Mina in Ihram; pray 5 daily prayers in tents.</li>
-                  <li><strong>9th Dhul Hijjah (Arafah & Muzdalifah):</strong> Wuquf at Arafat plain, Dhuhr+Asr combined, sunset departure to Muzdalifah for open sky night & collect 49+ pebbles.</li>
-                  <li><strong>10th Dhul Hijjah (Nahr / Eid):</strong> Rami Jamarat al-Aqaba (7 pebbles), Qurbani sacrifice, Halq/Taqsir (First Tahallul), Tawaf al-Ifadah & Sa'i at Ka'bah.</li>
-                  <li><strong>11th & 12th Dhul Hijjah (Tashreeq):</strong> Stay in Mina tents, throw 21 pebbles daily after Zawal at Sughra, Wusta & Aqaba.</li>
-                  <li><strong>Tawaf al-Wada:</strong> Farewell Tawaf before final departure to Bangladesh.</li>
-                </ul>
               </div>
             )}
 

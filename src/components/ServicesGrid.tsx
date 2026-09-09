@@ -85,20 +85,20 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ lang, onSelectServic
   ];
 
   return (
-    <section className="py-20 bg-slate-50/70 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800 transition-colors">
+    <section className="py-20 bg-sky-50/50 dark:bg-slate-900/40 border-y border-sky-100 dark:border-slate-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <span className="bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {lang === 'en' ? 'Our Services' : 'আমাদের সেবাসমূহ'}
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mt-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">
             {lang === 'en'
               ? 'Everything you need, from Bangladesh to the Holy Cities.'
               : 'বাংলাদেশ থেকে পবিত্র মক্কা-মদিনা সফরের সব আয়োজন এক ছাদের নিচে।'}
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm mt-3">
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-3">
             {lang === 'en'
               ? 'From visa and direct flights to hotels, gourmet dining and scholar training, we handle every detail of your sacred journey with care.'
               : 'ভিসা, ফ্লাইট, হোটেল বুকিং থেকে শুরু করে প্রশিক্ষণ ও মাঠে সার্বক্ষণিক উপস্থিতি পর্যন্ত প্রতিটি পদক্ষেপে আমাদের দায়িত্বশীল সেবা।'}
@@ -113,13 +113,13 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ lang, onSelectServic
               <div
                 key={s.id}
                 onClick={() => onSelectService(lang === 'en' ? s.nameEn : s.nameBn)}
-                className="bg-white dark:bg-slate-800/90 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 soft-shadow hover:-translate-y-1 hover:border-blue-500 dark:hover:border-blue-500 transition duration-300 flex flex-col justify-between cursor-pointer group"
+                className="bg-white dark:bg-slate-800/90 p-6 rounded-2xl border border-sky-100/90 dark:border-slate-700/80 shadow-xs hover:-translate-y-1 hover:border-sky-400 dark:hover:border-sky-500 hover:shadow-md transition duration-300 flex flex-col justify-between cursor-pointer group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200/60 dark:border-blue-800/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-5 shadow-xs group-hover:scale-105 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200/60 dark:border-sky-800/60 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xl mb-5 shadow-xs group-hover:scale-105 group-hover:bg-sky-600 group-hover:text-white transition-all">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="font-bold text-slate-800 dark:text-white text-base mb-2 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition-colors">
                     {lang === 'en' ? s.nameEn : s.nameBn}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -127,7 +127,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ lang, onSelectServic
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/80 text-[11px] font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 flex items-center gap-1">
+                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/80 text-[11px] font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 flex items-center gap-1">
                   <span>{lang === 'en' ? 'Enquire Now' : 'বিস্তারিত জানুন'}</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>

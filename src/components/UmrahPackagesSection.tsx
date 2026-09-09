@@ -42,7 +42,7 @@ interface UmrahPackagesSectionProps {
 }
 
 type UmrahPriceFilter = 'all' | 'under180k' | '180kTo250k' | 'above250k';
-type SortOption = 'recommended' | 'priceLowHigh' | 'priceHighLow';
+type SortOption = 'recommended' | 'priceLowHigh' | 'priceHighLow' | 'duration' | 'durationDesc';
 
 export const UmrahPackagesSection: React.FC<UmrahPackagesSectionProps> = ({
   lang,
@@ -168,6 +168,14 @@ export const UmrahPackagesSection: React.FC<UmrahPackagesSectionProps> = ({
     .sort((a, b) => {
       if (sortBy === 'priceLowHigh') return a.priceNumeric - b.priceNumeric;
       if (sortBy === 'priceHighLow') return b.priceNumeric - a.priceNumeric;
+      if (sortBy === 'duration') {
+        const getDurDays = (dur: string) => parseInt(dur.match(/\d+/)?.[0] || '0', 10);
+        return getDurDays(a.durationEn) - getDurDays(b.durationEn);
+      }
+      if (sortBy === 'durationDesc') {
+        const getDurDays = (dur: string) => parseInt(dur.match(/\d+/)?.[0] || '0', 10);
+        return getDurDays(b.durationEn) - getDurDays(a.durationEn);
+      }
       return 0;
     });
 
@@ -352,6 +360,8 @@ export const UmrahPackagesSection: React.FC<UmrahPackagesSectionProps> = ({
                 <option value="recommended">{lang === 'en' ? 'Recommended' : 'প্রস্তাবিত'}</option>
                 <option value="priceLowHigh">{lang === 'en' ? 'Price: Low to High' : 'মূল্য: কম থেকে বেশি'}</option>
                 <option value="priceHighLow">{lang === 'en' ? 'Price: High to Low' : 'মূল্য: বেশি থেকে কম'}</option>
+                <option value="duration">{lang === 'en' ? 'Duration: Short to Long' : 'মেয়াদ: কম থেকে বেশি'}</option>
+                <option value="durationDesc">{lang === 'en' ? 'Duration: Long to Short' : 'মেয়াদ: বেশি থেকে কম'}</option>
               </select>
             </div>
 
@@ -545,11 +555,7 @@ export const UmrahPackagesSection: React.FC<UmrahPackagesSectionProps> = ({
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => onOpenPreReg(lang === 'en' ? pkg.nameEn : pkg.nameBn)}
-                        className={`flex-1 py-2.5 rounded-xl text-xs font-bold text-center transition cursor-pointer ${
-                          isPop
-                            ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-xs'
-                            : 'bg-slate-900 hover:bg-blue-600 dark:bg-slate-700 dark:hover:bg-blue-600 text-white'
-                        }`}
+                        className="flex-1 py-2.5 rounded-xl text-xs font-bold text-center bg-sky-600 hover:bg-sky-700 text-white shadow-xs transition cursor-pointer"
                       >
                         {lang === 'en' ? 'Book Umrah' : 'ওমরাহ বুকিং'}
                       </button>

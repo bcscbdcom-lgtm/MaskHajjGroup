@@ -72,17 +72,17 @@ export const MakkahClockWidget: React.FC<MakkahClockWidgetProps> = ({ lang }) =>
   return (
     <div
       id="makkah-live-clock"
-      className="inline-flex items-center gap-2.5 bg-slate-900/90 hover:bg-slate-900 border border-amber-500/40 px-3.5 py-1.5 rounded-2xl shadow-lg backdrop-blur-md text-white transition"
+      className="inline-flex items-center gap-2.5 bg-[#064E3B] text-white border border-[#C5A059]/50 px-3.5 py-2 rounded-2xl shadow-md backdrop-blur-md transition"
     >
       <div className="flex items-center gap-1.5">
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
         </span>
         {isNight ? (
           <Moon className="w-3.5 h-3.5 text-amber-300" />
         ) : (
-          <Sun className="w-3.5 h-3.5 text-amber-400" />
+          <Sun className="w-3.5 h-3.5 text-amber-300" />
         )}
       </div>
 
@@ -90,10 +90,10 @@ export const MakkahClockWidget: React.FC<MakkahClockWidgetProps> = ({ lang }) =>
         <div className="flex items-center gap-1.5">
           <span className="text-[10px] uppercase font-bold tracking-wider text-amber-300 flex items-center gap-1">
             <span>🕋</span>
-            {lang === 'en' ? 'Makkah Time' : 'মক্কার স্থানীয় সময়'}
+            {lang === 'en' ? 'Makkah Live' : 'পবিত্র মক্কা সময়'}
           </span>
-          <span className="text-slate-500 text-[10px]">•</span>
-          <span className="text-[10px] text-blue-300 font-mono">
+          <span className="text-emerald-300/60 text-[10px]">•</span>
+          <span className="text-[10px] text-emerald-200 font-mono">
             {lang === 'en' ? `Next: ${nextPrayerEn}` : `পরবর্তী: ${nextPrayerBn}`}
           </span>
         </div>
@@ -101,10 +101,10 @@ export const MakkahClockWidget: React.FC<MakkahClockWidgetProps> = ({ lang }) =>
           <span className="font-mono text-sm sm:text-base font-black text-white tracking-wider">
             {lang === 'bn' ? toBengaliNumber(timeOnly) : timeOnly}
           </span>
-          <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest font-mono">
+          <span className="text-[10px] font-bold text-amber-300 uppercase tracking-widest font-mono">
             {period}
           </span>
-          <span className="text-[9px] text-slate-400 ml-1 font-mono">(UTC+3)</span>
+          <span className="text-[9px] text-emerald-300/80 ml-1 font-mono">(UTC+3)</span>
         </div>
       </div>
     </div>

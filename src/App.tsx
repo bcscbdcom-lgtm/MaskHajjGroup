@@ -10,7 +10,6 @@ import { AboutSection } from './components/AboutSection';
 import { ServicesGrid } from './components/ServicesGrid';
 import { HajjPackagesSection } from './components/HajjPackagesSection';
 import { UmrahPackagesSection } from './components/UmrahPackagesSection';
-import { GuideSection } from './components/GuideSection';
 import { PilgrimTools } from './components/PilgrimTools';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { TestimonialsSection } from './components/TestimonialsSection';
@@ -251,7 +250,7 @@ function AppContent() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100 transition-colors duration-200 ${lang === 'bn' ? 'font-bn' : ''}`}>
+    <div className={`min-h-screen flex flex-col bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-200 ${lang === 'bn' ? 'font-bn' : ''}`}>
       {/* Dynamic Scroll Reading Progress Bar */}
       <ReadingProgressBar />
 
@@ -343,13 +342,7 @@ function AppContent() {
           onToggleCompare={handleToggleCompare}
         />
 
-        {/* 10. Guides & Scholars Mentors */}
-        <GuideSection
-          lang={lang}
-          onOpenPreReg={() => handleOpenPreReg('Scholar Consultation')}
-        />
-
-        {/* 11. Interactive Cost Estimator, Day-by-Day Planner & Packing Checklist */}
+        {/* 10. Interactive Cost Estimator & Packing Checklist */}
         <PilgrimTools
           lang={lang}
           onOpenPreReg={handleOpenPreReg}

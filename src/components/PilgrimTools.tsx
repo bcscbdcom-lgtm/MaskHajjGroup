@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, CheckSquare, Sparkles, CheckCircle2, ChevronRight, Luggage, ArrowRight, Calendar, BookOpen, Printer } from 'lucide-react';
 import { Language } from '../types';
-import { DayByDayPlanner } from './DayByDayPlanner';
 import { SmartPackingList } from './SmartPackingList';
 
 interface PilgrimToolsProps {
@@ -17,7 +16,7 @@ export const PilgrimTools: React.FC<PilgrimToolsProps> = ({
   onOpenPrintModal,
   onOpenWalkthrough,
 }) => {
-  const [activeTab, setActiveTab] = useState<'planner' | 'calculator' | 'checklist'>('planner');
+  const [activeTab, setActiveTab] = useState<'calculator' | 'checklist'>('calculator');
 
   // Calculator State
   const [tripType, setTripType] = useState<'hajj' | 'umrah'>('hajj');
@@ -65,32 +64,21 @@ export const PilgrimTools: React.FC<PilgrimToolsProps> = ({
       
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <span className="bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+        <span className="bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           {lang === 'en' ? 'Smart Pilgrim Utilities' : 'হাজীদের সুবিধার্থে স্মার্ট টুলস'}
         </span>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-3 tracking-tight">
-          {lang === 'en' ? 'Plan, Prepare & Estimate Your Sacred Journey' : 'সফরের প্ল্যানার, বাজেট হিসাব ও প্রস্তুতি চেকলিস্ট'}
+          {lang === 'en' ? 'Plan, Prepare & Estimate Your Sacred Journey' : 'সফরের বাজেট হিসাব ও প্রস্তুতি চেকলিস্ট'}
         </h2>
-        <p className="text-slate-500 dark:text-slate-400 text-sm mt-2">
+        <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">
           {lang === 'en'
-            ? 'Interactive tools to plan your day-by-day rituals, calculate caravan expenses, and track your essential packing.'
-            : 'আপনার কাফেলার সম্ভাব্য খরচের হিসাব, দিনভিত্তিক আমলের তালিকা এবং প্রয়োজনীয় কাগজপত্রের প্রস্তুতি সহজেই মিলিয়ে নিন।'}
+            ? 'Interactive tools to calculate caravan expenses and track your essential packing.'
+            : 'আপনার কাফেলার সম্ভাব্য খরচের হিসাব এবং প্রয়োজনীয় কাগজপত্রের প্রস্তুতি সহজেই মিলিয়ে নিন।'}
         </p>
 
         {/* Tab Switcher */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
           <div className="inline-flex bg-slate-100 dark:bg-slate-800 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-inner">
-            <button
-              onClick={() => setActiveTab('planner')}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer ${
-                activeTab === 'planner'
-                  ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm border border-slate-200/60 dark:border-slate-600'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span>{lang === 'en' ? 'Day-by-Day Itinerary' : 'দৈনিক সফরসূচি'}</span>
-            </button>
             <button
               onClick={() => setActiveTab('calculator')}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer ${
@@ -99,7 +87,7 @@ export const PilgrimTools: React.FC<PilgrimToolsProps> = ({
                   : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <Calculator className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <Calculator className="w-4 h-4 text-sky-600 dark:text-sky-400" />
               <span>{lang === 'en' ? 'Cost Calculator' : 'খরচ ক্যালকুলেটর'}</span>
             </button>
             <button
@@ -110,7 +98,7 @@ export const PilgrimTools: React.FC<PilgrimToolsProps> = ({
                   : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <Luggage className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <Luggage className="w-4 h-4 text-sky-600 dark:text-sky-400" />
               <span>{lang === 'en' ? 'Smart Packing List' : 'স্মার্ট প্যাকিং তালিকা'}</span>
             </button>
           </div>
@@ -127,18 +115,7 @@ export const PilgrimTools: React.FC<PilgrimToolsProps> = ({
         </div>
       </div>
 
-      {/* 1. Day-by-Day Planner Tab View */}
-      {activeTab === 'planner' && (
-        <DayByDayPlanner
-          lang={lang}
-          onOpenPrintModal={(plannerData) => {
-            if (onOpenPrintModal) onOpenPrintModal(plannerData);
-          }}
-          onOpenPreReg={onOpenPreReg}
-        />
-      )}
-
-      {/* 2. Calculator Tab View */}
+      {/* 1. Calculator Tab View */}
       {activeTab === 'calculator' && (
         <div className="bg-white dark:bg-slate-800/90 rounded-3xl border border-slate-200/80 dark:border-slate-700 p-6 sm:p-10 soft-shadow grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           

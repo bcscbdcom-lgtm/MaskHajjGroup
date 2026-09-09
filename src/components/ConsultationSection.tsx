@@ -45,10 +45,10 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
       <div className="bg-white dark:bg-slate-800/90 rounded-3xl border border-slate-200/80 dark:border-slate-700 soft-shadow overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         
         {/* Left Dark Info Panel */}
-        <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-950 dark:to-slate-900 p-8 sm:p-10 text-white flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-gradient-to-br from-sky-900 via-emerald-950 to-sky-950 p-8 sm:p-10 text-white flex flex-col justify-between">
           <div>
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 uppercase tracking-wider bg-slate-800/80 dark:bg-slate-800 px-3 py-1 rounded-full mb-4 border border-slate-700">
-              <Sparkles className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full mb-4 border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               {lang === 'en' ? 'Direct Office Consultation' : 'সরাসরি অফিস পরামর্শ'}
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 leading-tight text-white">
@@ -56,15 +56,15 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
                 ? 'Book a Free Consultation with an Advisor'
                 : 'পরামর্শ বুক করুন অথবা অফিসে সরাসরি আসুন'}
             </h3>
-            <p className="text-slate-300 text-xs leading-relaxed mb-8">
+            <p className="text-sky-100/90 text-xs leading-relaxed mb-8">
               {lang === 'en'
                 ? 'Speak directly with our senior mentors and package consultants. No commitment — just sincere clarity.'
                 : 'কোনো বাধ্যবাধকতা ছাড়া সরাসরি আমাদের সিনিয়র উপদেষ্টাদের সাথে কথা বলুন এবং নির্ভুল পরিকল্পনা সাজান।'}
             </p>
 
-            <div className="space-y-4 text-xs text-slate-300">
+            <div className="space-y-4 text-xs text-sky-100/90">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-amber-300 mt-0.5 flex-shrink-0" />
                 <span className="leading-relaxed">
                   {lang === 'en'
                     ? '67/1 Naya Paltan, China Town (East Tower), [20th floor] Suite-21/2, Dhaka-1000'
@@ -73,27 +73,27 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-amber-300 flex-shrink-0" />
                 <div className="flex flex-wrap gap-2">
-                  <a href="tel:+8801711258708" className="hover:text-blue-400 transition font-mono">
+                  <a href="tel:+8801711258708" className="hover:text-amber-300 transition font-mono">
                     +88 01711-258708
                   </a>
                   <span>•</span>
-                  <a href="tel:+8802222229612" className="hover:text-blue-400 transition font-mono">
+                  <a href="tel:+8802222229612" className="hover:text-amber-300 transition font-mono">
                     +88 02-222229612
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                <a href="mailto:maskbd99@gmail.com" className="hover:text-blue-400 transition">
+                <Mail className="w-4 h-4 text-amber-300 flex-shrink-0" />
+                <a href="mailto:maskbd99@gmail.com" className="hover:text-amber-300 transition">
                   maskbd99@gmail.com
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <Clock className="w-4 h-4 text-amber-300 flex-shrink-0" />
                 <span>
                   {lang === 'en' ? '10:00 AM – 7:00 PM (Daily)' : 'সকাল ১০:০০টা – সন্ধ্যা ৭:০০টা (প্রতিদিন খোলা)'}
                 </span>
@@ -102,22 +102,22 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
           </div>
 
           {/* Quick Counter Strip */}
-          <div className="grid grid-cols-3 gap-3 pt-8 border-t border-slate-800 mt-8 text-center">
+          <div className="grid grid-cols-3 gap-3 pt-8 border-t border-sky-800/80 mt-8 text-center">
             <div>
               <div className="font-extrabold text-lg text-white font-mono">1200+</div>
-              <div className="text-[10px] text-slate-400">
+              <div className="text-[10px] text-sky-200">
                 {lang === 'en' ? 'Pilgrims' : 'হাজী'}
               </div>
             </div>
             <div>
               <div className="font-extrabold text-lg text-white font-mono">11+</div>
-              <div className="text-[10px] text-slate-400">
+              <div className="text-[10px] text-sky-200">
                 {lang === 'en' ? 'Years' : 'বছর'}
               </div>
             </div>
             <div>
-              <div className="font-extrabold text-lg text-amber-400 font-mono">4.9★</div>
-              <div className="text-[10px] text-slate-400">
+              <div className="font-extrabold text-lg text-amber-300 font-mono">4.9★</div>
+              <div className="text-[10px] text-sky-200">
                 {lang === 'en' ? 'Rating' : 'রেটিং'}
               </div>
             </div>
@@ -221,7 +221,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
                 type="submit"
                 onClick={triggerFieldHighlight}
                 id="sendMessageBtn"
-                className="w-full bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-xs font-bold py-3.5 rounded-xl shadow-sm transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full bg-sky-600 hover:bg-sky-700 active:scale-[0.99] text-white text-xs font-bold py-3.5 rounded-xl shadow-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Send className="w-4 h-4" />
                 <span>{lang === 'en' ? 'Send Message & Callback Request' : 'বার্তা পাঠান ও কলব্যাক অনুরোধ করুন'}</span>

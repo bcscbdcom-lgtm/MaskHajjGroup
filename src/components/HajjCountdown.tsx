@@ -52,23 +52,23 @@ export const HajjCountdown: React.FC<HajjCountdownProps> = ({ lang, onOpenPreReg
   };
 
   return (
-    <div className="w-full bg-slate-900/80 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-blue-500/30 dark:border-blue-500/20 shadow-xl relative overflow-hidden">
+    <div className="w-full bg-gradient-to-r from-amber-50/90 via-white to-emerald-50/80 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900/90 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-amber-300/80 dark:border-amber-500/30 shadow-md relative overflow-hidden transition-all">
       {/* Background soft ambient glow */}
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
-      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none"></div>
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
-      <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4">
         {/* Title & Status */}
         <div className="text-center sm:text-left">
-          <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-400 uppercase tracking-wider mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+          <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#064E3B] dark:text-amber-400 uppercase tracking-wider mb-0.5">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
             <span>
               {lang === 'en'
                 ? 'Countdown to Hajj 2027 (1448 AH)'
                 : 'পবিত্র হজ ২০২৭ (১৪৪৮ হিজরি) ক্ষণগণনা'}
             </span>
           </div>
-          <p className="text-xs text-slate-300 font-medium">
+          <p className="text-xs text-slate-600 dark:text-slate-300 font-medium">
             {lang === 'en'
               ? 'Govt. Pre-Registration is Open • Secure your early quota'
               : 'সরকারি প্রাক-নিবন্ধন চলছে • আপনার কোটা নিশ্চিত করুন'}
@@ -76,58 +76,60 @@ export const HajjCountdown: React.FC<HajjCountdownProps> = ({ lang, onOpenPreReg
         </div>
 
         {/* Live Ticking Grid */}
-        <div className="grid grid-cols-4 gap-2 sm:gap-2.5">
-          {/* Days */}
-          <div className="bg-slate-950/80 border border-slate-700/80 rounded-xl p-2 sm:p-2.5 text-center min-w-[54px] sm:min-w-[62px] shadow-inner">
-            <div className="text-lg sm:text-xl font-black text-white font-mono tracking-tight leading-none">
-              {formatDigit(timeLeft.days)}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
+            {/* Days */}
+            <div className="bg-white dark:bg-slate-950 border border-amber-200/90 dark:border-slate-800 rounded-xl p-1.5 sm:p-2 text-center min-w-[50px] sm:min-w-[58px] shadow-xs">
+              <div className="text-base sm:text-lg font-black text-slate-900 dark:text-white font-mono tracking-tight leading-none">
+                {formatDigit(timeLeft.days)}
+              </div>
+              <div className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold uppercase mt-0.5">
+                {lang === 'en' ? 'Days' : 'দিন'}
+              </div>
             </div>
-            <div className="text-[10px] text-slate-400 font-semibold uppercase mt-1">
-              {lang === 'en' ? 'Days' : 'দিন'}
+
+            {/* Hours */}
+            <div className="bg-white dark:bg-slate-950 border border-amber-200/90 dark:border-slate-800 rounded-xl p-1.5 sm:p-2 text-center min-w-[50px] sm:min-w-[58px] shadow-xs">
+              <div className="text-base sm:text-lg font-black text-[#064E3B] dark:text-emerald-400 font-mono tracking-tight leading-none">
+                {formatDigit(timeLeft.hours)}
+              </div>
+              <div className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold uppercase mt-0.5">
+                {lang === 'en' ? 'Hours' : 'ঘণ্টা'}
+              </div>
+            </div>
+
+            {/* Minutes */}
+            <div className="bg-white dark:bg-slate-950 border border-amber-200/90 dark:border-slate-800 rounded-xl p-1.5 sm:p-2 text-center min-w-[50px] sm:min-w-[58px] shadow-xs">
+              <div className="text-base sm:text-lg font-black text-[#064E3B] dark:text-emerald-400 font-mono tracking-tight leading-none">
+                {formatDigit(timeLeft.minutes)}
+              </div>
+              <div className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold uppercase mt-0.5">
+                {lang === 'en' ? 'Mins' : 'মিনিট'}
+              </div>
+            </div>
+
+            {/* Seconds */}
+            <div className="bg-amber-100/60 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700/60 rounded-xl p-1.5 sm:p-2 text-center min-w-[50px] sm:min-w-[58px] shadow-xs">
+              <div className="text-base sm:text-lg font-black text-amber-700 dark:text-amber-400 font-mono tracking-tight leading-none">
+                {formatDigit(timeLeft.seconds)}
+              </div>
+              <div className="text-[9px] text-amber-800 dark:text-amber-300 font-bold uppercase mt-0.5">
+                {lang === 'en' ? 'Secs' : 'সেকেন্ড'}
+              </div>
             </div>
           </div>
 
-          {/* Hours */}
-          <div className="bg-slate-950/80 border border-slate-700/80 rounded-xl p-2 sm:p-2.5 text-center min-w-[54px] sm:min-w-[62px] shadow-inner">
-            <div className="text-lg sm:text-xl font-black text-blue-300 font-mono tracking-tight leading-none">
-              {formatDigit(timeLeft.hours)}
-            </div>
-            <div className="text-[10px] text-slate-400 font-semibold uppercase mt-1">
-              {lang === 'en' ? 'Hours' : 'ঘণ্টা'}
-            </div>
-          </div>
-
-          {/* Minutes */}
-          <div className="bg-slate-950/80 border border-slate-700/80 rounded-xl p-2 sm:p-2.5 text-center min-w-[54px] sm:min-w-[62px] shadow-inner">
-            <div className="text-lg sm:text-xl font-black text-blue-300 font-mono tracking-tight leading-none">
-              {formatDigit(timeLeft.minutes)}
-            </div>
-            <div className="text-[10px] text-slate-400 font-semibold uppercase mt-1">
-              {lang === 'en' ? 'Mins' : 'মিনিট'}
-            </div>
-          </div>
-
-          {/* Seconds */}
-          <div className="bg-slate-950/80 border border-amber-500/30 rounded-xl p-2 sm:p-2.5 text-center min-w-[54px] sm:min-w-[62px] shadow-inner">
-            <div className="text-lg sm:text-xl font-black text-amber-400 font-mono tracking-tight leading-none">
-              {formatDigit(timeLeft.seconds)}
-            </div>
-            <div className="text-[10px] text-slate-400 font-semibold uppercase mt-1">
-              {lang === 'en' ? 'Secs' : 'সেকেন্ড'}
-            </div>
-          </div>
+          {/* Quick Action button */}
+          {onOpenPreReg && (
+            <button
+              onClick={onOpenPreReg}
+              className="hidden sm:flex bg-[#064E3B] hover:bg-[#04392b] text-white font-bold px-3 py-2.5 rounded-xl text-xs items-center gap-1 transition hover:scale-[1.02] shadow-sm flex-shrink-0 cursor-pointer border border-[#C5A059]/40"
+            >
+              <span>{lang === 'en' ? 'Pre-Register' : 'প্রাক-নিবন্ধন'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
-
-        {/* Quick Action button */}
-        {onOpenPreReg && (
-          <button
-            onClick={onOpenPreReg}
-            className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-3.5 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition hover:scale-105 shadow-md flex-shrink-0 cursor-pointer"
-          >
-            <span>{lang === 'en' ? 'Pre-Register Now' : 'প্রাক-নিবন্ধন করুন'}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        )}
       </div>
     </div>
   );

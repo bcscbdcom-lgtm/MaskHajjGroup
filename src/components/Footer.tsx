@@ -1,5 +1,5 @@
-import React from 'react';
-import { Compass, MapPin, Phone, Mail, Clock, ShieldCheck, Heart } from 'lucide-react';
+import React, { useState } from 'react';
+import { Compass, MapPin, Phone, Mail, Clock, ShieldCheck, Send, CheckCircle2, Bell } from 'lucide-react';
 import { Language } from '../types';
 
 interface FooterProps {
@@ -7,9 +7,100 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ lang }) => {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribed, setSubscribed] = useState(() => {
+    try {
+      return !!localStorage.getItem('mask_subscribed_email');
+    } catch {
+      return false;
+    }
+  });
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !email.includes('@')) return;
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      try {
+        localStorage.setItem('mask_subscribed_email', email.trim());
+      } catch {
+        // ignore
+      }
+      setIsSubmitting(false);
+      setSubscribed(true);
+    }, 600);
+  };
+
   return (
     <footer className="bg-white dark:bg-slate-950 pt-16 pb-12 border-t border-slate-200/80 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Email Subscription Box Strip */}
+        <div className="bg-gradient-to-r from-sky-900 via-emerald-950 to-sky-950 text-white rounded-3xl p-6 sm:p-8 mb-12 shadow-xl border border-sky-800/80 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          
+          <div className="flex items-start gap-3.5 max-w-xl">
+            <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 text-amber-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Bell className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-extrabold text-white tracking-tight flex items-center gap-2">
+                <span>{lang === 'en' ? 'Get Hajj Updates & Price Alerts' : 'হজ আপডেট ও বিশেষ ছাড়ের নোটিফিকেশন পান'}</span>
+              </h4>
+              <p className="text-xs text-sky-100/90 leading-relaxed mt-1">
+                {lang === 'en'
+                  ? 'Subscribe to receive instant notifications for pre-registration deadlines, early bird Umrah packages, and ministry circulars.'
+                  : 'সরকারি প্রাক-নিবন্ধনের ডেডলাইন, নতুন ওমরাহ প্যাকেজ ও সরকারি সার্কুলার নিয়মিত ইমেইলে পেতে সাইনআপ করুন।'}
+              </p>
+            </div>
+          </div>
+
+          {/* Subscription Input Form */}
+          <div className="w-full lg:w-auto flex-shrink-0">
+            {subscribed ? (
+              <div className="flex items-center gap-2 text-emerald-300 bg-emerald-900/60 border border-emerald-600/80 px-4 py-3 rounded-2xl text-xs font-bold shadow-inner">
+                <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+                <span>
+                  {lang === 'en'
+                    ? 'Subscribed successfully! You will receive updates.'
+                    : 'ধন্যবাদ! আপনার সাবস্ক্রিপশন সফলভাবে সংরক্ষিত হয়েছে।'}
+                </span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch gap-2.5 w-full max-w-md">
+                <div className="relative flex-1">
+                  <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 z-10" />
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={lang === 'en' ? 'Enter your email address...' : 'আপনার ইমেইল ঠিকানা লিখুন...'}
+                    className="w-full pl-9 pr-3 py-3 bg-white/10 text-white placeholder-sky-200/60 text-xs rounded-2xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="px-5 py-3 bg-sky-600 hover:bg-sky-500 active:bg-sky-700 text-white font-bold text-xs rounded-2xl shadow-md transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 whitespace-nowrap"
+                >
+                  {isSubmitting ? (
+                    <span>{lang === 'en' ? 'Saving...' : 'সংরক্ষণ হচ্ছে...'}</span>
+                  ) : (
+                    <>
+                      <span>{lang === 'en' ? 'Subscribe' : 'সাবস্ক্রাইব'}</span>
+                      <Send className="w-3.5 h-3.5" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         
         {/* Column 1: Logo & About & Socials */}
         <div>
@@ -184,10 +275,10 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             </li>
           </ul>
         </div>
-
       </div>
+    </div>
 
-      {/* Bottom Bar */}
+    {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500 dark:text-slate-400">
         <div>
           © {new Date().getFullYear()} MASK Hajj Group. All rights reserved. Dhaka, Bangladesh.

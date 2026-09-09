@@ -34,6 +34,7 @@ export const FaqPrintPreviewModal: React.FC<FaqPrintPreviewModalProps> = ({
   segmentFilter = 'all'
 }) => {
   const [showInstructionsTooltip, setShowInstructionsTooltip] = useState(false);
+  const [orientation, setOrientation] = useState<'portrait' | 'landscape'>('portrait');
 
   if (!isOpen) return null;
 
@@ -76,6 +77,36 @@ export const FaqPrintPreviewModal: React.FC<FaqPrintPreviewModalProps> = ({
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Orientation Toggle Button */}
+            <div className="flex items-center bg-slate-800 p-1 rounded-xl border border-slate-700">
+              <button
+                type="button"
+                onClick={() => setOrientation('portrait')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1 cursor-pointer ${
+                  orientation === 'portrait'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+                title={isEn ? 'Portrait Orientation (Vertical)' : 'পোর্ট্রেট (উলম্ব)'}
+              >
+                <div className="w-2.5 h-3.5 border-2 border-current rounded-xs" />
+                <span className="hidden md:inline">{isEn ? 'Portrait' : 'পোর্ট্রেট'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setOrientation('landscape')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1 cursor-pointer ${
+                  orientation === 'landscape'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+                title={isEn ? 'Landscape Orientation (Horizontal)' : 'ল্যান্ডস্কেপ (আনুভূমিক)'}
+              >
+                <div className="w-3.5 h-2.5 border-2 border-current rounded-xs" />
+                <span className="hidden md:inline">{isEn ? 'Landscape' : 'ল্যান্ডস্কেপ'}</span>
+              </button>
+            </div>
+
             {/* Instructions Tooltip Toggle */}
             <div className="relative">
               <button
@@ -148,15 +179,31 @@ export const FaqPrintPreviewModal: React.FC<FaqPrintPreviewModalProps> = ({
             </span>
           </div>
           <span className="text-[11px] font-mono text-blue-300 hidden md:inline">
-            A4: 210mm × 297mm
+            A4 {orientation === 'portrait' ? 'Portrait (210 × 297mm)' : 'Landscape (297 × 210mm)'}
           </span>
         </div>
+
+        {/* Dynamic Print CSS Style tag for Orientation */}
+        <style>{`
+          @media print {
+            @page {
+              size: A4 ${orientation};
+              margin: 12mm;
+            }
+          }
+        `}</style>
 
         {/* Document Viewer Body (Styled specifically as an A4 Paper Document) */}
         <div className="p-4 sm:p-8 overflow-y-auto bg-slate-950/60 flex justify-center items-start">
           
           {/* A4 Realistic Paper Sheet */}
-          <div className="faq-a4-preview-sheet w-full max-w-[210mm] min-h-[297mm] bg-white text-slate-900 p-6 sm:p-10 rounded-2xl shadow-2xl border border-slate-300 text-left relative selection:bg-blue-100">
+          <div
+            className={`faq-a4-preview-sheet w-full bg-white text-slate-900 p-6 sm:p-10 rounded-2xl shadow-2xl border border-slate-300 text-left relative selection:bg-blue-100 transition-all duration-300 ${
+              orientation === 'portrait'
+                ? 'max-w-[210mm] min-h-[297mm]'
+                : 'max-w-[297mm] min-h-[210mm]'
+            }`}
+          >
             
             {/* Document Header with Agency Brand & Government License */}
             <div className="border-b-2 border-slate-900 pb-4 mb-5">

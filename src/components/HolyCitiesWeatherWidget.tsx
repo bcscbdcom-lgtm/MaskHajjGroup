@@ -128,31 +128,31 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
   const current = weatherData[activeCity];
 
   return (
-    <div className="bg-slate-900/80 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-slate-700/80 shadow-lg text-white">
+    <div className="bg-emerald-50/70 dark:bg-slate-950/80 backdrop-blur-md rounded-2xl p-4 sm:p-4.5 border border-emerald-100 dark:border-slate-800 shadow-sm text-slate-900 dark:text-white transition-all">
       {/* Header with City Toggle Tabs */}
-      <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-slate-700/80">
-        <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400 uppercase tracking-wide">
-          <CloudSun className="w-4 h-4 text-amber-400" />
-          <span>{lang === 'en' ? 'Holy Cities Live Weather' : 'মক্কা-মদিনা লাইভ আবহাওয়া'}</span>
+      <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-emerald-100 dark:border-slate-800">
+        <div className="flex items-center gap-1.5 text-xs font-black text-[#064E3B] dark:text-emerald-400 uppercase tracking-wide">
+          <CloudSun className="w-4 h-4 text-amber-500" />
+          <span>{lang === 'en' ? 'Holy Cities Weather' : 'মক্কা-মদিনা আবহাওয়া'}</span>
         </div>
 
-        <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
+        <div className="flex items-center gap-1 bg-white dark:bg-slate-900 p-1 rounded-xl border border-emerald-200/80 dark:border-slate-700 shadow-xs">
           <button
             onClick={() => setActiveCity('makkah')}
-            className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+            className={`px-3 py-1 rounded-lg text-[11px] font-extrabold transition cursor-pointer ${
               activeCity === 'makkah'
-                ? 'bg-blue-600 text-white shadow-xs'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#064E3B] text-white shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             {lang === 'en' ? 'Makkah' : 'মক্কা'}
           </button>
           <button
             onClick={() => setActiveCity('madinah')}
-            className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+            className={`px-3 py-1 rounded-lg text-[11px] font-extrabold transition cursor-pointer ${
               activeCity === 'madinah'
-                ? 'bg-blue-600 text-white shadow-xs'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#064E3B] text-white shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             {lang === 'en' ? 'Madinah' : 'মদিনা'}
@@ -161,68 +161,70 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
       </div>
 
       {/* Weather Content Block */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
         
-        {/* Left: City Name & Big Temp */}
-        <div className="flex items-center gap-3.5 text-center sm:text-left">
-          <div className="w-12 h-12 rounded-2xl bg-slate-800/90 border border-slate-700 flex items-center justify-center text-amber-400 shadow-inner flex-shrink-0">
-            <Sun className="w-6 h-6 animate-spin-slow" />
+        {/* City Name & Big Temp */}
+        <div className="sm:col-span-5 flex items-center gap-3">
+          <div className="w-11 h-11 rounded-2xl bg-white dark:bg-slate-900 border border-emerald-200/80 dark:border-slate-700 flex items-center justify-center text-amber-500 shadow-xs flex-shrink-0">
+            <Sun className="w-5 h-5" />
           </div>
           <div>
-            <div className="flex items-center gap-1 text-xs text-slate-300 font-semibold justify-center sm:justify-start">
-              <MapPin className="w-3 h-3 text-blue-400" />
+            <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-bold">
+              <MapPin className="w-3 h-3 text-[#064E3B] dark:text-emerald-400" />
               <span>{lang === 'en' ? current.cityEn : current.cityBn}</span>
             </div>
-            <div className="flex items-baseline gap-2 mt-0.5 justify-center sm:justify-start">
-              <span className="text-2xl sm:text-3xl font-black font-mono text-white">
+            <div className="flex items-baseline gap-2 mt-0.5">
+              <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white leading-none">
                 {lang === 'bn' ? toBengaliNumber(current.temp) : current.temp}°C
               </span>
-              <span className="text-xs text-slate-300 font-medium">
+              <span className="text-xs text-slate-600 dark:text-slate-300 font-bold">
                 {lang === 'en' ? current.conditionEn : current.conditionBn}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Middle: Stats (Humidity & Wind) */}
-        <div className="flex items-center gap-3 bg-slate-950/70 px-3 py-2 rounded-xl border border-slate-800 text-[11px]">
-          <div className="flex items-center gap-1 text-slate-300">
-            <Droplets className="w-3.5 h-3.5 text-blue-400" />
-            <span>{lang === 'en' ? 'Humidity:' : 'আর্দ্রতা:'}</span>
-            <span className="font-bold text-white font-mono">
-              {lang === 'bn' ? toBengaliNumber(current.humidity) : current.humidity}%
-            </span>
+        {/* Flight-Status Style Humidity & Wind Details */}
+        <div className="sm:col-span-7 flex flex-wrap items-center justify-between gap-2 bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-emerald-100 dark:border-slate-800 text-[11px]">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium">
+              <Droplets className="w-3.5 h-3.5 text-blue-500" />
+              <span>{lang === 'en' ? 'Hum:' : 'আর্দ্রতা:'}</span>
+              <span className="font-extrabold text-slate-900 dark:text-white font-mono">
+                {lang === 'bn' ? toBengaliNumber(current.humidity) : current.humidity}%
+              </span>
+            </div>
+            <span className="text-slate-200 dark:text-slate-800">|</span>
+            <div className="flex items-center gap-1 text-slate-600 dark:text-slate-300 font-medium">
+              <Wind className="w-3.5 h-3.5 text-blue-500" />
+              <span>{lang === 'en' ? 'Wind:' : 'বাতাস:'}</span>
+              <span className="font-extrabold text-slate-900 dark:text-white font-mono">
+                {lang === 'bn' ? toBengaliNumber(current.windSpeed) : current.windSpeed} km/h
+              </span>
+            </div>
           </div>
-          <span className="text-slate-700">|</span>
-          <div className="flex items-center gap-1 text-slate-300">
-            <Wind className="w-3.5 h-3.5 text-blue-400" />
-            <span>{lang === 'en' ? 'Wind:' : 'বাতাস:'}</span>
-            <span className="font-bold text-white font-mono">
-              {lang === 'bn' ? toBengaliNumber(current.windSpeed) : current.windSpeed} km/h
-            </span>
-          </div>
+
+          {/* Refresh trigger */}
+          <button
+            onClick={fetchWeather}
+            disabled={loading}
+            title={lang === 'en' ? 'Refresh weather' : 'আবহাওয়া আপডেট করুন'}
+            className="text-slate-400 hover:text-slate-700 dark:hover:text-white p-1 rounded-lg transition cursor-pointer flex-shrink-0"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-emerald-600' : ''}`} />
+          </button>
         </div>
 
-        {/* Right: Packing & Preparation Tip */}
-        <div className="text-xs text-slate-300 bg-blue-950/40 border border-blue-900/60 p-2.5 rounded-xl max-w-xs text-left">
-          <div className="text-[10px] font-bold text-blue-300 uppercase tracking-wider mb-0.5">
-            {lang === 'en' ? '🎒 Packing & Safety Advice:' : '🎒 প্রস্তুতি ও পোশাক পরামর্শ:'}
-          </div>
-          <p className="text-[11px] leading-snug text-slate-200">
-            {lang === 'en' ? current.adviceEn : current.adviceBn}
-          </p>
-        </div>
+      </div>
 
-        {/* Refresh trigger */}
-        <button
-          onClick={fetchWeather}
-          disabled={loading}
-          title={lang === 'en' ? 'Refresh weather' : 'আবহাওয়া আপডেট করুন'}
-          className="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 transition cursor-pointer flex-shrink-0"
-        >
-          <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin text-blue-400' : ''}`} />
-        </button>
-
+      {/* Packing Advice Strip */}
+      <div className="mt-2.5 pt-2 border-t border-emerald-100/80 dark:border-slate-800/80 text-[11px] text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+        <span className="font-bold text-[#064E3B] dark:text-emerald-400 flex-shrink-0">
+          🎒 {lang === 'en' ? 'Pilgrim Advice:' : 'প্রস্তুতি পরামর্শ:'}
+        </span>
+        <span className="truncate">
+          {lang === 'en' ? current.adviceEn : current.adviceBn}
+        </span>
       </div>
     </div>
   );
