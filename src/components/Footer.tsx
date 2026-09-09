@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Compass, MapPin, Phone, Mail, Clock, ShieldCheck, Send, CheckCircle2, Bell } from 'lucide-react';
 import { Language } from '../types';
-import { toBengaliNumber } from '../utils/dateFormatter';
 
 interface FooterProps {
   lang: Language;
@@ -21,17 +20,19 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
   useEffect(() => {
     let isMounted = true;
+
+    // Fetch live visitor count from simple CounterAPI endpoint
     const fetchVisitorCount = async () => {
       try {
-        const res = await fetch('https://api.counterapi.dev/v1/maskhajjgroup_bd/visits/up');
+        const res = await fetch('https://api.counterapi.dev/v1/maskhajj_simple_count_2026/visits/up');
         if (!res.ok) throw new Error('Failed to fetch count');
         const data = await res.json();
         const countVal = data?.count ?? data?.value ?? data?.up ?? null;
-        if (isMounted && typeof countVal === 'number') {
+        if (typeof countVal === 'number' && isMounted) {
           setVisitorCount(countVal);
         }
       } catch {
-        // Silently handle API failure without setting any fake/hardcoded numbers
+        // Silently handle error without setting any fake numbers
       }
     };
 
@@ -309,21 +310,15 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           © {new Date().getFullYear()} MASK Hajj Group. All rights reserved. Dhaka, Bangladesh.
         </div>
 
-        {/* Visitor Counter Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px] shadow-2xs">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span>
-            {visitorCount !== null ? (
-              lang === 'en'
-                ? `Total Honored Visitors: ${visitorCount.toLocaleString('en-US')}`
-                : `মোট সম্মানিত ভিজিটর: ${visitorCount.toLocaleString('bn-BD')} জন`
-            ) : (
-              lang === 'en' ? 'Total Honored Visitors: ...' : 'মোট সম্মানিত ভিজিটর: ...'
-            )}
-          </span>
+        {/* Simple Clean Visitor Count Text */}
+        <div className="font-medium text-slate-600 dark:text-slate-400">
+          {visitorCount !== null
+            ? lang === 'en'
+              ? `Total Visitors: ${visitorCount.toLocaleString('en-US')}`
+              : `মোট ভিজিটর: ${visitorCount.toLocaleString('bn-BD')}`
+            : lang === 'en'
+            ? 'Total Visitors: ...'
+            : 'মোট ভিজিটর: ...'}
         </div>
 
         <div className="flex items-center gap-6 font-semibold text-slate-600 dark:text-slate-400">
