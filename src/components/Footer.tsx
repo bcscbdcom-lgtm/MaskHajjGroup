@@ -182,50 +182,64 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
               : 'বাংলাদেশ থেকে পবিত্র মক্কা-মদিনায় আপনার বিশ্বস্ত, ধর্ম বিষয়ক মন্ত্রণালয় অনুমোদিত নির্ভরযোগ্য হজ ও ওমরাহ সহযোগী।'}
           </p>
 
-          {/* Social Icons Strip */}
-          <div className="flex items-center gap-2.5 text-slate-600 dark:text-slate-300 mt-3">
+          {/* Social Icons Strip with Official Brand Colors & Modern Micro-interactions */}
+          <div className="flex items-center gap-3 mt-4">
             {/* Facebook */}
             <a
               href="https://www.facebook.com/share/1BxJhNoLNa/?mibextid=wwXIfr"
               target="_blank"
-              rel="noreferrer"
-              title="Facebook"
-              className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-950/80 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-center transition duration-300 shadow-xs font-bold text-sm"
+              rel="noopener noreferrer"
+              aria-label={lang === 'en' ? 'Facebook Page' : 'ফেসবুক পেজ'}
+              title={lang === 'en' ? 'Facebook Page' : 'ফেসবুক পেজ'}
+              className="w-10 h-10 rounded-full bg-[#1877F2] hover:bg-[#166fe5] text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-blue-500/40 cursor-pointer"
             >
-              f
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
             </a>
 
             {/* YouTube */}
             <a
               href="https://www.youtube.com/@MASKHAJJGROUP"
               target="_blank"
-              rel="noreferrer"
-              title="YouTube"
-              className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-red-50 dark:hover:bg-red-950/80 hover:border-red-500 hover:text-red-600 dark:hover:text-red-400 flex items-center justify-center transition duration-300 shadow-xs font-bold text-sm"
+              rel="noopener noreferrer"
+              aria-label={lang === 'en' ? 'YouTube Channel' : 'ইউটিউব চ্যানেল'}
+              title={lang === 'en' ? 'YouTube Channel' : 'ইউটিউব চ্যানেল'}
+              className="w-10 h-10 rounded-full bg-[#FF0000] hover:bg-[#e60000] text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-red-500/40 cursor-pointer"
             >
-              ▶
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
             </a>
 
             {/* Instagram */}
             <a
               href="#"
               target="_blank"
-              rel="noreferrer"
-              title="Instagram"
-              className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-pink-50 dark:hover:bg-pink-950/80 hover:border-pink-500 hover:text-pink-600 dark:hover:text-pink-400 flex items-center justify-center transition duration-300 shadow-xs font-bold text-sm"
+              rel="noopener noreferrer"
+              aria-label={lang === 'en' ? 'Instagram' : 'ইনস্টাগ্রাম'}
+              title={lang === 'en' ? 'Instagram' : 'ইনস্টাগ্রাম'}
+              className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-pink-500/40 cursor-pointer"
             >
-              📷
+              <svg className="w-4 h-4 fill-none stroke-current stroke-[2.2]" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
             </a>
 
             {/* WhatsApp */}
             <a
               href="https://wa.me/8801711258708"
               target="_blank"
-              rel="noreferrer"
-              title="WhatsApp"
-              className="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-emerald-50 dark:hover:bg-emerald-950/80 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center justify-center transition duration-300 shadow-xs font-bold text-sm"
+              rel="noopener noreferrer"
+              aria-label={lang === 'en' ? 'WhatsApp' : 'হোয়াটসঅ্যাপ'}
+              title={lang === 'en' ? 'WhatsApp' : 'হোয়াটসঅ্যাপ'}
+              className="w-10 h-10 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-emerald-500/40 cursor-pointer"
             >
-              💬
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 0 0 5.71 1.452h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.18-1.238-6.163-3.486-8.412z" />
+              </svg>
             </a>
           </div>
         </div>

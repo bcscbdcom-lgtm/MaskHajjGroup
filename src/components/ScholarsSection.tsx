@@ -91,7 +91,7 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
                 <img
                   src="/images/scholars/kholilur_rahman.jpg"
                   alt={lang === 'en' ? 'Alhaj Hazrat Maulana Khalilur Rahman' : 'আলহাজ্জ হযরত মাওলানা খলিলুর রহমান'}
-                  className="w-full h-80 sm:h-96 object-cover object-top"
+                  className="w-full h-80 sm:h-96 object-cover [object-position:center_32%]"
                   onError={(e) => {
                     // Try alternative local filename if needed
                     const target = e.target as HTMLImageElement;

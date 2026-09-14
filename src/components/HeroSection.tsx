@@ -21,8 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       nameBn: 'পবিত্র মক্কা মুকাররমা • বাইতুল্লাহ শরিফ',
       labelBn: '📍 পবিত্র মক্কা মুকাররমা • বাইতুল্লাহ শরিফ',
       labelEn: '📍 Makkah Al-Mukarramah • Holy Kaaba',
-      url: '/images/makkah.jpg',
-      fallback: 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1920&q=80',
+      url: '/images/scholars/makkah.jpg',
     },
     {
       id: 'madinah',
@@ -30,8 +29,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       nameBn: 'পবিত্র মদিনা মোনাওয়ারা • মসজিদে নববী',
       labelBn: '📍 পবিত্র মদিনা মুনাওয়ারা • মসজিদে নববী',
       labelEn: '📍 Madinah Al-Munawwarah • Masjid an-Nabawi',
-      url: '/images/madinah.jpg',
-      fallback: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1920&q=80',
+      url: '/images/scholars/madinah.jpg',
     },
     {
       id: 'arafat',
@@ -39,8 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       nameBn: 'আরাফাতের ময়দান • জাবালে রহমত',
       labelBn: '📍 জাবালে রহমত • আরাফাতের ময়দান',
       labelEn: '📍 Jabal al-Rahmah • Plains of Arafat',
-      url: '/images/arafat.jpg',
-      fallback: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1920&q=80',
+      url: '/images/scholars/arafat.jpg',
     },
   ];
 
@@ -69,12 +66,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 src={slide.url}
                 alt={lang === 'en' ? slide.nameEn : slide.nameBn}
                 className="w-full h-full object-cover object-center"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  if (target.src !== slide.fallback) {
-                    target.src = slide.fallback;
-                  }
-                }}
               />
             </div>
           ))}
