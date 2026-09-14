@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Phone, ArrowUp } from 'lucide-react';
+import { MessageCircle, ArrowUp } from 'lucide-react';
 import { Language } from '../types';
+
+export interface ActivePackageInfo {
+  titleEn: string;
+  titleBn: string;
+  category?: 'hajj' | 'umrah' | 'vip' | 'custom' | string;
+  priceEn?: string;
+  priceBn?: string;
+}
 
 interface FloatingActionsProps {
   lang: Language;
+  activePackage?: ActivePackageInfo | null;
+  onOpenWalkthrough?: () => void;
+  onOpenPrintModal?: () => void;
 }
 
-export const FloatingActions: React.FC<FloatingActionsProps> = ({ lang }) => {
+export const FloatingActions: React.FC<FloatingActionsProps> = ({
+  lang,
+  activePackage,
+}) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -17,7 +31,9 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ lang }) => {
         setShowBackToTop(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -25,13 +41,28 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ lang }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const getWhatsAppMessage = () => {
+    if (activePackage) {
+      const pkgTitle = lang === 'en' ? activePackage.titleEn : activePackage.titleBn;
+      return lang === 'en'
+        ? `Assalamu Alaikum MASK Hajj Group, I am interested in the "${activePackage.titleEn}" package. Please share details and pre-registration procedure.`
+        : `আসসালামু আলাইকুম মাস্ক হজ গ্রুপ, আমি "${activePackage.titleBn}" প্যাকেজটি সম্পর্কে বিস্তারিত তথ্য ও প্রাক-নিবন্ধন তথ্য জানতে চাই।`;
+    }
+
+    return lang === 'en'
+      ? 'Assalamu Alaikum MASK Hajj Group, I want to inquire about Hajj and Umrah package details.'
+      : 'আসসালামু আলাইকুম মাস্ক হজ গ্রুপ, আমি আপনাদের হজ ও ওমরাহ সেবা সংক্রান্ত তথ্য জানতে চাই।';
+  };
+
+  const whatsappUrl = `https://wa.me/8801711258708?text=${encodeURIComponent(getWhatsAppMessage())}`;
+
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
       {/* Back to top button */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="w-10 h-10 bg-slate-900/90 dark:bg-slate-800 hover:bg-slate-900 dark:hover:bg-slate-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105 border border-transparent dark:border-slate-700 cursor-pointer"
+          className="w-10 h-10 bg-slate-900/90 dark:bg-slate-800 hover:bg-slate-900 dark:hover:bg-slate-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-105 border border-slate-700/50 cursor-pointer"
           title={lang === 'en' ? 'Back to top' : 'উপরে যান'}
           aria-label="Back to top"
         >
@@ -39,45 +70,32 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ lang }) => {
         </button>
       )}
 
-      {/* Floating Direct Call */}
+      {/* Single Sleek Floating WhatsApp Button */}
       <a
-        href="tel:+8801711258708"
-        className="w-11 h-11 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-md transition-all hover:scale-105"
-        title="Call +88 01711-258708"
-      >
-        <Phone className="w-4 h-4" />
-      </a>
-
-      {/* WhatsApp Inquiry Action Button with Notification Pulse */}
-      <a
-        href="https://wa.me/8801711258708?text=Assalamu%20Alaikum%20MASK%20Hajj%20Group%2C%20I%20want%20to%20inquire%20about%20Hajj%20%26%20Umrah%20packages."
+        href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        className="relative group bg-emerald-600 hover:bg-emerald-700 text-white rounded-full sm:rounded-2xl p-3 sm:py-3 sm:px-4 flex items-center gap-2.5 shadow-xl hover:scale-[1.03] transition duration-300 border border-emerald-500/30"
-        title={lang === 'en' ? 'WhatsApp Inquiry: +88 01711-258708' : 'হোয়াটসঅ্যাপ ইনকোয়ারি: +৮৮ ০১৭১১-২৫৮৭০৮'}
-        aria-label="WhatsApp Inquiry"
+        className="group bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-600 text-white rounded-full sm:rounded-2xl py-3 px-3.5 sm:px-4 flex items-center gap-2.5 shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/50 cursor-pointer"
+        title={lang === 'en' ? 'Chat on WhatsApp with MASK Hajj Group' : 'মাস্ক হজ গ্রুপের সাথে হোয়াটসঅ্যাপে কথা বলুন'}
+        aria-label="Chat on WhatsApp"
       >
-        <div className="relative flex items-center justify-center">
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 border-2 border-emerald-600 rounded-full animate-ping"></span>
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 border-2 border-emerald-600 rounded-full"></span>
-          <MessageCircle className="w-5 h-5 sm:w-5 sm:h-5 text-white" />
+        <div className="relative flex items-center justify-center flex-shrink-0">
+          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 border-2 border-emerald-600 rounded-full animate-ping"></span>
+          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 border-2 border-emerald-600 rounded-full"></span>
+          <MessageCircle className="w-5 h-5 text-white fill-white/10" />
         </div>
 
-        {/* Text visible on tablet/desktop */}
         <div className="hidden sm:flex flex-col text-left pr-1">
-          <span className="text-[11px] font-extrabold uppercase tracking-wide leading-tight text-white">
-            {lang === 'en' ? 'WhatsApp Inquiry' : 'হোয়াটসঅ্যাপ ইনকোয়ারি'}
+          <span className="text-[12px] font-black tracking-wide leading-tight text-white">
+            {lang === 'en' ? 'WhatsApp Chat' : 'হোয়াটসঅ্যাপে পরামর্শ'}
           </span>
-          <span className="text-[10px] text-emerald-100 font-mono font-medium">
+          <span className="text-[10px] text-emerald-100 font-medium opacity-90 leading-tight">
             +88 01711-258708
           </span>
         </div>
-
-        {/* Mobile-only Hover / Tap Tooltip */}
-        <span className="sm:hidden absolute right-14 bg-slate-900 dark:bg-slate-800 text-white text-[11px] font-bold py-1.5 px-3 rounded-xl shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-transparent dark:border-slate-700">
-          {lang === 'en' ? 'WhatsApp: +88 01711-258708' : 'হোয়াটসঅ্যাপ ইনকোয়ারি'}
-        </span>
       </a>
     </div>
   );
 };
+
+

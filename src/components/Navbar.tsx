@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Globe, Menu, X, Compass, PhoneCall } from 'lucide-react';
+import { Menu, X, Compass, PhoneCall, Globe } from 'lucide-react';
 import { Language } from '../types';
 
 interface NavbarProps {
-  lang: Language;
-  onToggleLang: () => void;
-  onOpenPreReg: (pkg?: string) => void;
+  lang?: Language;
+  onToggleLang?: () => void;
+  onOpenPreReg?: (pkg?: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenPreReg }) => {
+export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpenPreReg }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -16,75 +16,102 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenPreReg
     { href: '#about', labelEn: 'About', labelBn: 'পরিচিতি' },
     { href: '#packages', labelEn: 'Hajj Packages', labelBn: 'হজ প্যাকেজ' },
     { href: '#umrah', labelEn: 'Umrah Packages', labelBn: 'ওমরাহ প্যাকেজ' },
-    { href: '#guides', labelEn: 'Mentors', labelBn: 'আলেম গাইড' },
-    { href: '#tools', labelEn: 'Pilgrim Tools', labelBn: 'হাজী টুলস' },
-    { href: '#faqs', labelEn: 'FAQs', labelBn: 'প্রশ্নোত্তর' },
-    { href: '#blog', labelEn: 'Blog', labelBn: 'ব্লগ' },
+    { href: '#scholars', labelEn: 'Mentors', labelBn: 'আলেম গাইড' },
     { href: '#contact', labelEn: 'Contact', labelBn: 'যোগাযোগ' },
   ];
 
   return (
-    <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 dark:border-slate-800 shadow-sm transition-colors">
+    <header className="sticky top-0 z-40 bg-white backdrop-blur-md border-b border-slate-100 shadow-2xs">
+      {/* Subtle Top Announcement Strip */}
+      <div className="bg-[#064E3B] text-emerald-100 text-xs py-1.5 px-4 text-center font-medium border-b border-emerald-900/40">
+        <span>
+          🌙 {lang === 'en'
+            ? 'Govt. Pre-Registration for Hajj 2026–2027 is Active • Limited Quota Allocation'
+            : 'পবিত্র হজ ২০২৬–২০২৭ এর সরকারি প্রাক-নিবন্ধন চলছে • সীমিত কোটা বরাদ্দ'}
+        </span>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo & License */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-slate-900 dark:bg-slate-800 rounded-xl flex items-center justify-center text-white text-lg shadow-sm group-hover:bg-blue-600 dark:group-hover:bg-blue-600 transition-colors border border-transparent dark:border-slate-700">
-              <Compass className="w-5 h-5 text-blue-400 group-hover:text-white transition-colors" />
+            <div className="w-11 h-11 bg-[#064E3B] text-white rounded-xl flex items-center justify-center font-extrabold text-xl shadow-xs group-hover:bg-[#0D5C46] transition-colors">
+              <Compass className="w-6 h-6 text-amber-300" />
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
+              <span className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight block leading-tight">
                 {lang === 'en' ? (
-                  <>MASK<span className="text-blue-600 dark:text-blue-400 ml-1">HAJJ GROUP</span></>
+                  <>MASK <span className="text-[#064E3B]">HAJJ GROUP</span></>
                 ) : (
-                  <>মাস্ক<span className="text-blue-600 dark:text-blue-400 ml-1">হজ গ্রুপ</span></>
+                  <>মাস্ক <span className="text-[#064E3B]">হজ গ্রুপ</span></>
                 )}
-              </div>
-              <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-400 tracking-wider uppercase mt-0.5">
-                {lang === 'en' ? 'Ministry Licence 15630' : 'লাইসেন্স নং ১৫৬৩০'}
-              </div>
+              </span>
+              <span className="text-[11px] text-[#064E3B] font-semibold bg-emerald-50 px-2 py-0.5 rounded-full inline-block mt-0.5 border border-emerald-200">
+                {lang === 'en' ? 'Ministry Licence #15630' : 'মন্ত্রণালয় লাইসেন্স নং ১৫৬৩০'}
+              </span>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden xl:flex items-center space-x-6 text-sm font-semibold text-slate-700 dark:text-slate-200">
+          {/* Essential Nav Links */}
+          <nav className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-700">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 after:absolute after:bottom-0 after:left-0 after:transition-all"
+                className="hover:text-[#064E3B] transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-[#064E3B] after:absolute after:bottom-0 after:left-0 after:transition-all"
               >
                 {lang === 'en' ? link.labelEn : link.labelBn}
               </a>
             ))}
-          </div>
+          </nav>
 
-          {/* Right Controls */}
-          <div className="flex items-center gap-2.5">
+          {/* Right Action Controls */}
+          <div className="flex items-center gap-4">
+            {/* Direct Hotline */}
+            <a
+              href="tel:+8801711258708"
+              className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#064E3B] transition"
+            >
+              <span className="text-sm">📞</span>
+              <span className="font-mono text-sm">+88 01711-258708</span>
+            </a>
+
             {/* Language Switcher */}
-            <button
-              onClick={onToggleLang}
-              id="langToggleBtn"
-              className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 hover:text-blue-700 dark:hover:text-blue-300 border border-slate-200 dark:border-slate-700 px-3 py-2 rounded-xl transition-colors cursor-pointer"
-              title="Change Language"
-            >
-              <Globe className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span>{lang === 'en' ? 'বাংলা' : 'English'}</span>
-            </button>
+            {onToggleLang && (
+              <button
+                onClick={onToggleLang}
+                id="langToggleBtn"
+                className="hidden md:flex items-center gap-1 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-emerald-50 hover:text-[#064E3B] border border-slate-200 px-2.5 py-2 rounded-lg transition cursor-pointer"
+                title="Change Language"
+              >
+                <Globe className="w-3.5 h-3.5 text-[#064E3B]" />
+                <span>{lang === 'en' ? 'বাংলা' : 'EN'}</span>
+              </button>
+            )}
 
-            {/* Book Consultation CTA */}
-            <button
-              onClick={() => onOpenPreReg()}
-              className="hidden sm:inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition cursor-pointer"
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>
-            </button>
+            {/* Primary CTA */}
+            {onOpenPreReg ? (
+              <button
+                onClick={() => onOpenPreReg()}
+                className="bg-[#064E3B] hover:bg-[#04392b] text-white text-xs sm:text-sm font-semibold px-4.5 py-2.5 rounded-lg shadow-xs hover:shadow transition-all cursor-pointer flex items-center gap-1.5"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
+                <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>
+              </button>
+            ) : (
+              <a
+                href="#consultation"
+                className="bg-[#064E3B] hover:bg-[#04392b] text-white text-xs sm:text-sm font-semibold px-4.5 py-2.5 rounded-lg shadow-xs hover:shadow transition-all flex items-center gap-1.5"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
+                <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>
+              </a>
+            )}
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"
+              className="lg:hidden p-2 text-slate-600 hover:text-[#064E3B] hover:bg-slate-100 rounded-lg transition cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -93,33 +120,41 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenPreReg
         </div>
       </div>
 
-      {/* Mobile Nav Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-3 pb-6 space-y-2 shadow-lg animate-in slide-in-from-top-2">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-5 space-y-2.5 text-sm shadow-md animate-in slide-in-from-top-2">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-800 hover:text-blue-700 dark:hover:text-blue-400 transition"
+              className="block py-2 px-3 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-[#064E3B] transition"
             >
               {lang === 'en' ? link.labelEn : link.labelBn}
             </a>
           ))}
-          <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+          <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
+            <a
+              href="tel:+8801711258708"
+              className="text-xs font-semibold text-slate-600 flex items-center gap-2 py-1 px-3"
+            >
+              <span>📞</span> +88 01711-258708
+            </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenPreReg();
+                onOpenPreReg?.();
               }}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-3 rounded-xl shadow-sm text-center flex items-center justify-center gap-2"
+              className="w-full bg-[#064E3B] text-white py-2.5 rounded-lg font-semibold text-xs text-center shadow-xs flex items-center justify-center gap-2"
             >
-              <PhoneCall className="w-4 h-4" />
-              <span>{lang === 'en' ? 'Book Consultation / Pre-Register' : 'পরামর্শ বুকিং / প্রাক-নিবন্ধন'}</span>
+              <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
+              <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>
             </button>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
+
+export default Navbar;

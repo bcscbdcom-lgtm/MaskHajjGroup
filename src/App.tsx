@@ -8,11 +8,14 @@ import { HeroSection } from './components/HeroSection';
 import { TrustBadges } from './components/TrustBadges';
 import { AboutSection } from './components/AboutSection';
 import { ServicesGrid } from './components/ServicesGrid';
+import { PrayerTimesSection } from './components/PrayerTimesSection';
 import { HajjPackagesSection } from './components/HajjPackagesSection';
 import { UmrahPackagesSection } from './components/UmrahPackagesSection';
+import { ScholarsSection } from './components/ScholarsSection';
 import { PilgrimTools } from './components/PilgrimTools';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { TestimonialsSection } from './components/TestimonialsSection';
+import { VideoGallerySection } from './components/VideoGallerySection';
 import { FaqSection } from './components/FaqSection';
 import { ConsultationSection } from './components/ConsultationSection';
 import { BlogSection } from './components/BlogSection';
@@ -23,11 +26,13 @@ import { PackageDetailModal } from './components/PackageDetailModal';
 import { StaffPortalModal } from './components/StaffPortalModal';
 import { PrintSummaryModal } from './components/PrintSummaryModal';
 import { PilgrimageWalkthroughModal } from './components/PilgrimageWalkthroughModal';
+import { AskScholarModal } from './components/AskScholarModal';
 import { PackageShareModal } from './components/PackageShareModal';
 import { PackageCompareModal } from './components/PackageCompareModal';
 import { PackageCompareBar } from './components/PackageCompareBar';
 import { FloatingActions } from './components/FloatingActions';
 import { ReadingProgressBar } from './components/ReadingProgressBar';
+import { JsonLd } from './components/JsonLd';
 
 function AppContent() {
   const { lang, toggleLanguage } = useLanguage();
@@ -40,6 +45,7 @@ function AppContent() {
   const [printModalTab, setPrintModalTab] = useState<'selectedPkg' | 'full' | 'packages' | 'planner' | 'checklist' | 'faqs'>('full');
   const [customFaqsForPrint, setCustomFaqsForPrint] = useState<any[] | undefined>(undefined);
   const [isWalkthroughOpen, setIsWalkthroughOpen] = useState(false);
+  const [isAskScholarOpen, setIsAskScholarOpen] = useState(false);
 
   // Package Sharing State
   const [sharePackage, setSharePackage] = useState<PackageItem | null>(null);
@@ -77,35 +83,18 @@ function AppContent() {
     setIsShareModalOpen(true);
   };
 
-  // Dark mode state with LocalStorage persistence and system preference fallback
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    try {
-      const savedTheme = localStorage.getItem('mask_dark_mode');
-      if (savedTheme === 'true') return true;
-      if (savedTheme === 'false') return false;
-      if (typeof window !== 'undefined' && window.matchMedia) {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-      }
-    } catch {
-      // ignore
-    }
-    return false;
-  });
+  // Enforce light theme state as requested
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
-  // Sync dark class on document element whenever darkMode state changes
+  // Remove dark class from document element to maintain crisp light theme
   useEffect(() => {
     try {
-      if (darkMode) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('mask_dark_mode', 'true');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('mask_dark_mode', 'false');
-      }
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('mask_dark_mode', 'false');
     } catch {
       // ignore
     }
-  }, [darkMode]);
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => !prev);
@@ -251,6 +240,9 @@ function AppContent() {
 
   return (
     <div className={`min-h-screen flex flex-col bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-200 ${lang === 'bn' ? 'font-bn' : ''}`}>
+      {/* Search Engine Optimization: Structured Data JSON-LD */}
+      <JsonLd />
+
       {/* Dynamic Scroll Reading Progress Bar */}
       <ReadingProgressBar />
 
@@ -322,6 +314,12 @@ function AppContent() {
           onSelectService={(svc) => handleOpenPreReg(svc)}
         />
 
+        {/* 7.5. Prayer Times Section */}
+        <PrayerTimesSection
+          lang={lang}
+          onOpenPreReg={handleOpenPreReg}
+        />
+
         {/* 8. Hajj Packages */}
         <HajjPackagesSection
           lang={lang}
@@ -342,6 +340,13 @@ function AppContent() {
           onToggleCompare={handleToggleCompare}
         />
 
+        {/* 9.5. Scholars & Shariah Advisory Section */}
+        <ScholarsSection
+          lang={lang}
+          onOpenAskScholar={() => setIsAskScholarOpen(true)}
+          onOpenPreReg={handleOpenPreReg}
+        />
+
         {/* 10. Interactive Cost Estimator & Packing Checklist */}
         <PilgrimTools
           lang={lang}
@@ -355,6 +360,12 @@ function AppContent() {
 
         {/* 13. Testimonials & Google Reviews */}
         <TestimonialsSection lang={lang} />
+
+        {/* 13.5. Official Video Gallery */}
+        <VideoGallerySection
+          lang={lang}
+          onOpenPreReg={handleOpenPreReg}
+        />
 
         {/* 14. FAQs Accordion */}
         <FaqSection
@@ -446,6 +457,12 @@ function AppContent() {
         onOpenPreReg={handleOpenPreReg}
       />
 
+      <AskScholarModal
+        isOpen={isAskScholarOpen}
+        onClose={() => setIsAskScholarOpen(false)}
+        lang={lang}
+      />
+
       <StaffPortalModal
         isOpen={isStaffPortalOpen}
         onClose={() => setIsStaffPortalOpen(false)}
@@ -456,6 +473,35 @@ function AppContent() {
 
       <FloatingActions
         lang={lang}
+        activePackage={
+          selectedPackageForModal
+            ? {
+                titleEn: selectedPackageForModal.titleEn,
+                titleBn: selectedPackageForModal.titleBn,
+                category: selectedPackageForModal.category,
+                priceEn: selectedPackageForModal.priceEn,
+                priceBn: selectedPackageForModal.priceBn,
+              }
+            : sharePackage
+            ? {
+                titleEn: sharePackage.titleEn,
+                titleBn: sharePackage.titleBn,
+                category: sharePackage.category,
+                priceEn: sharePackage.priceEn,
+                priceBn: sharePackage.priceBn,
+              }
+            : selectedPackageForPrint
+            ? {
+                titleEn: selectedPackageForPrint.titleEn,
+                titleBn: selectedPackageForPrint.titleBn,
+                category: selectedPackageForPrint.category,
+                priceEn: selectedPackageForPrint.priceEn,
+                priceBn: selectedPackageForPrint.priceBn,
+              }
+            : preRegPackage
+            ? { titleEn: preRegPackage, titleBn: preRegPackage }
+            : null
+        }
         onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
         onOpenPrintModal={() => handleOpenPrintDialog()}
       />

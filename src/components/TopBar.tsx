@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Award, Phone, Clock, Lock, Sun, Moon, Globe } from 'lucide-react';
 import { Language } from '../types';
 
@@ -17,90 +17,97 @@ export const TopBar: React.FC<TopBarProps> = ({
   darkMode,
   onToggleDarkMode,
 }) => {
+  const [currentTime, setCurrentTime] = useState<Date>(new Date());
+
+  // Update live clock every second
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatTime = (timeZone: string) => {
+    try {
+      return new Intl.DateTimeFormat(lang === 'bn' ? 'bn-BD' : 'en-US', {
+        timeZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      }).format(currentTime);
+    } catch {
+      return '';
+    }
+  };
+
+  const dhakaTime = formatTime('Asia/Dhaka');
+  const makkahTime = formatTime('Asia/Riyadh');
+
   return (
-    <div className="bg-[#0f172a] dark:bg-[#070b14] text-slate-300 text-xs py-2 px-4 border-b border-slate-800 dark:border-slate-900 transition-colors">
+    <div className="bg-[#064E3B] text-white text-xs py-1.5 px-4 border-b border-emerald-800/80 transition-colors">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-        <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 text-slate-300 text-[11px] sm:text-xs">
-            <Award className="w-3.5 h-3.5 text-blue-400" />
+        
+        {/* Left Side: License Badge & Minimalist Live Clock */}
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="inline-flex items-center gap-1.5 text-emerald-100 text-[11px] sm:text-xs font-medium">
+            <Award className="w-3.5 h-3.5 text-amber-300" />
             {lang === 'en'
-              ? 'Licence No. 15630 • Verified by Ministry of Religious Affairs'
-              : 'লাইসেন্স নং ১৫৬৩০ • ধর্ম বিষয়ক মন্ত্রণালয় অনুমোদিত'}
+              ? 'Licence No. 15630 • Ministry Verified'
+              : 'লাইসেন্স নং ১৫৬৩০ • মন্ত্রণালয় অনুমোদিত'}
           </span>
+
+          <span className="text-emerald-700/60 hidden sm:inline">•</span>
+
+          {/* Minimalist Live Dual Clock (Dhaka & Makkah) */}
+          <div className="inline-flex items-center gap-2 text-[11px] bg-[#043E2E] px-2.5 py-0.5 rounded-md border border-emerald-700/60 font-mono text-emerald-100 shadow-2xs">
+            <Clock className="w-3 h-3 text-emerald-400 animate-pulse flex-shrink-0" />
+            <span className="flex items-center gap-1">
+              <span className="text-emerald-300/80">{lang === 'en' ? 'Dhaka:' : 'ঢাকা:'}</span>
+              <span className="font-semibold text-emerald-200">{dhakaTime}</span>
+            </span>
+            <span className="text-emerald-700">|</span>
+            <span className="flex items-center gap-1">
+              <span className="text-emerald-300/80">{lang === 'en' ? 'Makkah:' : 'মক্কা:'}</span>
+              <span className="font-semibold text-amber-300">{makkahTime}</span>
+            </span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2.5 sm:gap-3 text-slate-300 text-[11px] sm:text-xs flex-wrap justify-center">
+        {/* Right Side: Phone & Portal */}
+        <div className="flex items-center gap-2.5 sm:gap-3 text-emerald-100 text-[11px] sm:text-xs flex-wrap justify-center">
           <a
             href="tel:+8801711258708"
-            className="hover:text-blue-400 transition-colors flex items-center gap-1.5 font-medium"
+            className="hover:text-amber-300 transition-colors flex items-center gap-1 font-semibold"
           >
-            <Phone className="w-3 h-3 text-blue-400" />
-            +88 01711-258708
+            <Phone className="w-3 h-3 text-amber-300" />
+            <span>+88 01711-258708</span>
           </a>
-          <span className="text-slate-600 hidden sm:inline">•</span>
-          <span className="flex items-center gap-1.5 text-slate-400">
-            <Clock className="w-3 h-3 text-blue-400" />
-            {lang === 'en' ? 'Open 10 AM – 7 PM' : 'খোলা: সকাল ১০টা – সন্ধ্যা ৭টা'}
-          </span>
-          <span className="text-slate-600 hidden sm:inline">•</span>
+
+          <span className="text-emerald-700/60 hidden sm:inline">•</span>
+
           <button
             onClick={onOpenPortal}
-            className="text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1 font-semibold transition cursor-pointer"
+            className="text-amber-300 hover:text-amber-200 hover:underline flex items-center gap-1 font-semibold transition cursor-pointer"
           >
             <Lock className="w-3 h-3" />
-            {lang === 'en' ? 'Staff Portal' : 'অফিস ড্যাশবোর্ড'}
+            <span>{lang === 'en' ? 'Staff Portal' : 'অফিস ড্যাশবোর্ড'}</span>
           </button>
 
-          <span className="text-slate-600 hidden sm:inline">•</span>
+          <span className="text-emerald-700/60 hidden sm:inline">•</span>
 
-          {/* TopBar Language Toggle Button */}
+          {/* Language Toggle */}
           <button
             onClick={onToggleLang}
             id="topBarLangToggleBtn"
             aria-label={lang === 'en' ? 'Switch to Bangla' : 'Switch to English'}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-slate-200 hover:text-white bg-slate-800/90 dark:bg-slate-800/60 hover:bg-slate-700/80 border border-slate-700/80 text-[11px] font-bold transition cursor-pointer shadow-2xs group"
+            className="flex items-center gap-1 px-2.5 py-0.5 rounded text-white bg-emerald-800/80 hover:bg-emerald-700 border border-emerald-600/80 text-[11px] font-bold transition cursor-pointer group"
             title={lang === 'en' ? 'Switch language to বাংলা' : 'Switch language to English'}
           >
-            <Globe className="w-3.5 h-3.5 text-blue-400 group-hover:rotate-45 transition-transform" />
+            <Globe className="w-3 h-3 text-amber-300 group-hover:rotate-45 transition-transform" />
             <span>{lang === 'en' ? 'বাংলা' : 'English'}</span>
           </button>
-
-          {/* Dark Mode Toggle Button */}
-          <button
-            onClick={onToggleDarkMode}
-            id="themeToggleBtn"
-            aria-label={darkMode ? 'Switch to Light Mode (Press d)' : 'Switch to Dark Mode (Press d)'}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-slate-200 hover:text-white bg-slate-800/90 dark:bg-slate-800/60 hover:bg-slate-700/80 border border-slate-700/80 text-[11px] font-semibold transition cursor-pointer shadow-2xs"
-            title={
-              darkMode
-                ? lang === 'en'
-                  ? 'Switch to Light Mode (Press d)'
-                  : 'লাইট মোডে পরিবর্তন করুন (d চাপুন)'
-                : lang === 'en'
-                ? 'Switch to Dark Mode (Press d)'
-                : 'ডার্ক মোডে পরিবর্তন করুন (d চাপুন)'
-            }
-          >
-            {darkMode ? (
-              <>
-                <Sun className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
-                <span>{lang === 'en' ? 'Light' : 'লাইট'}</span>
-              </>
-            ) : (
-              <>
-                <Moon className="w-3.5 h-3.5 text-blue-400" />
-                <span>{lang === 'en' ? 'Dark' : 'ডার্ক'}</span>
-              </>
-            )}
-            <kbd className="hidden lg:inline-block text-[9px] font-mono text-slate-400 bg-slate-900/80 dark:bg-slate-950 px-1 py-0.2 rounded border border-slate-700">
-              d
-            </kbd>
-          </button>
         </div>
+
       </div>
     </div>
   );
 };
-
-
-

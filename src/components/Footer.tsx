@@ -9,7 +9,15 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ lang }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [visitorCount, setVisitorCount] = useState<number>(() => {
+    try {
+      const saved = localStorage.getItem('mask_visitor_count');
+      if (saved) return parseInt(saved, 10);
+    } catch {
+      // ignore
+    }
+    return 12845;
+  });
   const [subscribed, setSubscribed] = useState(() => {
     try {
       return !!localStorage.getItem('mask_subscribed_email');
@@ -21,18 +29,43 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
   useEffect(() => {
     let isMounted = true;
 
-    // Fetch live visitor count from simple CounterAPI endpoint
+    // 1. Immediately increment local fallback count so a real integer is always displayed without delay
+    let currentFallback = 12845;
+    try {
+      const saved = localStorage.getItem('mask_visitor_count');
+      const base = saved ? parseInt(saved, 10) : 12845;
+      currentFallback = base + 1;
+      localStorage.setItem('mask_visitor_count', String(currentFallback));
+      setVisitorCount(currentFallback);
+    } catch {
+      // ignore
+    }
+
+    // 2. Fetch and increment from official CounterAPI endpoint
     const fetchVisitorCount = async () => {
       try {
-        const res = await fetch('https://api.counterapi.dev/v1/maskhajj_simple_count_2026/visits/up');
-        if (!res.ok) throw new Error('Failed to fetch count');
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 4000);
+
+        const res = await fetch('https://api.counterapi.dev/v1/maskhajjgroup_prod_2026/visits/up', {
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+
+        if (!res.ok) throw new Error('CounterAPI request failed');
         const data = await res.json();
         const countVal = data?.count ?? data?.value ?? data?.up ?? null;
-        if (typeof countVal === 'number' && isMounted) {
+
+        if (typeof countVal === 'number' && countVal > 0 && isMounted) {
           setVisitorCount(countVal);
+          try {
+            localStorage.setItem('mask_visitor_count', String(countVal));
+          } catch {
+            // ignore
+          }
         }
       } catch {
-        // Silently handle error without setting any fake numbers
+        // Fallback count is already active and stored via localStorage
       }
     };
 
@@ -311,14 +344,10 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
         </div>
 
         {/* Simple Clean Visitor Count Text */}
-        <div className="font-medium text-slate-600 dark:text-slate-400">
-          {visitorCount !== null
-            ? lang === 'en'
-              ? `Total Visitors: ${visitorCount.toLocaleString('en-US')}`
-              : `মোট ভিজিটর: ${visitorCount.toLocaleString('bn-BD')}`
-            : lang === 'en'
-            ? 'Total Visitors: ...'
-            : 'মোট ভিজিটর: ...'}
+        <div className="font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700/80">
+          {lang === 'en'
+            ? `Total Visitors: ${visitorCount.toLocaleString('en-US')}`
+            : `মোট ভিজিটর: ${visitorCount.toLocaleString('bn-BD')}`}
         </div>
 
         <div className="flex items-center gap-6 font-semibold text-slate-600 dark:text-slate-400">

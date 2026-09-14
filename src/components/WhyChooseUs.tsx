@@ -43,13 +43,13 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ lang }) => {
       
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+        <span className="bg-emerald-50 text-[#065F46] border border-emerald-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           {lang === 'en' ? 'Why Choose Us' : 'আমাদের শ্রেষ্ঠত্ব'}
         </span>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
           {lang === 'en' ? 'Why families choose MASK Hajj Group' : 'কেন হাজীগণ মাস্ক হজ গ্রুপকেই বেছে নেন?'}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 text-sm mt-3">
+        <p className="text-slate-600 text-sm mt-3">
           {lang === 'en'
             ? 'We consider serving Allah\'s guests (Duyufur Rahman) a sacred religious honor and trust.'
             : 'আল্লাহর মেহমানদের সেবা করাকে আমরা পার্থিব ব্যবসার চেয়ে আত্মিক আমানত ও সম্মান হিসেবে বিবেচনা করি।'}
@@ -63,21 +63,21 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ lang }) => {
           return (
             <div
               key={i}
-              className="bg-white dark:bg-slate-800/90 p-6 sm:p-7 rounded-3xl border border-sky-100/90 dark:border-slate-700 shadow-xs hover:-translate-y-1 hover:border-sky-400 dark:hover:border-sky-400 hover:shadow-md transition duration-300 flex flex-col justify-between"
+              className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:border-[#065F46] hover:shadow-md transition duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/60 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-5 shadow-xs">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-[#065F46] flex items-center justify-center text-xl mb-5 shadow-xs">
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-slate-800 dark:text-white text-base mb-2">
+                <h3 className="font-bold text-slate-900 text-base mb-2">
                   {lang === 'en' ? f.titleEn : f.titleBn}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {lang === 'en' ? f.descEn : f.descBn}
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center gap-1.5 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-[#065F46]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>{lang === 'en' ? '100% Guaranteed Care' : 'শতভাগ বিশ্বস্ত সেবা'}</span>
               </div>
