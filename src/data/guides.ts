@@ -9,7 +9,7 @@ export const guidesData: GuideMember[] = [
     roleBn: 'প্রধান ধর্মীয় উপদেষ্টা ও পরিচালক',
     experienceEn: '21+ Years Experience • 28+ Hajj Caravans Led',
     experienceBn: '২১+ বছরের অভিজ্ঞতা • ২৮টির বেশি হজ কাফেলার সফল নেতৃত্ব',
-    image: '/images/scholars/kholilur_rahman.jpg',
+    image: 'https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/khalilur-rahman.jpg',
     bioEn: 'Prominent Islamic scholar with over 18 years of guiding thousands of Bangladeshi pilgrims to the Holy Mosques. Renowned for his calm demeanor, deep knowledge of Fiqh al-Hajj, and hands-on care for every pilgrim.',
     bioBn: 'পবিত্র কুরআন ও সুন্নাহর আলোকে হাজারো হাজীকে সরাসরি প্রশিক্ষণ ও দিকনির্দেশনা দিয়েছেন। হজের খুঁটিনাটি মাসায়েল ও বয়োজ্যেষ্ঠদের প্রতি তাঁর আন্তরিক যত্ন প্রশংসিত।',
     specialtiesEn: ['Fiqh al-Hajj & Umrah', 'Tawaf & Sa\'i On-site Guidance', 'Arabic & Islamic History', 'Pre-Hajj Workshops'],

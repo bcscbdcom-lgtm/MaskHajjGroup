@@ -89,14 +89,14 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
             <div className="lg:col-span-5 flex flex-col items-center">
               <div className="relative w-full max-w-md rounded-2xl overflow-hidden border-2 border-emerald-400/30 shadow-2xl bg-[#031d16]">
                 <img
-                  src="/images/scholars/kholilur_rahman.jpg"
+                  src="https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/khalilur-rahman.jpg"
                   alt={lang === 'en' ? 'Alhaj Hazrat Maulana Khalilur Rahman' : 'আলহাজ্জ হযরত মাওলানা খলিলুর রহমান'}
-                  className="w-full h-80 sm:h-96 object-cover [object-position:center_32%]"
+                  className="w-full h-80 sm:h-96 object-cover [object-position:50%_32%]"
+                  referrerPolicy="no-referrer"
                   onError={(e) => {
-                    // Try alternative local filename if needed
                     const target = e.target as HTMLImageElement;
-                    if (target.src.includes('kholilur_rahman.jpg')) {
-                      target.src = '/images/scholars/khalilur-rahman.jpg';
+                    if (!target.src.includes('kholilur_rahman.jpg')) {
+                      target.src = '/images/scholars/kholilur_rahman.jpg';
                     }
                   }}
                 />

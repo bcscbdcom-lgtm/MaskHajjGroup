@@ -11,7 +11,7 @@ export const agencyLeadershipData: LeadershipMember[] = [
     titleBn: 'বরিষ্ঠ হজ গবেষক ও মন্ত্রণালয় প্রত্যয়িত মুয়াল্লিম',
     yearsOfService: 21,
     hajjCaravansLed: 28,
-    image: '/images/scholars/kholilur_rahman.jpg',
+    image: 'https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/khalilur-rahman.jpg',
     bioEn: 'Eminent Islamic scholar with over 21 years of guiding thousands of Bangladeshi pilgrims through the exact Sunnah rites of Hajj and Umrah. Author of practical Fiqh guides and chief instructor for pre-departure workshops.',
     bioBn: 'পবিত্র কুরআন ও সুন্নাহর বিশুদ্ধ অনুসরণে সুদীর্ঘ ২১ বছর ধরে হাজারো হাজীর নির্ভরযোগ্য পথপ্রদর্শক। হজের প্রতিটি রোকনে সরাসরি উপস্থিতি ও সহজ ভাষায় মাসায়েল বর্ণনায় অনন্য।',
     credentialsEn: [
