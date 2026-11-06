@@ -4,10 +4,10 @@
  */
 
 /** WhatsApp নম্বর (দেশের কোড সহ, + বা স্পেস ছাড়া) */
-export const WHATSAPP_NUMBER = '8801711258708';
+export const WHATSAPP_NUMBER = '8801713009567';
 
 /** হটলাইন (দেখানোর জন্য) */
-export const HOTLINE_DISPLAY = '+88 01711-258708';
+export const HOTLINE_DISPLAY = '+88 01713-009567';
 
 /**
  * Google Apps Script Web App URL — ওয়েবসাইটের ফর্ম থেকে লিড এখানে পাঠানো হয়,

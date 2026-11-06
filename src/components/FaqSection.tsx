@@ -383,8 +383,8 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenPreReg, onOp
     const isEn = lang === 'en';
     const header = `════════════════════════════════════════════════════════════
 MASK HAJJ GROUP (Govt. Approved Licence No. 15630)
-China Town (Level-13), 67/1 Naya Paltan, VIP Road, Dhaka-1000
-24/7 Hotline: +88 01711-258708 | Web: https://maskhajjbd.com
+China Town (East Tower, Level-20), 67/1 Naya Paltan, VIP Road, Dhaka-1000
+24/7 Hotline: +88 01713-009567 | Web: https://maskintbd.com
 ════════════════════════════════════════════════════════════
 
 ${isEn ? 'OFFICIAL HAJJ & UMRAH FAQ & GUIDELINES SUMMARY' : 'পবিত্র হজ ও ওমরাহ প্রশ্নোত্তর ও শরিয়াহ নির্দেশিকা সামারি'}
@@ -404,7 +404,7 @@ ${item.tags ? `Keywords: ${item.tags.join(', ')}` : ''}
 
 ════════════════════════════════════════════════════════════
 ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ আলেমদের পরামর্শ ও জরুরি যোগাযোগ:'}
-- Hotline: +88 01711-258708 / +88 02-222229612
+- Hotline: +88 01713-009567 / +88 01713-009567 / +88 02-222229612
 - Email: maskbd99@gmail.com
 - Office: China Town (East Tower), 20th Floor, Suite 21/2, 67/1 Naya Paltan, Dhaka-1000
 ════════════════════════════════════════════════════════════`;
@@ -1412,11 +1412,11 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="tel:+8801711258708"
+              href="tel:+8801713009567"
               className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
             >
               <PhoneCall className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span>+88 01711-258708</span>
+              <span>+88 01713-009567</span>
             </a>
             <button
               onClick={() => onOpenPreReg('Direct Office Consultation')}

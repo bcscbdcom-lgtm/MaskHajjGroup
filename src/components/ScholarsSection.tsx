@@ -154,7 +154,7 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
-                  href={`https://wa.me/8801711258708?text=${whatsappMsg}`}
+                  href={`https://wa.me/8801713009567?text=${whatsappMsg}`}
                   target="_blank"
                   rel="noreferrer"
                   className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm sm:text-base font-bold px-7 py-3.5 rounded-2xl shadow-lg hover:shadow-emerald-500/20 transition-all flex items-center justify-center gap-2.5 cursor-pointer"

@@ -10,7 +10,7 @@ export const JsonLd: React.FC = () => {
     description:
       'Official Ministry of Religious Affairs approved Hajj & Umrah Travel Agency in Bangladesh (Licence #15630). Offering Hajj packages, Umrah group packages, visa assistance, and scholar guidance.',
     url: 'https://maskintbd.com',
-    telephone: '+8801711258708',
+    telephone: ['+8801713009567', '+8801711258708', '+8802222229612'],
     email: 'maskbd99@gmail.com',
     license: 'Ministry of Religious Affairs Licence No. 15630',
     priceRange: '৳৳৳',

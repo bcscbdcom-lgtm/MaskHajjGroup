@@ -237,7 +237,7 @@ export const AskScholarModal: React.FC<AskScholarModalProps> = ({
 
                 <div className="pt-3 flex flex-col sm:flex-row gap-3 justify-center">
                   <a
-                    href={`https://wa.me/8801711258708?text=${encodeURIComponent(
+                    href={`https://wa.me/8801713009567?text=${encodeURIComponent(
                       `Assalamu Alaikum. I submitted an inquiry (Ref: ${referenceId}) for ${selectedScholar.nameEn}: "${questionText.substring(0, 100)}..."`
                     )}`}
                     target="_blank"

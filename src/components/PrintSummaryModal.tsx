@@ -195,7 +195,7 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
                 )}
                 {includeHotline && (
                   <p className="text-[10px] text-slate-500">
-                    67/1 Naya Paltan, Dhaka-1000 • Hotline: +88 01711-258708 • Web: maskhajjbd.com
+                    67/1 Naya Paltan, Dhaka-1000 • Hotline: +88 01713-009567 • Web: maskintbd.com
                   </p>
                 )}
               </div>
@@ -268,7 +268,7 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
                 <div className="text-[10px] bg-amber-50 p-2 rounded border border-amber-200 text-amber-900">
                   <strong>{lang === 'en' ? 'Booking Instructions:' : 'বুকিং নির্দেশনা:'}</strong>{' '}
                   {lang === 'en'
-                    ? 'To confirm your seat, please visit our Dhaka office with your original passport (6 months validity) or register online at maskhajjbd.com.'
+                    ? 'To confirm your seat, please visit our Dhaka office with your original passport (6 months validity) or register online at maskintbd.com.'
                     : 'আসন নিশ্চিত করতে মূল পাসপোর্ট সহ আমাদের ঢাকা অফিসে যোগাযোগ করুন অথবা অনলাইনে নিবন্ধন সম্পন্ন করুন।'}
                 </div>
               </div>
@@ -320,7 +320,7 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
                 <div className="text-[10px] bg-emerald-50 p-2 rounded border border-emerald-200 text-emerald-900">
                   <strong>{lang === 'en' ? 'Shariah Advisory Desk:' : 'শরিয়াহ বোর্ডের পরামর্শ:'}</strong>{' '}
                   {lang === 'en'
-                    ? 'For individual complex health/Dam rulings or women-specific pilgrimage questions, consult our scholars directly at +88 01711-258708.'
+                    ? 'For individual complex health/Dam rulings or women-specific pilgrimage questions, consult our scholars directly at +88 01713-009567.'
                     : 'জটিল স্বাস্থ্যগত কারণ, দম বা কাফফারা ও মহিলাদের বিশেষ মাসআলার ক্ষেত্রে সরাসরি বিজ্ঞ আলেমদের সাথে যোগাযোগ করুন (+৮৮ ০১৭১১-২৫৮৭০৮)।'}
                 </div>
               </div>

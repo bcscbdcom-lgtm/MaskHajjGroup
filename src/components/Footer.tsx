@@ -230,7 +230,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
             {/* WhatsApp */}
             <a
-              href="https://wa.me/8801711258708"
+              href="https://wa.me/8801713009567"
               target="_blank"
               rel="noopener noreferrer"
               aria-label={lang === 'en' ? 'WhatsApp' : 'হোয়াটসঅ্যাপ'}
@@ -299,7 +299,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             </p>
             <p className="flex items-center gap-2.5">
               <Phone className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-              <span className="font-mono">+88 01711-258708, +88 02-222229612</span>
+              <span className="font-mono">+88 01713-009567, +88 01713-009567, +88 02-222229612</span>
             </p>
             <p className="flex items-center gap-2.5">
               <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />

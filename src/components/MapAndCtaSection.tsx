@@ -35,15 +35,15 @@ export const MapAndCtaSection: React.FC<MapAndCtaSectionProps> = ({ lang }) => {
 
           <div className="flex flex-wrap gap-4 mt-8 relative z-10">
             <a
-              href="tel:+8801711258708"
+              href="tel:+8801713009567"
               className="bg-white hover:bg-sky-50 text-sky-900 font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-xs transition flex items-center gap-2 font-mono"
             >
               <Phone className="w-4 h-4 text-emerald-600" />
-              <span>Call +88 01711-258708</span>
+              <span>Call +88 01713-009567</span>
             </a>
 
             <a
-              href="https://wa.me/8801711258708?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20know%20more%20about%20MASK%20Hajj%20Group%20packages."
+              href="https://wa.me/8801713009567?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20know%20more%20about%20MASK%20Hajj%20Group%20packages."
               target="_blank"
               rel="noreferrer"
               className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition flex items-center gap-2 shadow-xs"
@@ -129,7 +129,7 @@ export const MapAndCtaSection: React.FC<MapAndCtaSectionProps> = ({ lang }) => {
                   </p>
 
                   <div className="flex items-center justify-between pt-1 border-t border-slate-800/80">
-                    <span className="text-[10px] text-slate-400 font-mono">☎ +88 01711-258708</span>
+                    <span className="text-[10px] text-slate-400 font-mono">☎ +88 01713-009567 • +88 01711-258708</span>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=MASK+Hajj+Group+67/1+Naya+Paltan+China+Town+East+Tower+Dhaka"
                       target="_blank"

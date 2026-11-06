@@ -493,10 +493,10 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
             )}
 
             <a
-              href="tel:+8801711258708"
+              href="tel:+8801713009567"
               className="bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-semibold px-4.5 py-3 rounded-xl transition flex items-center gap-2"
             >
-              <span>📞 +88 01711-258708</span>
+              <span>📞 +88 01713-009567</span>
             </a>
           </div>
         </div>

@@ -81,6 +81,10 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-amber-300 flex-shrink-0" />
                 <div className="flex flex-wrap gap-2">
+                  <a href="tel:+8801713009567" className="hover:text-amber-300 transition font-mono">
+                    +88 01713-009567
+                  </a>
+                  <span className="mx-1 text-sky-300/60">•</span>
                   <a href="tel:+8801711258708" className="hover:text-amber-300 transition font-mono">
                     +88 01711-258708
                   </a>

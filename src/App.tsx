@@ -254,7 +254,7 @@ function AppContent() {
               Govt. Approved Ministry Licence No. 15630 • IATA Accredited Agent
             </p>
             <p className="text-[11px] text-slate-500 mt-1">
-              67/1 Naya Paltan, China Town (East Tower), Suite-21/2, Dhaka-1000 • Hotline: +88 01711-258708
+              67/1 Naya Paltan, China Town (East Tower), Suite-21/2, Dhaka-1000 • Hotline: +88 01713-009567, +88 01711-258708
             </p>
           </div>
           <div className="text-right text-xs text-slate-600">

@@ -73,11 +73,11 @@ export const TopBar: React.FC<TopBarProps> = ({
         {/* Right Side: Phone & Portal */}
         <div className="flex items-center gap-2.5 sm:gap-3 text-emerald-100 text-[11px] sm:text-xs flex-wrap justify-center">
           <a
-            href="tel:+8801711258708"
+            href="tel:+8801713009567"
             className="hover:text-amber-300 transition-colors flex items-center gap-1 font-semibold"
           >
             <Phone className="w-3 h-3 text-amber-300" />
-            <span>+88 01711-258708</span>
+            <span>+88 01713-009567</span>
           </a>
 
 

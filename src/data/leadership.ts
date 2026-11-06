@@ -18,6 +18,6 @@ export const agencyLeadershipData: LeadershipMember[] = [
     specialtiesEn: ['Fiqh al-Hajj & Umrah', 'Tawaf & Sa\'i Direct Guidance', 'Senior & First-Time Pilgrim Care', 'Arabic Language & Ziyarah History'],
     specialtiesBn: ['সহীহ হজের মাসায়েল', 'তাওয়াফ ও সাঈ সরাসরি পরিচালনা', 'বয়োজ্যেষ্ঠ ও প্রথমবার সফরকারী যত্ন', 'আরবি ভাষা ও ঐতিহাসিক জিয়ারাহ'],
     hasVerifiedCertificate: false,
-    phone: '+88 01711-258708'
+    phone: '+88 01713-009567'
   },
 ];

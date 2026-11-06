@@ -69,11 +69,11 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
           <div className="flex items-center gap-4">
             {/* Direct Hotline */}
             <a
-              href="tel:+8801711258708"
+              href="tel:+8801713009567"
               className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#064E3B] transition"
             >
               <span className="text-sm">📞</span>
-              <span className="font-mono text-sm">+88 01711-258708</span>
+              <span className="font-mono text-sm">+88 01713-009567</span>
             </a>
 
             {/* Language Switcher */}
@@ -135,10 +135,10 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
           ))}
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
             <a
-              href="tel:+8801711258708"
+              href="tel:+8801713009567"
               className="text-xs font-semibold text-slate-600 flex items-center gap-2 py-1 px-3"
             >
-              <span>📞</span> +88 01711-258708
+              <span>📞</span> +88 01713-009567
             </a>
             <button
               onClick={() => {
