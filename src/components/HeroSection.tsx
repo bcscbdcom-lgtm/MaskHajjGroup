@@ -42,6 +42,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       url: '/images/arafat.jpg',
       fallback: '/images/arafat.jpg',
     },
+    {
+      id: 'mina',
+      nameEn: 'Mina • Tent City',
+      nameBn: 'মিনা • তাঁবুর শহর',
+      labelBn: '📍 মিনা • তাঁবুর শহর ও জামারাত',
+      labelEn: '📍 Mina • Tent City & Jamarat',
+      url: '/images/mina.jpg',
+      fallback: '/images/mina.jpg',
+    },
   ];
 
   // Auto cross-fade background every 5 seconds

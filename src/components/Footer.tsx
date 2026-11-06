@@ -298,6 +298,10 @@ export const Footer: React.FC<FooterProps> = ({ lang, onOpenLegal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-500 dark:text-slate-400">
         <div>
           © {new Date().getFullYear()} MASK Hajj Group. All rights reserved. Dhaka, Bangladesh.
+          <div className="mt-1 text-[10px] text-slate-400">
+            {lang === 'en' ? 'Mina photo: ' : 'মিনার ছবি: '}
+            <a href="https://commons.wikimedia.org/wiki/File:Mina_saudi_arabia.jpg" target="_blank" rel="noopener noreferrer" className="hover:underline">saudipics, Wikimedia Commons</a>, CC BY-SA 4.0
+          </div>
         </div>
 
 
