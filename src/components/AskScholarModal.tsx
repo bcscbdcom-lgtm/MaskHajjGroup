@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { agencyLeadershipData } from '../data/leadership';
+import { saveLead } from '../utils/leads';
 import { toBengaliNumber } from '../utils/dateFormatter';
 
 interface AskScholarModalProps {
@@ -140,6 +141,16 @@ export const AskScholarModal: React.FC<AskScholarModalProps> = ({
     setIsSubmitting(true);
     const randomRef = `SCH-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
     setReferenceId(randomRef);
+    // প্রশ্নটি Google Sheet-এর Leads ট্যাবে জমা হয় (source: scholar)
+    void saveLead({
+      source: 'scholar',
+      name: pilgrimName,
+      phone: pilgrimPhone,
+      email: pilgrimEmail,
+      interest: 'Scholar Question',
+      message: questionText,
+      extra: `ref=${randomRef}; mode=${consultationMode}; time=${preferredTime}`,
+    });
 
     setTimeout(() => {
       setIsSubmitting(false);
@@ -226,7 +237,7 @@ export const AskScholarModal: React.FC<AskScholarModalProps> = ({
 
                 <div className="pt-3 flex flex-col sm:flex-row gap-3 justify-center">
                   <a
-                    href={`https://wa.me/8801711258708?text=${encodeURIComponent(
+                    href={`https://wa.me/8801713009567?text=${encodeURIComponent(
                       `Assalamu Alaikum. I submitted an inquiry (Ref: ${referenceId}) for ${selectedScholar.nameEn}: "${questionText.substring(0, 100)}..."`
                     )}`}
                     target="_blank"

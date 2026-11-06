@@ -383,8 +383,8 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ lang, onOpenPreReg, onOp
     const isEn = lang === 'en';
     const header = `════════════════════════════════════════════════════════════
 MASK HAJJ GROUP (Govt. Approved Licence No. 15630)
-China Town (Level-13), 67/1 Naya Paltan, VIP Road, Dhaka-1000
-24/7 Hotline: +88 01711-258708 | Web: https://maskhajjbd.com
+China Town (East Tower, Level-20), 67/1 Naya Paltan, VIP Road, Dhaka-1000
+24/7 Hotline: +88 01713-009567 | Web: https://maskintbd.com
 ════════════════════════════════════════════════════════════
 
 ${isEn ? 'OFFICIAL HAJJ & UMRAH FAQ & GUIDELINES SUMMARY' : 'পবিত্র হজ ও ওমরাহ প্রশ্নোত্তর ও শরিয়াহ নির্দেশিকা সামারি'}
@@ -404,9 +404,9 @@ ${item.tags ? `Keywords: ${item.tags.join(', ')}` : ''}
 
 ════════════════════════════════════════════════════════════
 ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ আলেমদের পরামর্শ ও জরুরি যোগাযোগ:'}
-- Hotline: +88 01711-258708 / +88 01713-000000
-- Email: maskhajjbd@gmail.com
-- Office: Suite 1302, China Town Building, Naya Paltan, Dhaka
+- Hotline: +88 01713-009567 / +88 01713-009567 / +88 02-222229612
+- Email: maskbd99@gmail.com
+- Office: China Town (East Tower), 20th Floor, Suite 21/2, 67/1 Naya Paltan, Dhaka-1000
 ════════════════════════════════════════════════════════════`;
     return header;
   };
@@ -783,10 +783,10 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '1,450+' : `${toBengaliNumber('1450')}+`}
+                {lang === 'en' ? '15630' : toBengaliNumber('15630')}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                {lang === 'en' ? 'Questions Answered' : 'প্রশ্ন সমাধান সম্পন্ন'}
+                {lang === 'en' ? 'Govt. Hajj Licence No.' : 'সরকারি হজ লাইসেন্স নং'}
               </p>
             </div>
           </div>
@@ -798,10 +798,10 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '99.2%' : `${toBengaliNumber('99.2')}%`}
+                {lang === 'en' ? '1200+' : `${toBengaliNumber('1200')}+`}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                {lang === 'en' ? 'Community Trust Score' : 'গ্রাহক সন্তুষ্টি স্কোর'}
+                {lang === 'en' ? 'Pilgrims Served' : 'হাজী সেবা পেয়েছেন'}
               </p>
             </div>
           </div>
@@ -813,7 +813,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '3 Scholars' : `${toBengaliNumber('3')} জন আলেম`}
+                {lang === 'en' ? 'Since 2005' : `${toBengaliNumber('2005')} থেকে`}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {lang === 'en' ? 'Resident Shariah Board' : 'সার্বক্ষণিক শরিয়াহ বোর্ড'}
@@ -828,7 +828,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '< 2 Hours' : `< ${toBengaliNumber('2')} ঘণ্টা`}
+                {lang === 'en' ? '10AM–7PM' : `${toBengaliNumber('10')}টা–${toBengaliNumber('7')}টা`}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {lang === 'en' ? 'Avg. Response Time' : 'গড় উত্তর প্রদানের সময়'}
@@ -988,7 +988,6 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
           {/* Popular Items 3-Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
             {popularFaqs.map((faq, index) => {
-              const views = clickCounts[faq.id] || faq.initialClicks || 100;
               return (
                 <button
                   key={faq.id}
@@ -1002,7 +1001,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
                       </span>
                       <span className="text-[10px] text-slate-600 dark:text-slate-300 font-mono font-bold flex items-center gap-1">
                         <Flame className="w-3 h-3 text-amber-500" />
-                        {lang === 'en' ? `${views} views` : `${toBengaliNumber(views)} বার পড়া হয়েছে`}
+                        {lang === 'en' ? 'Popular' : 'জনপ্রিয়'}
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2 transition-colors">
@@ -1012,7 +1011,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
                   <div className="mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/40 flex items-center justify-between text-[11px] text-blue-600 dark:text-blue-400 font-semibold">
                     <span className="flex items-center gap-1">
                       <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      <span>{faq.helpfulScore || 98}% Helpful</span>
+                      <span>{lang === 'en' ? 'Read answer' : 'উত্তর পড়ুন'}</span>
                     </span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -1104,10 +1103,6 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
                                   {faq.segment}
                                 </span>
                               )}
-                              <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 flex items-center gap-0.5">
-                                <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                                {faq.helpfulScore || 98}%
-                              </span>
                             </div>
                             <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
                               {lang === 'en' ? faq.questionEn : faq.questionBn}
@@ -1412,11 +1407,11 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="tel:+8801711258708"
+              href="tel:+8801713009567"
               className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
             >
               <PhoneCall className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span>+88 01711-258708</span>
+              <span>+88 01713-009567</span>
             </a>
             <button
               onClick={() => onOpenPreReg('Direct Office Consultation')}

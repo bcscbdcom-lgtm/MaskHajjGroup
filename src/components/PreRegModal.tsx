@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, ShieldCheck, CheckCircle2, MessageCircle } from 'lucide-react';
 import { Language } from '../types';
+import { saveLead, buildWhatsAppUrl } from '../utils/leads';
 
 interface PreRegModalProps {
   isOpen: boolean;
@@ -17,7 +18,7 @@ export const PreRegModal: React.FC<PreRegModalProps> = ({
 }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [pkg, setPkg] = useState('Hajj 2026–2027 (Pre-Register)');
+  const [pkg, setPkg] = useState('Hajj 2028 (Pre-Register)');
   const [pilgrims, setPilgrims] = useState('1');
   const [forwardWhatsApp, setForwardWhatsApp] = useState(true);
   const [submitted, setSubmitted] = useState(false);
@@ -33,12 +34,13 @@ export const PreRegModal: React.FC<PreRegModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-
+    const lead = { source: 'prereg', name, phone, interest: pkg, pilgrims };
+    // Google Sheet-এর Leads ট্যাবে জমা (ব্যাকগ্রাউন্ডে)
+    void saveLead(lead);
     if (forwardWhatsApp) {
-      const msg = `*Pre-registration / Consultation Request*\n*Name:* ${name}\n*Phone:* ${phone}\n*Package:* ${pkg}\n*Pilgrims:* ${pilgrims}\n*Date:* ${new Date().toLocaleDateString()}`;
-      const url = `https://wa.me/8801711258708?text=${encodeURIComponent(msg)}`;
+      const url = buildWhatsAppUrl(lead, lang === 'en' ? 'en' : 'bn');
       setTimeout(() => {
-        window.open(url, '_blank');
+        window.open(url, '_blank', 'noopener');
       }, 500);
     }
   };
@@ -137,7 +139,7 @@ export const PreRegModal: React.FC<PreRegModalProps> = ({
                     onChange={(e) => setPkg(e.target.value)}
                     className="w-full border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2.5 text-xs text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 dark:bg-slate-800 font-medium cursor-pointer"
                   >
-                    <option value="Hajj 2026–2027 (Pre-Register)">Hajj 2026–2027 (Pre-Register)</option>
+                    <option value="Hajj 2028 (Pre-Register)">Hajj 2028 (Pre-Register)</option>
                     <option value="সাশ্রয়ী ফুল প্যাকেজ (৳ ৫,১৩,৬৪৮)">সাশ্রয়ী ফুল প্যাকেজ (৳ ৫,১৩,৬৪৮)</option>
                     <option value="ইকোনমি প্যাকেজ (৳ ৫,৪০,০০০)">ইকোনমি প্যাকেজ (৳ ৫,৪০,০০০)</option>
                     <option value="স্ট্যান্ডার্ড প্যাকেজ (৳ ৬,৪০,০০০)">স্ট্যান্ডার্ড প্যাকেজ (৳ ৬,৪০,০০০)</option>

@@ -54,7 +54,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
       : 'আসসালামু আলাইকুম মাস্ক হজ গ্রুপ, আমি আপনাদের হজ ও ওমরাহ সেবা সংক্রান্ত তথ্য জানতে চাই।';
   };
 
-  const whatsappUrl = `https://wa.me/8801711258708?text=${encodeURIComponent(getWhatsAppMessage())}`;
+  const whatsappUrl = `https://wa.me/8801713009567?text=${encodeURIComponent(getWhatsAppMessage())}`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
@@ -90,7 +90,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
             {lang === 'en' ? 'WhatsApp Chat' : 'হোয়াটসঅ্যাপে পরামর্শ'}
           </span>
           <span className="text-[10px] text-emerald-100 font-medium opacity-90 leading-tight">
-            +88 01711-258708
+            +88 01713-009567
           </span>
         </div>
       </a>

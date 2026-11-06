@@ -8,9 +8,9 @@ export const faqsData: FAQItem[] = [
     isPopular: true,
     initialClicks: 428,
     helpfulScore: 99,
-    tags: ['Pre-Registration', 'Hajj 2026', 'NID', 'Passport', 'Serial'],
-    questionEn: 'How do I pre-register for Hajj 2026–2027 through MASK Hajj Group?',
-    questionBn: 'মাস্ক হজ গ্রুপের মাধ্যমে হজ ২০২৬–২০২৭ এর জন্য কীভাবে প্রাক-নিবন্ধন করব?',
+    tags: ['Pre-Registration', 'Hajj 2028', 'NID', 'Passport', 'Serial'],
+    questionEn: 'How do I pre-register for Hajj 2028 through MASK Hajj Group?',
+    questionBn: 'মাস্ক হজ গ্রুপের মাধ্যমে হজ ২০২৮-এর জন্য কীভাবে প্রাক-নিবন্ধন করব?',
     answerEn: 'Pre-registration requires your original valid Bangladeshi Passport (minimum 6 months validity) and National ID (NID/Birth Certificate). Our office handles the government server submission directly and provides you with the official government Pilgrim ID serial instantly.',
     answerBn: 'প্রাক-নিবন্ধনের জন্য আপনার মূল পাসপোর্ট (কমপক্ষে ৬ মাস মেয়াদসহ) এবং জাতীয় পরিচয়পত্র (NID) প্রয়োজন। আমাদের পল্টন অফিসে সরাসরি এসে অথবা অনলাইনে ফর্ম পূরণ করে সরকারি ফি জমা দিলে সঙ্গে সঙ্গে অফিশিয়াল ট্র্যাকিং নম্বর প্রদান করা হয়।'
   },
@@ -74,8 +74,8 @@ export const faqsData: FAQItem[] = [
     initialClicks: 284,
     helpfulScore: 96,
     tags: ['Vaccines', 'Meningitis', 'Influenza', 'Medical Clearance'],
-    questionEn: 'What are the mandatory health and vaccine requirements for Hajj 2026?',
-    questionBn: 'হজ ২০২৬ এর জন্য বাধ্যতামূলক স্বাস্থ্য পরীক্ষা ও টিকা সংক্রান্ত কী নিয়ম রয়েছে?',
+    questionEn: 'What are the mandatory health and vaccine requirements for Hajj 2027?',
+    questionBn: 'হজ ২০২৭-এর জন্য বাধ্যতামূলক স্বাস্থ্য পরীক্ষা ও টিকা সংক্রান্ত কী নিয়ম রয়েছে?',
     answerEn: 'Pilgrims must receive the Meningococcal Meningitis (ACYW135) vaccine and seasonal Influenza vaccine at least 10 days before travel. A certified medical fitness clearance certificate from an authorized government healthcare center is required for biometric visa issuance.',
     answerBn: 'ভ্রমণের কমপক্ষে ১০ দিন পূর্বে মেনিনজাইটিস ও ইনফ্লুয়েঞ্জা ভ্যাকসিন গ্রহণ করে সরকারি টিকাদান কেন্দ্র থেকে আন্তর্জাতিক ভ্যাকসিন কার্ড সংগ্রহ করতে হবে। এছাড়া সরকারের স্বাস্থ্য মন্ত্রণালয় অনুমোদিত মেডিকেল ফিটনেস সার্টিফিকেট বাধ্যতামূলক।'
   },

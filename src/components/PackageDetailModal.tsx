@@ -69,7 +69,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
   const bookingUrl =
     typeof window !== 'undefined'
       ? `${window.location.origin}${window.location.pathname}?pkg=${encodeURIComponent(pkg.id)}#preregistration`
-      : `https://maskhajj.com/?pkg=${encodeURIComponent(pkg.id)}#preregistration`;
+      : `https://maskintbd.com/?pkg=${encodeURIComponent(pkg.id)}#preregistration`;
 
   const handleCopyLink = () => {
     if (navigator.clipboard) {
@@ -388,7 +388,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
           </button>
 
           <a
-            href={`https://wa.me/8801711258708?text=${encodeURIComponent(
+            href={`https://wa.me/8801713009567?text=${encodeURIComponent(
               `Assalamu Alaikum, I would like more details and itinerary for "${lang === 'en' ? pkg.nameEn : pkg.nameBn}" (${lang === 'en' ? pkg.priceEn : pkg.priceBn}).`
             )}`}
             target="_blank"

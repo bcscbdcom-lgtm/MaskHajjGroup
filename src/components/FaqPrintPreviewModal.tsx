@@ -218,7 +218,7 @@ export const FaqPrintPreviewModal: React.FC<FaqPrintPreviewModalProps> = ({
                       : 'গণপ্রজাতন্ত্রী বাংলাদেশ সরকার অনুমোদিত হজ ও ওমরাহ এজেন্সি • লাইসেন্স নং ১৫৬৩০'}
                   </p>
                   <p className="text-[11px] text-slate-600">
-                    China Town (Level-13), 67/1 Naya Paltan, VIP Road, Dhaka-1000 | Hotline: +88 01711-258708
+                    China Town (East Tower, Level-20), 67/1 Naya Paltan, VIP Road, Dhaka-1000 | Hotline: +88 01713-009567
                   </p>
                 </div>
 
@@ -305,7 +305,7 @@ export const FaqPrintPreviewModal: React.FC<FaqPrintPreviewModalProps> = ({
               </div>
               <p className="leading-normal">
                 {isEn
-                  ? 'Disclaimer: Pilgrimage rules are subject to real-time Saudi Ministry of Hajj & Umrah (Nusuk platform) regulatory updates. For emergency queries, call 24/7 hotline +88 01711-258708.'
+                  ? 'Disclaimer: Pilgrimage rules are subject to real-time Saudi Ministry of Hajj & Umrah (Nusuk platform) regulatory updates. For emergency queries, call 24/7 hotline +88 01713-009567.'
                   : 'সতর্কতা: সৌদি হজ ও ওমরাহ মন্ত্রণালয় (নুসুক প্ল্যাটফর্ম) এবং বাংলাদেশ সরকারের সর্বশেষ সার্কুলার অনুযায়ী নিয়মাবলী প্রযোজ্য। জরুরি তথ্যের জন্য কল করুনঃ +৮৮ ০১৭১১-২৫৮৭০৮।'}
               </p>
             </div>

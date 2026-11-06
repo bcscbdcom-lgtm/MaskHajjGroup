@@ -247,10 +247,10 @@ export const EssentialDocumentsWalkthrough: React.FC<EssentialDocumentsWalkthrou
     lines.push('4. Do not staple, fold or laminate passport visa pages.');
     lines.push('5. Complete biometric scan on Saudi Visa Bio app before final visa issuance.');
     lines.push('------------------------------------------------------------------------');
-    lines.push('MASK HAJJ GROUP - Trusted Hajj & Umrah Service Provider Since 2008');
-    lines.push('Head Office: Suite 402, Naya Paltan, Dhaka-1000, Bangladesh');
-    lines.push('Hotline: +880 1711-258708, +880 1819-223344 | Email: info@maskhajj.com');
-    lines.push('Website: https://maskhajj.com.bd');
+    lines.push('MASK HAJJ GROUP - Trusted Hajj & Umrah Service Provider Since 2005');
+    lines.push('Head Office: China Town (East Tower), 20th Floor, Suite 21/2, 67/1 Naya Paltan, Dhaka-1000');
+    lines.push('Hotline: +880 1711-258708, +880 2-222229612 | Email: maskbd99@gmail.com');
+    lines.push('Website: https://maskintbd.com');
     lines.push('========================================================================');
 
     const fileContent = lines.join('\n');

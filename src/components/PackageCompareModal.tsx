@@ -317,7 +317,7 @@ export const PackageCompareModal: React.FC<PackageCompareModalProps> = ({
                           </button>
 
                           <a
-                            href={`https://wa.me/8801711258708?text=${encodeURIComponent(
+                            href={`https://wa.me/8801713009567?text=${encodeURIComponent(
                               `Assalamu Alaikum, I compared and am interested in "${name}" (${price}) at MASK Hajj Group.`
                             )}`}
                             target="_blank"

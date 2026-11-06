@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Quote, Star, CheckCircle2 } from 'lucide-react';
+import { Quote, Star, CheckCircle2, Youtube } from 'lucide-react';
 import { Language } from '../types';
 import { testimonialsData } from '../data/blogArticles';
 import { TestimonialCardSkeleton } from './skeletons/TestimonialCardSkeleton';
@@ -25,19 +25,16 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ lang }
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-            {lang === 'en' ? 'Verified Reviews' : 'হাজীদের মতামত ও রিভিউ'}
+            {lang === 'en' ? 'Pilgrim Reviews' : 'হাজীদের মতামত ও রিভিউ'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 tracking-tight">
             {lang === 'en' ? 'What our pilgrims say' : 'আমাদের সম্মানিত হাজীদের অভিজ্ঞতা'}
           </h2>
-          <div className="flex items-center justify-center gap-1.5 text-amber-400 text-sm mt-3">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-            ))}
-            <span className="text-slate-600 dark:text-slate-400 text-xs font-semibold ml-1.5">
-              {lang === 'en' ? '4.9 ★ based on 250+ Google Reviews' : '৪.৯ ★ ২৫০টিরও বেশি গুগল রিভিউ ভিত্তিক'}
-            </span>
-          </div>
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-3">
+            {lang === 'en'
+              ? 'Real video feedback from our pilgrims, published on our official YouTube channel.'
+              : 'আমাদের অফিসিয়াল ইউটিউব চ্যানেলে প্রকাশিত হাজী সাহেবদের আসল ভিডিও মতামত।'}
+          </p>
         </div>
 
         {/* Testimonials Cards Grid or Skeleton */}
@@ -52,11 +49,23 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ lang }
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
+                    {item.videoUrl ? (
+                      <a
+                        href={item.videoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700"
+                      >
+                        <Youtube className="w-4 h-4" />
+                        <span>{lang === 'en' ? 'Watch on YouTube' : 'ইউটিউবে দেখুন'}</span>
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-1 text-amber-400">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+                    )}
                     <span className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[10px] font-bold px-2.5 py-1 rounded-full">
                       {lang === 'en' ? item.packageTypeEn : item.packageTypeBn} • {item.year}
                     </span>
@@ -81,7 +90,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ lang }
                   </div>
 
                   <div className="text-[11px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/80 border border-blue-200/60 dark:border-blue-800 px-2.5 py-1 rounded-lg">
-                    {lang === 'en' ? 'Verified Haji' : 'যাচাইকৃত হাজী'}
+                    {lang === 'en' ? 'Our Pilgrim' : 'আমাদের হাজী'}
                   </div>
                 </div>
               </div>

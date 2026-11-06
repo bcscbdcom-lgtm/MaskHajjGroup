@@ -27,8 +27,8 @@ export const hajjPackages: PackageItem[] = [
     availability: 'limited',
     seatsRemaining: 12,
     totalSeats: 50,
-    availabilityBadgeEn: 'Limited Seats (12 Left)',
-    availabilityBadgeBn: 'সীমিত আসন (১২টি বাকি)',
+    availabilityBadgeEn: 'Limited Seats',
+    availabilityBadgeBn: 'সীমিত আসন',
     itinerarySummaryEn: 'Affordable full-stay package with comprehensive guidance, Bangladeshi catering, and dedicated shuttle transport.',
     itinerarySummaryBn: 'সাশ্রয়ী মূল্যে পূর্ণ মেয়াদের হজ প্যাকেজ, দেশীয় পুষ্টিকর ৩ বেলা খাবার ও সার্বক্ষণিক মুয়াল্লিম সাপোর্ট।',
     highlightsEn: [
@@ -100,8 +100,8 @@ export const hajjPackages: PackageItem[] = [
     availability: 'fast_filling',
     seatsRemaining: 18,
     totalSeats: 60,
-    availabilityBadgeEn: 'Fast Filling (18 Left)',
-    availabilityBadgeBn: 'দ্রুত পূরণ হচ্ছে (১৮টি বাকি)',
+    availabilityBadgeEn: 'Filling Fast',
+    availabilityBadgeBn: 'দ্রুত পূরণ হচ্ছে',
     itinerarySummaryEn: 'Close proximity walking distance accommodations with upgraded Category C Mina tents and included Qurbani.',
     itinerarySummaryBn: 'হারামের হাঁটা দূরত্বে উন্নত আবাসন, ক্যাটাগরি সি মিনা তাবু ও কুরবানী সহ পূর্ণাঙ্গ হজ প্যাকেজ।',
     highlightsEn: [
@@ -241,8 +241,8 @@ export const hajjPackages: PackageItem[] = [
     availability: 'limited',
     seatsRemaining: 7,
     totalSeats: 30,
-    availabilityBadgeEn: 'Limited (7 Seats Left)',
-    availabilityBadgeBn: 'সীমিত আসন (৭টি বাকি)',
+    availabilityBadgeEn: 'Limited Seats',
+    availabilityBadgeBn: 'সীমিত আসন',
     itinerarySummaryEn: 'Exclusive short-duration executive pilgrimage featuring 5-star luxury front row hotels, bullet train travel, and VIP air-conditioned Mina tents.',
     itinerarySummaryBn: 'ব্যবসায়ী ও চাকরিজীবীদের জন্য স্বল্পমেয়াদী রাজকীয় হজ প্যাকেজ — ৫★ হোটেল, বুলেট ট্রেন ও ভিআইপি মিনা জোন।',
     highlightsEn: [
@@ -312,8 +312,8 @@ export const hajjPackages: PackageItem[] = [
     availability: 'limited',
     seatsRemaining: 4,
     totalSeats: 15,
-    availabilityBadgeEn: 'Strictly Limited (4 Slots)',
-    availabilityBadgeBn: 'অতি সীমিত (৪টি স্লট)',
+    availabilityBadgeEn: 'Strictly Limited',
+    availabilityBadgeBn: 'অতি সীমিত',
     itinerarySummaryEn: 'Ultra-luxurious royal pilgrimage package with Kaaba-view suites, private GMC Yukon chauffeurs, and dedicated private scholar companionship.',
     itinerarySummaryBn: 'কাবা ভিউ স্যুট, বিজনেস ক্লাস ফ্লাইট, প্রাইভেট জিমসি কার ও ব্যক্তিগত আলেম গাইডসহ সর্বোচ্চ রাজকীয় প্যাকেজ।',
     highlightsEn: [

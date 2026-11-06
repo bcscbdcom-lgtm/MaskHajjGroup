@@ -10,8 +10,8 @@ export const umrahPackages: PackageItem[] = [
     categoryTagsEn: ['Budget', 'Popular', '15-Day', 'Direct Flight'],
     categoryTagsBn: ['বাজেট', 'জনপ্রিয়', '১৫ দিন', 'সরাসরি ফ্লাইট'],
     isPopular: true,
-    nameEn: 'August & September Umrah',
-    nameBn: 'আগস্ট ও সেপ্টেম্বর ওমরাহ প্যাকেজ',
+    nameEn: 'Regular 15-Day Umrah',
+    nameBn: 'নিয়মিত ১৫ দিনের ওমরাহ প্যাকেজ',
     durationEn: '15 Days • 2026-2027',
     durationBn: '১৫ দিন • ২০২৬-২০২৭',
     priceEn: '৳ 160,000',
@@ -28,8 +28,8 @@ export const umrahPackages: PackageItem[] = [
     availability: 'fast_filling',
     seatsRemaining: 14,
     totalSeats: 45,
-    availabilityBadgeEn: 'Fast Filling (14 Left)',
-    availabilityBadgeBn: 'দ্রুত পূরণ হচ্ছে (১৪টি বাকি)',
+    availabilityBadgeEn: 'Fast Filling',
+    availabilityBadgeBn: 'দ্রুত পূরণ হচ্ছে',
     itinerarySummaryEn: 'The perfect economical 15-day spiritual retreat with direct scheduled flights, close hotels, and guided ziyarah.',
     itinerarySummaryBn: '১৫ দিনের সাশ্রয়ী ও আরামদায়ক ওমরাহ কাফেলা — সরাসরি ফ্লাইট, নিকটে হোটেল ও অভিজ্ঞ আলেম দ্বারা পরিচালিত।',
     highlightsEn: [
@@ -165,8 +165,8 @@ export const umrahPackages: PackageItem[] = [
     availability: 'limited',
     seatsRemaining: 8,
     totalSeats: 35,
-    availabilityBadgeEn: 'Limited Seats (8 Left)',
-    availabilityBadgeBn: 'সীমিত আসন (৮টি বাকি)',
+    availabilityBadgeEn: 'Limited Seats',
+    availabilityBadgeBn: 'সীমিত আসন',
     itinerarySummaryEn: 'Premium family-oriented pilgrimage with 4-star hotels steps away from the Haram, daily breakfast & dinner, plus a scenic Taif excursion.',
     itinerarySummaryBn: 'পরিবার ও পিতা-মাতার জন্য প্রিমিয়াম ৪★ হোটেল, সুস্বাদু সকাল ও রাতের খাবার এবং ঐতিহাসিক তায়েফ সফরসহ বিশেষ আয়োজন।',
     highlightsEn: [
@@ -234,8 +234,8 @@ export const umrahPackages: PackageItem[] = [
     availability: 'limited',
     seatsRemaining: 5,
     totalSeats: 20,
-    availabilityBadgeEn: 'Strictly Limited (5 Left)',
-    availabilityBadgeBn: 'অতি সীমিত (৫টি বাকি)',
+    availabilityBadgeEn: 'Strictly Limited',
+    availabilityBadgeBn: 'অতি সীমিত',
     itinerarySummaryEn: 'A lavish 5-star experience with Haram-view rooms, private GMC transfers, Haramain High-Speed train, and personalized attention.',
     itinerarySummaryBn: 'হারাম ভিউ লাক্সারি রুম, প্রাইভেট জিএমসি গাড়ি, হারামাইন বুলেট ট্রেন ও ব্যক্তিগত মুয়াল্লিম সমৃদ্ধ রাজকীয় ওমরাহ সফর।',
     highlightsEn: [
@@ -280,24 +280,6 @@ export const umrahPackages: PackageItem[] = [
 ];
 
 export const upcomingUmrahSchedules: UmrahSchedule[] = [
-  {
-    monthEn: 'SEPTEMBER 2026',
-    monthBn: 'সেপ্টেম্বর ২০২৬',
-    datesEn: '26/09/2026 TO 10/10/2026',
-    datesBn: '২৬/০৯/২০২৬ থেকে ১০/১০/২০২৬',
-    statusEn: 'Seats Available',
-    statusBn: 'বুকিং চলছে',
-    badgeColor: 'bg-emerald-500 text-white'
-  },
-  {
-    monthEn: 'OCTOBER 2026',
-    monthBn: 'অক্টোবর ২০২৬',
-    datesEn: '10/10/2026 TO 24/10/2026',
-    datesBn: '১০/১০/২০২৬ থেকে ২৪/১০/২০২৬',
-    statusEn: 'Filling Fast',
-    statusBn: 'সীমিত আসন',
-    badgeColor: 'bg-amber-500 text-white'
-  },
   {
     monthEn: 'NOVEMBER 2026',
     monthBn: 'নভেম্বর ২০২৬',

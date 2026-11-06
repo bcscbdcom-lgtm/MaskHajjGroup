@@ -137,7 +137,7 @@ export const PilgrimTools: React.FC<PilgrimToolsProps> = ({
                       : 'border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  {lang === 'en' ? 'Hajj 2026–2027 (35-40 Days)' : 'পবিত্র হজ ২০২৬–২৭ (৩৫-৪০ দিন)'}
+                  {lang === 'en' ? 'Hajj 2027–2028 (35-40 Days)' : 'পবিত্র হজ ২০২৭–২৮ (৩৫-৪০ দিন)'}
                 </button>
                 <button
                   type="button"

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 import { Language } from '../types';
+import { submitLeadAndOpenWhatsApp } from '../utils/leads';
 
 interface ConsultationSectionProps {
   lang: Language;
@@ -10,7 +11,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
-  const [interest, setInterest] = useState('Hajj 2026–2027 (Pre-Register)');
+  const [interest, setInterest] = useState('Hajj 2028 (Pre-Register)');
   const [message, setMessage] = useState('');
   const [isHighlighting, setIsHighlighting] = useState(false);
 
@@ -24,6 +25,11 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     triggerFieldHighlight();
+    // ১) WhatsApp-এ প্রস্তুত বার্তা খোলে  ২) Google Sheet-এর Leads ট্যাবে জমা হয়
+    void submitLeadAndOpenWhatsApp(
+      { source: 'consultation', name: fullName, phone, interest, message },
+      lang === 'en' ? 'en' : 'bn'
+    );
     setFormSubmitted(true);
   };
 
@@ -75,6 +81,10 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-amber-300 flex-shrink-0" />
                 <div className="flex flex-wrap gap-2">
+                  <a href="tel:+8801713009567" className="hover:text-amber-300 transition font-mono">
+                    +88 01713-009567
+                  </a>
+                  <span className="mx-1 text-sky-300/60">•</span>
                   <a href="tel:+8801711258708" className="hover:text-amber-300 transition font-mono">
                     +88 01711-258708
                   </a>
@@ -110,15 +120,15 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
               </div>
             </div>
             <div>
-              <div className="font-extrabold text-lg text-white font-mono">11+</div>
+              <div className="font-extrabold text-lg text-white font-mono">21+</div>
               <div className="text-[10px] text-sky-200">
                 {lang === 'en' ? 'Years' : 'বছর'}
               </div>
             </div>
             <div>
-              <div className="font-extrabold text-lg text-amber-300 font-mono">4.9★</div>
+              <div className="font-extrabold text-lg text-amber-300 font-mono">15630</div>
               <div className="text-[10px] text-sky-200">
-                {lang === 'en' ? 'Rating' : 'রেটিং'}
+                {lang === 'en' ? 'Govt. Licence' : 'সরকারি লাইসেন্স'}
               </div>
             </div>
           </div>
@@ -185,8 +195,8 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
                   onChange={(e) => setInterest(e.target.value)}
                   className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl px-4 py-2.5 text-xs text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all duration-300 font-medium cursor-pointer ${fieldAnimClass}`}
                 >
-                  <option value="Hajj 2026–2027 (Pre-Register)">
-                    {lang === 'en' ? 'Hajj 2026–2027 (Pre-Register)' : 'হজ ২০২৬–২০২৭ (প্রাক-নিবন্ধন)'}
+                  <option value="Hajj 2028 (Pre-Register)">
+                    {lang === 'en' ? 'Hajj 2028 (Pre-Register)' : 'হজ ২০২৮ (প্রাক-নিবন্ধন)'}
                   </option>
                   <option value="Weekly Umrah Group Package">
                     {lang === 'en' ? 'Weekly Umrah Group Package' : 'সাপ্তাহিক ওমরাহ প্যাকেজ'}
@@ -224,7 +234,7 @@ export const ConsultationSection: React.FC<ConsultationSectionProps> = ({ lang }
                 className="w-full bg-sky-600 hover:bg-sky-700 active:scale-[0.99] text-white text-xs font-bold py-3.5 rounded-xl shadow-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Send className="w-4 h-4" />
-                <span>{lang === 'en' ? 'Send Message & Callback Request' : 'বার্তা পাঠান ও কলব্যাক অনুরোধ করুন'}</span>
+                <span>{lang === 'en' ? 'Send via WhatsApp & Request Callback' : 'WhatsApp-এ পাঠান ও কলব্যাক অনুরোধ করুন'}</span>
               </button>
 
               <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 dark:text-slate-400 pt-1">
