@@ -27,6 +27,7 @@ import { PackageDetailModal } from './components/PackageDetailModal';
 import { PrintSummaryModal } from './components/PrintSummaryModal';
 import { PilgrimageWalkthroughModal } from './components/PilgrimageWalkthroughModal';
 import { AskScholarModal } from './components/AskScholarModal';
+import { LegalModal } from './components/LegalModal';
 import { PackageShareModal } from './components/PackageShareModal';
 import { PackageCompareModal } from './components/PackageCompareModal';
 import { PackageCompareBar } from './components/PackageCompareBar';
@@ -40,6 +41,7 @@ function AppContent() {
   const [preRegPackage, setPreRegPackage] = useState<string | undefined>(undefined);
   const [selectedPackageForModal, setSelectedPackageForModal] = useState<PackageItem | null>(null);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState<'terms' | 'privacy' | 'refund' | null>(null);
   const [selectedPackageForPrint, setSelectedPackageForPrint] = useState<PackageItem | null>(null);
   const [printModalTab, setPrintModalTab] = useState<'selectedPkg' | 'full' | 'packages' | 'planner' | 'checklist' | 'faqs'>('full');
   const [customFaqsForPrint, setCustomFaqsForPrint] = useState<any[] | undefined>(undefined);
@@ -366,7 +368,9 @@ function AppContent() {
       </main>
 
       {/* 18. Footer */}
-      <Footer lang={lang} />
+      <Footer lang={lang} onOpenLegal={(tab) => setLegalTab(tab)} />
+
+      <LegalModal isOpen={legalTab !== null} initialTab={legalTab || 'terms'} onClose={() => setLegalTab(null)} lang={lang} />
 
       {/* Floating Package Comparison Toolbar */}
       <PackageCompareBar

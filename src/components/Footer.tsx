@@ -4,9 +4,10 @@ import { Language } from '../types';
 
 interface FooterProps {
   lang: Language;
+  onOpenLegal?: (tab: 'terms' | 'privacy' | 'refund') => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ lang }) => {
+export const Footer: React.FC<FooterProps> = ({ lang, onOpenLegal }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [subscribed, setSubscribed] = useState(() => {
@@ -301,12 +302,15 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
 
 
         <div className="flex items-center gap-6 font-semibold text-slate-600 dark:text-slate-400">
-          <a href="#about" className="hover:underline">
+          <button onClick={() => onOpenLegal?.('terms')} className="hover:underline cursor-pointer">
             {lang === 'en' ? 'Terms & Conditions' : 'শর্তাবলী'}
-          </a>
-          <a href="#about" className="hover:underline">
-            {lang === 'en' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
-          </a>
+          </button>
+          <button onClick={() => onOpenLegal?.('refund')} className="hover:underline cursor-pointer">
+            {lang === 'en' ? 'Refund Policy' : 'রিফান্ড নীতি'}
+          </button>
+          <button onClick={() => onOpenLegal?.('privacy')} className="hover:underline cursor-pointer">
+            {lang === 'en' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
+          </button>
           <a href="#home" className="hover:underline">
             {lang === 'en' ? 'Back to Top ↑' : 'উপরে যান ↑'}
           </a>
