@@ -305,13 +305,13 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
     <section id="videos" className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-[#FAF9F5] to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-white relative overflow-hidden transition-colors border-b border-slate-100 dark:border-slate-800">
       
       {/* Background Decorative Radial */}
-      <div className="absolute inset-0 bg-[radial-gradient(#064e3b_0.75px,transparent_0.75px)] dark:bg-[radial-gradient(#34d399_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.04] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(#1B6B4A_0.75px,transparent_0.75px)] dark:bg-[radial-gradient(#34d399_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.04] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/90 dark:border-emerald-800/80 px-4 py-1.5 rounded-full text-xs font-semibold text-[#064E3B] dark:text-emerald-300 shadow-2xs">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-200/90 dark:border-emerald-800/80 px-4 py-1.5 rounded-full text-xs font-semibold text-[#1B6B4A] dark:text-emerald-300 shadow-2xs">
             <Film className="w-3.5 h-3.5 text-amber-500" />
             <span>
               {lang === 'en' ? 'Video Library • From Our Official YouTube Channel' : 'ভিডিও গ্যালারি • আমাদের অফিসিয়াল ইউটিউব চ্যানেল থেকে'}
@@ -321,11 +321,11 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
             {lang === 'en' ? (
               <>
-                Watch Our <span className="text-[#064E3B] dark:text-emerald-400 font-serif">Pilgrim Testimonials</span> & Guides
+                Watch Our <span className="text-[#1B6B4A] dark:text-emerald-400 font-serif">Pilgrim Testimonials</span> & Guides
               </>
             ) : (
               <>
-                হাজী সাহেবদের <span className="text-[#064E3B] dark:text-emerald-400 font-serif">অনভূতির ভিডিও ও নির্দেশনা</span>
+                হাজী সাহেবদের <span className="text-[#1B6B4A] dark:text-emerald-400 font-serif">অনভূতির ভিডিও ও নির্দেশনা</span>
               </>
             )}
           </h2>
@@ -359,8 +359,8 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 activeCategory === cat.id
-                  ? 'bg-[#064E3B] text-white shadow-xs'
-                  : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#064E3B] dark:hover:border-emerald-500'
+                  ? 'bg-[#1B6B4A] text-white shadow-xs'
+                  : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-[#1B6B4A] dark:hover:border-emerald-500'
               }`}
             >
               {lang === 'en' ? cat.labelEn : cat.labelBn}
@@ -398,7 +398,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
                 </div>
 
                 {/* Category Pill */}
-                <div className="absolute top-3 left-3 bg-[#064E3B]/90 text-emerald-100 text-[11px] font-semibold px-2.5 py-1 rounded-full border border-emerald-600/40 backdrop-blur-xs">
+                <div className="absolute top-3 left-3 bg-[#1B6B4A]/90 text-emerald-100 text-[11px] font-semibold px-2.5 py-1 rounded-full border border-emerald-600/40 backdrop-blur-xs">
                   {lang === 'en' ? video.categoryEn : video.categoryBn}
                 </div>
 
@@ -420,7 +420,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
                 <div className="space-y-2">
                   <h3
                     onClick={() => setActiveVideoModal(video)}
-                    className="text-base font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-[#064E3B] dark:hover:text-emerald-400 transition cursor-pointer leading-snug"
+                    className="text-base font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-[#1B6B4A] dark:hover:text-emerald-400 transition cursor-pointer leading-snug"
                   >
                     {lang === 'en' ? video.titleEn : video.titleBn}
                   </h3>
@@ -433,7 +433,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
                 {/* Speaker Info */}
                 <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                   <div className="flex items-center gap-1.5 truncate">
-                    <User className="w-3.5 h-3.5 text-[#064E3B] dark:text-emerald-400 flex-shrink-0" />
+                    <User className="w-3.5 h-3.5 text-[#1B6B4A] dark:text-emerald-400 flex-shrink-0" />
                     <span className="font-semibold text-slate-800 dark:text-slate-200 truncate">
                       {lang === 'en' ? video.speakerEn : video.speakerBn}
                     </span>
@@ -447,7 +447,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <button
                     onClick={() => setActiveVideoModal(video)}
-                    className="bg-[#064E3B] hover:bg-[#04392b] text-white text-xs font-semibold py-2 px-3 rounded-lg shadow-2xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="bg-[#1B6B4A] hover:bg-[#14533A] text-white text-xs font-semibold py-2 px-3 rounded-lg shadow-2xs transition flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <Play className="w-3 h-3 fill-white" />
                     <span>{lang === 'en' ? 'Watch Video' : 'ভিডিও দেখুন'}</span>
@@ -470,7 +470,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="mt-14 bg-gradient-to-r from-emerald-950 via-[#064E3B] to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl border border-emerald-800/40 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-14 bg-gradient-to-r from-emerald-950 via-[#1B6B4A] to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl border border-emerald-800/40 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <h4 className="text-lg sm:text-xl font-bold text-amber-300">
               {lang === 'en' ? 'Have questions about our Hajj & Umrah Caravans?' : 'আমাদের সেবা ও প্রাক-নিবন্ধন সম্পর্কে সরাসরি কথা বলুন'}
@@ -564,7 +564,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-between gap-3 bg-emerald-50 dark:bg-slate-800/60 p-3.5 rounded-xl border border-emerald-100 dark:border-slate-700">
-                <span className="text-xs text-[#064E3B] dark:text-emerald-300 font-semibold flex items-center gap-1.5">
+                <span className="text-xs text-[#1B6B4A] dark:text-emerald-300 font-semibold flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>{lang === 'en' ? 'From our official YouTube channel' : 'মাস্ক হজ গ্রুপের অফিসিয়াল ইউটিউব চ্যানেল থেকে'}</span>
                 </span>
@@ -575,7 +575,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
                       setActiveVideoModal(null);
                       onOpenPreReg('Video Gallery Inquiry');
                     }}
-                    className="bg-[#064E3B] hover:bg-[#04392b] text-white text-xs font-bold px-4 py-2 rounded-lg shadow-2xs transition cursor-pointer"
+                    className="bg-[#1B6B4A] hover:bg-[#14533A] text-white text-xs font-bold px-4 py-2 rounded-lg shadow-2xs transition cursor-pointer"
                   >
                     {lang === 'en' ? 'Inquire Now' : 'পরামর্শের আবেদন'}
                   </button>

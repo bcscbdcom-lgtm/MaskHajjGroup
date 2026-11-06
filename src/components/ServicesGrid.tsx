@@ -90,7 +90,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ lang, onSelectServic
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="bg-emerald-50 text-[#065F46] border border-emerald-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <span className="bg-emerald-50 text-[#1F7A55] border border-emerald-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
             {lang === 'en' ? 'Our Services' : 'আমাদের সেবাসমূহ'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-3">
@@ -113,13 +113,13 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ lang, onSelectServic
               <div
                 key={s.id}
                 onClick={() => onSelectService(lang === 'en' ? s.nameEn : s.nameBn)}
-                className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:border-[#065F46] hover:shadow-md transition duration-300 flex flex-col justify-between cursor-pointer group"
+                className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:border-[#1F7A55] hover:shadow-md transition duration-300 flex flex-col justify-between cursor-pointer group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-[#065F46] flex items-center justify-center text-xl mb-5 shadow-xs group-hover:scale-105 group-hover:bg-[#065F46] group-hover:text-white transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-[#1F7A55] flex items-center justify-center text-xl mb-5 shadow-xs group-hover:scale-105 group-hover:bg-[#1F7A55] group-hover:text-white transition-all">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-base mb-2 group-hover:text-[#065F46] transition-colors">
+                  <h3 className="font-bold text-slate-900 text-base mb-2 group-hover:text-[#1F7A55] transition-colors">
                     {lang === 'en' ? s.nameEn : s.nameBn}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -127,7 +127,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ lang, onSelectServic
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-[#065F46] flex items-center gap-1">
+                <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] font-bold text-[#1F7A55] flex items-center gap-1">
                   <span>{lang === 'en' ? 'Enquire Now' : 'বিস্তারিত জানুন'}</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>

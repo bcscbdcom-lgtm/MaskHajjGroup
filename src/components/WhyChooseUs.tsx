@@ -43,7 +43,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ lang }) => {
       
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <span className="bg-emerald-50 text-[#065F46] border border-emerald-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+        <span className="bg-emerald-50 text-[#1F7A55] border border-emerald-200 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
           {lang === 'en' ? 'Why Choose Us' : 'আমাদের শ্রেষ্ঠত্ব'}
         </span>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
@@ -63,10 +63,10 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ lang }) => {
           return (
             <div
               key={i}
-              className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:border-[#065F46] hover:shadow-md transition duration-300 flex flex-col justify-between"
+              className="bg-white p-6 sm:p-7 rounded-3xl border border-slate-200/90 shadow-xs hover:-translate-y-1 hover:border-[#1F7A55] hover:shadow-md transition duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-[#065F46] flex items-center justify-center text-xl mb-5 shadow-xs">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-[#1F7A55] flex items-center justify-center text-xl mb-5 shadow-xs">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-slate-900 text-base mb-2">
@@ -77,7 +77,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ lang }) => {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-[#065F46]">
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-[#1F7A55]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>{lang === 'en' ? '100% Guaranteed Care' : 'শতভাগ বিশ্বস্ত সেবা'}</span>
               </div>

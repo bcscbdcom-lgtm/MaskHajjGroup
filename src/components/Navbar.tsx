@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
   return (
     <header className="sticky top-0 z-40 bg-white backdrop-blur-md border-b border-slate-100 shadow-2xs">
       {/* Subtle Top Announcement Strip */}
-      <div className="bg-[#064E3B] text-emerald-100 text-xs py-1.5 px-4 text-center font-medium border-b border-emerald-900/40">
+      <div className="bg-[#1B6B4A] text-emerald-100 text-xs py-1.5 px-4 text-center font-medium border-b border-emerald-900/40">
         <span>
           🌙 {lang === 'en'
             ? 'Hajj 2028 Pre-Registration Open • Ramadan 2027 Umrah Bookings Open'
@@ -35,18 +35,18 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
         <div className="flex items-center justify-between h-20">
           {/* Logo & License */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 bg-[#064E3B] text-white rounded-xl flex items-center justify-center font-extrabold text-xl shadow-xs group-hover:bg-[#0D5C46] transition-colors">
+            <div className="w-11 h-11 bg-[#1B6B4A] text-white rounded-xl flex items-center justify-center font-extrabold text-xl shadow-xs group-hover:bg-[#0D5C46] transition-colors">
               <Compass className="w-6 h-6 text-amber-300" />
             </div>
             <div>
               <span className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight block leading-tight">
                 {lang === 'en' ? (
-                  <>MASK <span className="text-[#064E3B]">HAJJ GROUP</span></>
+                  <>MASK <span className="text-[#1B6B4A]">HAJJ GROUP</span></>
                 ) : (
-                  <>মাস্ক <span className="text-[#064E3B]">হজ গ্রুপ</span></>
+                  <>মাস্ক <span className="text-[#1B6B4A]">হজ গ্রুপ</span></>
                 )}
               </span>
-              <span className="text-[11px] text-[#064E3B] font-semibold bg-emerald-50 px-2 py-0.5 rounded-full inline-block mt-0.5 border border-emerald-200">
+              <span className="text-[11px] text-[#1B6B4A] font-semibold bg-emerald-50 px-2 py-0.5 rounded-full inline-block mt-0.5 border border-emerald-200">
                 {lang === 'en' ? 'Ministry Licence #15630' : 'মন্ত্রণালয় লাইসেন্স নং ১৫৬৩০'}
               </span>
             </div>
@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
               <a
                 key={link.href}
                 href={link.href}
-                className="hover:text-[#064E3B] transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-[#064E3B] after:absolute after:bottom-0 after:left-0 after:transition-all"
+                className="hover:text-[#1B6B4A] transition-colors py-1 relative hover:after:w-full after:w-0 after:h-0.5 after:bg-[#1B6B4A] after:absolute after:bottom-0 after:left-0 after:transition-all"
               >
                 {lang === 'en' ? link.labelEn : link.labelBn}
               </a>
@@ -70,7 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
             {/* Direct Hotline */}
             <a
               href="tel:+8801713009567"
-              className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#064E3B] transition"
+              className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-[#1B6B4A] transition"
             >
               <span className="text-sm">📞</span>
               <span className="font-mono text-sm">+88 01713-009567</span>
@@ -81,10 +81,10 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
               <button
                 onClick={onToggleLang}
                 id="langToggleBtn"
-                className="hidden md:flex items-center gap-1 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-emerald-50 hover:text-[#064E3B] border border-slate-200 px-2.5 py-2 rounded-lg transition cursor-pointer"
+                className="hidden md:flex items-center gap-1 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-emerald-50 hover:text-[#1B6B4A] border border-slate-200 px-2.5 py-2 rounded-lg transition cursor-pointer"
                 title="Change Language"
               >
-                <Globe className="w-3.5 h-3.5 text-[#064E3B]" />
+                <Globe className="w-3.5 h-3.5 text-[#1B6B4A]" />
                 <span>{lang === 'en' ? 'বাংলা' : 'EN'}</span>
               </button>
             )}
@@ -93,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
             {onOpenPreReg ? (
               <button
                 onClick={() => onOpenPreReg()}
-                className="bg-[#064E3B] hover:bg-[#04392b] text-white text-xs sm:text-sm font-semibold px-4.5 py-2.5 rounded-lg shadow-xs hover:shadow transition-all cursor-pointer flex items-center gap-1.5"
+                className="bg-[#1B6B4A] hover:bg-[#14533A] text-white text-xs sm:text-sm font-semibold px-4.5 py-2.5 rounded-lg shadow-xs hover:shadow transition-all cursor-pointer flex items-center gap-1.5"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
                 <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
             ) : (
               <a
                 href="#consultation"
-                className="bg-[#064E3B] hover:bg-[#04392b] text-white text-xs sm:text-sm font-semibold px-4.5 py-2.5 rounded-lg shadow-xs hover:shadow transition-all flex items-center gap-1.5"
+                className="bg-[#1B6B4A] hover:bg-[#14533A] text-white text-xs sm:text-sm font-semibold px-4.5 py-2.5 rounded-lg shadow-xs hover:shadow transition-all flex items-center gap-1.5"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
                 <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>
@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 hover:text-[#064E3B] hover:bg-slate-100 rounded-lg transition cursor-pointer"
+              className="lg:hidden p-2 text-slate-600 hover:text-[#1B6B4A] hover:bg-slate-100 rounded-lg transition cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -128,7 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 px-3 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-[#064E3B] transition"
+              className="block py-2 px-3 rounded-lg text-slate-700 font-medium hover:bg-emerald-50 hover:text-[#1B6B4A] transition"
             >
               {lang === 'en' ? link.labelEn : link.labelBn}
             </a>
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
                 setMobileMenuOpen(false);
                 onOpenPreReg?.();
               }}
-              className="w-full bg-[#064E3B] text-white py-2.5 rounded-lg font-semibold text-xs text-center shadow-xs flex items-center justify-center gap-2"
+              className="w-full bg-[#1B6B4A] text-white py-2.5 rounded-lg font-semibold text-xs text-center shadow-xs flex items-center justify-center gap-2"
             >
               <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
               <span>{lang === 'en' ? 'Book Consultation' : 'পরামর্শের আবেদন'}</span>

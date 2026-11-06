@@ -110,7 +110,7 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
                     ? 'Alhaj Hazrat Maulana Khalilur Rahman'
                     : 'আলহাজ্জ হযরত মাওলানা খলিলুর রহমান'}
                 </p>
-                <p className="text-[11px] font-semibold text-[#065F46] mt-1">
+                <p className="text-[11px] font-semibold text-[#1F7A55] mt-1">
                   {lang === 'en'
                     ? 'Chairman & Chief Caravan Mentor'
                     : 'চেয়ারম্যান ও কাফেলা প্রধান'}

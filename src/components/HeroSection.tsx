@@ -94,8 +94,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             
             {/* Soft Emerald Badge & Dynamic Location Indicator */}
             <div className="flex flex-wrap items-center gap-2.5">
-              <div className="inline-flex items-center gap-2 bg-emerald-50/95 text-[#065F46] border border-emerald-200/90 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs backdrop-blur-xs">
-                <span className="w-2 h-2 rounded-full bg-[#065F46] animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 bg-emerald-50/95 text-[#1F7A55] border border-emerald-200/90 px-3.5 py-1.5 rounded-full text-xs font-bold shadow-xs backdrop-blur-xs">
+                <span className="w-2 h-2 rounded-full bg-[#1F7A55] animate-pulse"></span>
                 <span>
                   {lang === 'en'
                     ? 'Since 2005 • Ministry Licensed #15630'
@@ -111,16 +111,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold text-[#0F172A] leading-[1.2] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold text-[#1F2A37] leading-[1.2] tracking-tight">
               {lang === 'en' ? (
                 <>
                   Your sacred journey, <br />
-                  <span className="text-[#065F46] font-serif">planned with trust & clarity</span>
+                  <span className="text-[#1F7A55] font-serif">planned with trust & clarity</span>
                 </>
               ) : (
                 <>
                   আপনার পবিত্র সফর, <br />
-                  <span className="text-[#065F46] font-serif">আস্থা ও নিখুঁত যত্নে</span> সুপরিকল্পিত।
+                  <span className="text-[#1F7A55] font-serif">আস্থা ও নিখুঁত যত্নে</span> সুপরিকল্পিত।
                 </>
               )}
             </h1>
@@ -136,7 +136,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="pt-2">
               <a
                 href="#packages"
-                className="inline-flex items-center gap-2.5 bg-[#065F46] hover:bg-[#044E39] text-white text-base font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-700/30 transition-all group"
+                className="inline-flex items-center gap-2.5 bg-[#1F7A55] hover:bg-[#044E39] text-white text-base font-semibold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-700/30 transition-all group"
               >
                 <span>{lang === 'en' ? 'View Hajj Packages' : 'হজ প্যাকেজসমূহ দেখুন'}</span>
                 <ArrowRight className="w-4 h-4 text-amber-300 group-hover:translate-x-1 transition-transform" />
@@ -146,7 +146,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Trust Stats Row: Generous Spacing and Padding */}
             <div className="pt-8 mt-2 border-t border-slate-300/80 grid grid-cols-3 gap-6 sm:gap-10 max-w-lg">
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#065F46] font-mono tracking-tight">
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#1F7A55] font-mono tracking-tight">
                   {lang === 'en' ? '1200+' : '১২০০+'}
                 </p>
                 <p className="text-xs sm:text-sm text-slate-700 font-semibold mt-1">
@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#065F46] font-mono tracking-tight">
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#1F7A55] font-mono tracking-tight">
                   {lang === 'en' ? '21+ Yrs' : '২১+ বছর'}
                 </p>
                 <p className="text-xs sm:text-sm text-slate-700 font-semibold mt-1">
@@ -178,7 +178,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   key={slide.id}
                   onClick={() => setCurrentSlide(idx)}
                   className={`h-2 rounded-full transition-all cursor-pointer ${
-                    idx === currentSlide ? 'w-8 bg-[#065F46]' : 'w-2.5 bg-slate-400 hover:bg-slate-500'
+                    idx === currentSlide ? 'w-8 bg-[#1F7A55]' : 'w-2.5 bg-slate-400 hover:bg-slate-500'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -192,7 +192,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Slim Subtle Spiritual Quranic Verse Banner Immediately Below Hero Section */}
       <div className="bg-amber-50/70 border-y border-amber-200/60 py-3 text-center relative z-20">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-slate-800">
-          <span className="font-serif text-lg sm:text-xl font-bold text-[#065F46] tracking-wide">
+          <span className="font-serif text-lg sm:text-xl font-bold text-[#1F7A55] tracking-wide">
             وَأَتِمُّوا الْحَجَّ وَالْعُمْرَةَ لِلَّهِ
           </span>
           <span className="hidden sm:inline text-amber-400/80">•</span>

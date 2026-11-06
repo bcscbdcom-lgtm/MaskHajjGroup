@@ -60,7 +60,7 @@ export const HajjCountdown: React.FC<HajjCountdownProps> = ({ lang, onOpenPreReg
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-3 sm:gap-4">
         {/* Title & Status */}
         <div className="text-center sm:text-left">
-          <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#064E3B] dark:text-amber-400 uppercase tracking-wider mb-0.5">
+          <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#1B6B4A] dark:text-amber-400 uppercase tracking-wider mb-0.5">
             <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
             <span>
               {lang === 'en'
@@ -90,7 +90,7 @@ export const HajjCountdown: React.FC<HajjCountdownProps> = ({ lang, onOpenPreReg
 
             {/* Hours */}
             <div className="bg-white dark:bg-slate-950 border border-amber-200/90 dark:border-slate-800 rounded-xl p-1.5 sm:p-2 text-center min-w-[50px] sm:min-w-[58px] shadow-xs">
-              <div className="text-base sm:text-lg font-black text-[#064E3B] dark:text-emerald-400 font-mono tracking-tight leading-none">
+              <div className="text-base sm:text-lg font-black text-[#1B6B4A] dark:text-emerald-400 font-mono tracking-tight leading-none">
                 {formatDigit(timeLeft.hours)}
               </div>
               <div className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold uppercase mt-0.5">
@@ -100,7 +100,7 @@ export const HajjCountdown: React.FC<HajjCountdownProps> = ({ lang, onOpenPreReg
 
             {/* Minutes */}
             <div className="bg-white dark:bg-slate-950 border border-amber-200/90 dark:border-slate-800 rounded-xl p-1.5 sm:p-2 text-center min-w-[50px] sm:min-w-[58px] shadow-xs">
-              <div className="text-base sm:text-lg font-black text-[#064E3B] dark:text-emerald-400 font-mono tracking-tight leading-none">
+              <div className="text-base sm:text-lg font-black text-[#1B6B4A] dark:text-emerald-400 font-mono tracking-tight leading-none">
                 {formatDigit(timeLeft.minutes)}
               </div>
               <div className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold uppercase mt-0.5">
@@ -123,7 +123,7 @@ export const HajjCountdown: React.FC<HajjCountdownProps> = ({ lang, onOpenPreReg
           {onOpenPreReg && (
             <button
               onClick={onOpenPreReg}
-              className="hidden sm:flex bg-[#064E3B] hover:bg-[#04392b] text-white font-bold px-3 py-2.5 rounded-xl text-xs items-center gap-1 transition hover:scale-[1.02] shadow-sm flex-shrink-0 cursor-pointer border border-[#C5A059]/40"
+              className="hidden sm:flex bg-[#1B6B4A] hover:bg-[#14533A] text-white font-bold px-3 py-2.5 rounded-xl text-xs items-center gap-1 transition hover:scale-[1.02] shadow-sm flex-shrink-0 cursor-pointer border border-[#C9A24D]/40"
             >
               <span>{lang === 'en' ? 'Pre-Register' : 'প্রাক-নিবন্ধন'}</span>
               <ArrowRight className="w-3.5 h-3.5" />

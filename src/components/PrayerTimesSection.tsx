@@ -171,19 +171,19 @@ export const PrayerTimesSection: React.FC<PrayerTimesSectionProps> = ({ lang }) 
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-[#065F46] text-xs font-extrabold px-4 py-1.5 rounded-full mb-3 shadow-2xs">
-            <Clock className="w-3.5 h-3.5 text-[#065F46] animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-[#1F7A55] text-xs font-extrabold px-4 py-1.5 rounded-full mb-3 shadow-2xs">
+            <Clock className="w-3.5 h-3.5 text-[#1F7A55] animate-pulse" />
             <span>{lang === 'en' ? 'Daily Salah Timings' : 'দৈনিক নামাজের সময়সূচি'}</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
             {lang === 'en' ? (
               <>
-                Prayer Schedules for <span className="text-[#065F46] font-serif">Dhaka & Makkah</span>
+                Prayer Schedules for <span className="text-[#1F7A55] font-serif">Dhaka & Makkah</span>
               </>
             ) : (
               <>
-                পবিত্র সালাতের নির্ধারিত সময়সূচি — <span className="text-[#065F46] font-serif">ঢাকা ও মক্কা মুকাররমা</span>
+                পবিত্র সালাতের নির্ধারিত সময়সূচি — <span className="text-[#1F7A55] font-serif">ঢাকা ও মক্কা মুকাররমা</span>
               </>
             )}
           </h2>
@@ -200,7 +200,7 @@ export const PrayerTimesSection: React.FC<PrayerTimesSectionProps> = ({ lang }) 
               onClick={() => setActiveCity('dhaka')}
               className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-2 ${
                 activeCity === 'dhaka'
-                  ? 'bg-[#065F46] text-white shadow-md'
+                  ? 'bg-[#1F7A55] text-white shadow-md'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
@@ -212,7 +212,7 @@ export const PrayerTimesSection: React.FC<PrayerTimesSectionProps> = ({ lang }) 
               onClick={() => setActiveCity('makkah')}
               className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center justify-center gap-2 ${
                 activeCity === 'makkah'
-                  ? 'bg-[#065F46] text-white shadow-md'
+                  ? 'bg-[#1F7A55] text-white shadow-md'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
@@ -223,7 +223,7 @@ export const PrayerTimesSection: React.FC<PrayerTimesSectionProps> = ({ lang }) 
         </div>
 
         {/* Location & Hijri Date Strip */}
-        <div className="bg-gradient-to-r from-[#064E3B] via-[#093D2E] to-[#064E3B] text-white rounded-3xl p-5 mb-8 shadow-xl border border-emerald-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-gradient-to-r from-[#1B6B4A] via-[#093D2E] to-[#1B6B4A] text-white rounded-3xl p-5 mb-8 shadow-xl border border-emerald-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-amber-400/20 border border-amber-400/30 text-amber-300 flex items-center justify-center flex-shrink-0">
               <Calendar className="w-5 h-5" />
@@ -269,7 +269,7 @@ export const PrayerTimesSection: React.FC<PrayerTimesSectionProps> = ({ lang }) 
                       className={`w-9 h-9 rounded-xl flex items-center justify-center ${
                         isSunrise
                           ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/60 dark:text-amber-300'
-                          : 'bg-emerald-50 text-[#064E3B] dark:bg-emerald-950/80 dark:text-emerald-300'
+                          : 'bg-emerald-50 text-[#1B6B4A] dark:bg-emerald-950/80 dark:text-emerald-300'
                       }`}
                     >
                       <item.icon className="w-4 h-4" />
@@ -289,7 +289,7 @@ export const PrayerTimesSection: React.FC<PrayerTimesSectionProps> = ({ lang }) 
                   className={`mt-4 pt-3 border-t text-sm font-black font-mono tracking-tight ${
                     isSunrise
                       ? 'border-amber-200/60 dark:border-amber-800/40 text-amber-800 dark:text-amber-300'
-                      : 'border-slate-100 dark:border-slate-700/80 text-[#064E3B] dark:text-emerald-400'
+                      : 'border-slate-100 dark:border-slate-700/80 text-[#1B6B4A] dark:text-emerald-400'
                   }`}
                 >
                   {displayTime}

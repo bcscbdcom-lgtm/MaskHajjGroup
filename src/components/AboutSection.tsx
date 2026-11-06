@@ -22,10 +22,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onOpenPreReg }
         <div className="lg:col-span-5 relative">
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-emerald-100 relative z-10">
             <div className="bg-[#FAF9F5] text-slate-900 rounded-2xl p-8 sm:p-10 text-center shadow-xs border border-emerald-200/80">
-              <div className="w-16 h-16 mx-auto mb-4 bg-emerald-50 border border-emerald-200 rounded-2xl shadow-xs flex items-center justify-center text-[#065F46] text-3xl">
-                <HeartHandshake className="w-9 h-9 text-[#065F46]" />
+              <div className="w-16 h-16 mx-auto mb-4 bg-emerald-50 border border-emerald-200 rounded-2xl shadow-xs flex items-center justify-center text-[#1F7A55] text-3xl">
+                <HeartHandshake className="w-9 h-9 text-[#1F7A55]" />
               </div>
-              <h4 className="text-xl font-bold text-[#065F46]">
+              <h4 className="text-xl font-bold text-[#1F7A55]">
                 {lang === 'en' ? 'MASK Hajj Group' : 'মাস্ক হজ গ্রুপ'}
               </h4>
               <p className="text-xs text-slate-600 mt-2 leading-relaxed">
@@ -42,7 +42,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onOpenPreReg }
                 </div>
                 <div className="h-8 w-px bg-emerald-200"></div>
                 <div>
-                  <div className="text-lg font-extrabold text-[#065F46] font-mono">100%</div>
+                  <div className="text-lg font-extrabold text-[#1F7A55] font-mono">100%</div>
                   <div className="text-[10px] text-slate-500 font-medium">
                     {lang === 'en' ? 'Sunnah Guided' : 'সুন্নাহ সম্মত'}
                   </div>
@@ -53,7 +53,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onOpenPreReg }
 
           {/* Floating Experience Badge */}
           <div className="absolute -bottom-5 -right-2 sm:-right-4 bg-white rounded-2xl p-4 shadow-lg border border-emerald-100 flex items-center gap-3 z-20">
-            <div className="w-11 h-11 rounded-xl bg-[#065F46] text-white font-extrabold text-lg flex items-center justify-center shadow-xs font-mono">
+            <div className="w-11 h-11 rounded-xl bg-[#1F7A55] text-white font-extrabold text-lg flex items-center justify-center shadow-xs font-mono">
               21+
             </div>
             <div className="text-left">
@@ -69,8 +69,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onOpenPreReg }
 
         {/* Right Descriptive Content */}
         <div className="lg:col-span-7">
-          <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-[#065F46] border border-emerald-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <Shield className="w-3.5 h-3.5 text-[#065F46]" />
+          <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-[#1F7A55] border border-emerald-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+            <Shield className="w-3.5 h-3.5 text-[#1F7A55]" />
             {lang === 'en' ? 'About MASK Hajj Group' : 'মাস্ক হজ গ্রুপ পরিচিতি'}
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
@@ -86,15 +86,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onOpenPreReg }
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs font-semibold text-slate-700 mb-8">
             <div className="flex items-center gap-2.5 bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100">
-              <CheckCircle2 className="w-4 h-4 text-[#065F46] flex-shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#1F7A55] flex-shrink-0" />
               <span>{lang === 'en' ? 'Ministry Verified Visa & Direct Flights' : 'মন্ত্রণালয় অনুমোদিত ভিসা ও সরাসরি বিমান টিকিট'}</span>
             </div>
             <div className="flex items-center gap-2.5 bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100">
-              <CheckCircle2 className="w-4 h-4 text-[#065F46] flex-shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#1F7A55] flex-shrink-0" />
               <span>{lang === 'en' ? 'Premium Close-to-Haram Hotels' : 'হারামের কাছে উন্নতমানের হোটেল আবাসন'}</span>
             </div>
             <div className="flex items-center gap-2.5 bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100">
-              <CheckCircle2 className="w-4 h-4 text-[#065F46] flex-shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#1F7A55] flex-shrink-0" />
               <span>{lang === 'en' ? 'In-depth Pre-departure Training' : 'হজপূর্ব বিশেষ প্রশিক্ষণ কর্মশালা ও সহীহ বই'}</span>
             </div>
             <div className="flex items-center gap-2.5 bg-sky-50/50 dark:bg-slate-800/80 p-2.5 rounded-xl border border-sky-100 dark:border-slate-700">

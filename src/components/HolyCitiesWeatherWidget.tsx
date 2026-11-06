@@ -131,7 +131,7 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
     <div className="bg-emerald-50/70 dark:bg-slate-950/80 backdrop-blur-md rounded-2xl p-4 sm:p-4.5 border border-emerald-100 dark:border-slate-800 shadow-sm text-slate-900 dark:text-white transition-all">
       {/* Header with City Toggle Tabs */}
       <div className="flex items-center justify-between gap-2 mb-3 pb-2.5 border-b border-emerald-100 dark:border-slate-800">
-        <div className="flex items-center gap-1.5 text-xs font-black text-[#064E3B] dark:text-emerald-400 uppercase tracking-wide">
+        <div className="flex items-center gap-1.5 text-xs font-black text-[#1B6B4A] dark:text-emerald-400 uppercase tracking-wide">
           <CloudSun className="w-4 h-4 text-amber-500" />
           <span>{lang === 'en' ? 'Holy Cities Weather' : 'মক্কা-মদিনা আবহাওয়া'}</span>
         </div>
@@ -141,7 +141,7 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
             onClick={() => setActiveCity('makkah')}
             className={`px-3 py-1 rounded-lg text-[11px] font-extrabold transition cursor-pointer ${
               activeCity === 'makkah'
-                ? 'bg-[#064E3B] text-white shadow-xs'
+                ? 'bg-[#1B6B4A] text-white shadow-xs'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
@@ -151,7 +151,7 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
             onClick={() => setActiveCity('madinah')}
             className={`px-3 py-1 rounded-lg text-[11px] font-extrabold transition cursor-pointer ${
               activeCity === 'madinah'
-                ? 'bg-[#064E3B] text-white shadow-xs'
+                ? 'bg-[#1B6B4A] text-white shadow-xs'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
@@ -170,7 +170,7 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
           </div>
           <div>
             <div className="flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400 font-bold">
-              <MapPin className="w-3 h-3 text-[#064E3B] dark:text-emerald-400" />
+              <MapPin className="w-3 h-3 text-[#1B6B4A] dark:text-emerald-400" />
               <span>{lang === 'en' ? current.cityEn : current.cityBn}</span>
             </div>
             <div className="flex items-baseline gap-2 mt-0.5">
@@ -219,7 +219,7 @@ export const HolyCitiesWeatherWidget: React.FC<WeatherWidgetProps> = ({ lang }) 
 
       {/* Packing Advice Strip */}
       <div className="mt-2.5 pt-2 border-t border-emerald-100/80 dark:border-slate-800/80 text-[11px] text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
-        <span className="font-bold text-[#064E3B] dark:text-emerald-400 flex-shrink-0">
+        <span className="font-bold text-[#1B6B4A] dark:text-emerald-400 flex-shrink-0">
           🎒 {lang === 'en' ? 'Pilgrim Advice:' : 'প্রস্তুতি পরামর্শ:'}
         </span>
         <span className="truncate">

@@ -41,7 +41,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   const makkahTime = formatTime('Asia/Riyadh');
 
   return (
-    <div className="bg-[#064E3B] text-white text-xs py-1.5 px-4 border-b border-emerald-800/80 transition-colors">
+    <div className="bg-[#1B6B4A] text-white text-xs py-1.5 px-4 border-b border-emerald-800/80 transition-colors">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
         
         {/* Left Side: License Badge & Minimalist Live Clock */}

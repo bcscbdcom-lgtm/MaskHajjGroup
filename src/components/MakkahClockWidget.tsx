@@ -72,7 +72,7 @@ export const MakkahClockWidget: React.FC<MakkahClockWidgetProps> = ({ lang }) =>
   return (
     <div
       id="makkah-live-clock"
-      className="inline-flex items-center gap-2.5 bg-[#064E3B] text-white border border-[#C5A059]/50 px-3.5 py-2 rounded-2xl shadow-md backdrop-blur-md transition"
+      className="inline-flex items-center gap-2.5 bg-[#1B6B4A] text-white border border-[#C9A24D]/50 px-3.5 py-2 rounded-2xl shadow-md backdrop-blur-md transition"
     >
       <div className="flex items-center gap-1.5">
         <span className="relative flex h-2 w-2">

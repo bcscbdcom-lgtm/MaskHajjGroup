@@ -1,12 +1,82 @@
 @import "tailwindcss";
 
+/* =========================================================
+   MASK Hajj Group — "মদিনা প্যালেট" (SMS অনুমোদিত, ০৬ নভে ২০২৬)
+   গম্বুজ-সবুজ #1B6B4A • সেজ #E8F3EC • নরম সোনালি #C9A24D
+   চারকোল লেখা #1F2A37 • ক্রিম-সাদা #FBFAF6
+   Tailwind-এর emerald/amber/blue/sky স্কেল এখানে ওভাররাইড করা —
+   তাই পুরো সাইটে একসাথে রঙ বদলায়। রঙ বদলাতে চাইলে শুধু এই ব্লক বদলান।
+   ========================================================= */
+@theme {
+  --color-emerald-50: #F1F7F3;
+  --color-emerald-100: #E8F3EC;
+  --color-emerald-200: #CDE5D6;
+  --color-emerald-300: #A6CFB6;
+  --color-emerald-400: #6FB08C;
+  --color-emerald-500: #3E8E64;
+  --color-emerald-600: #1B6B4A;
+  --color-emerald-700: #175C40;
+  --color-emerald-800: #14533A;
+  --color-emerald-900: #0F3F2C;
+  --color-emerald-950: #092A1D;
+
+  --color-teal-50: #EEF5F4;
+  --color-teal-100: #DCEBE9;
+  --color-teal-200: #BCD8D5;
+  --color-teal-300: #8EBDB9;
+  --color-teal-400: #5E9D98;
+  --color-teal-500: #3C7F7A;
+  --color-teal-600: #2F6E6A;
+  --color-teal-700: #275B58;
+  --color-teal-800: #204947;
+  --color-teal-900: #183836;
+  --color-teal-950: #0F2423;
+
+  --color-blue-50: #EEF5F4;
+  --color-blue-100: #DCEBE9;
+  --color-blue-200: #BCD8D5;
+  --color-blue-300: #8EBDB9;
+  --color-blue-400: #5E9D98;
+  --color-blue-500: #3C7F7A;
+  --color-blue-600: #2F6E6A;
+  --color-blue-700: #275B58;
+  --color-blue-800: #204947;
+  --color-blue-900: #183836;
+  --color-blue-950: #0F2423;
+
+  --color-sky-50: #EEF5F4;
+  --color-sky-100: #DCEBE9;
+  --color-sky-200: #BCD8D5;
+  --color-sky-300: #8EBDB9;
+  --color-sky-400: #5E9D98;
+  --color-sky-500: #3C7F7A;
+  --color-sky-600: #2F6E6A;
+  --color-sky-700: #275B58;
+  --color-sky-800: #204947;
+  --color-sky-900: #183836;
+  --color-sky-950: #0F2423;
+
+  --color-amber-50: #FBF6E9;
+  --color-amber-100: #F6ECCF;
+  --color-amber-200: #EEDBA3;
+  --color-amber-300: #E3C97A;
+  --color-amber-400: #D6B65C;
+  --color-amber-500: #C9A24D;
+  --color-amber-600: #B08A3A;
+  --color-amber-700: #8E6E2E;
+  --color-amber-800: #6B5223;
+  --color-amber-900: #4F3D1A;
+  --color-amber-950: #2E2410;
+}
+
+
 @variant dark (&:where(.dark, .dark *));
 
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hind Siliguri', sans-serif;
-    background-color: #f8fafc;
-    color: #0f172a;
+    background-color: #FBFAF6;
+    color: #1F2A37;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
   .dark body {
@@ -25,19 +95,19 @@
 
 /* Professional Polish Action Buttons */
 .pro-primary-btn {
-  background-color: #2563eb;
+  background-color: #1B6B4A;
   color: #ffffff;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pro-primary-btn:hover {
-  background-color: #1d4ed8;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
+  background-color: #14533A;
+  box-shadow: 0 4px 14px 0 rgba(27, 107, 74, 0.25);
   transform: translateY(-1px);
 }
 
 .pro-dark-btn {
-  background-color: #0f172a;
+  background-color: #1F2A37;
   color: #ffffff;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -49,23 +119,23 @@
 }
 
 .teal-gradient-btn {
-  background-color: #2563eb;
+  background-color: #1B6B4A;
   color: #ffffff;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .teal-gradient-btn:hover {
-  background-color: #1d4ed8;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.28);
+  background-color: #14533A;
+  box-shadow: 0 4px 14px 0 rgba(27, 107, 74, 0.28);
   transform: translateY(-1px);
 }
 
 .cta-gradient-box {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #1e40af 100%);
+  background: linear-gradient(135deg, #1F2A37 0%, #1e293b 60%, #1e40af 100%);
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
+  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #1F2A37 100%);
 }
 
 .soft-shadow {
@@ -89,7 +159,7 @@
   }
   50% {
     box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.25);
-    border-color: #2563eb;
+    border-color: #1B6B4A;
     transform: translateY(-1px);
   }
   100% {
@@ -179,7 +249,7 @@
   html,
   body {
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #1F2A37 !important;
     font-size: 10.5pt !important;
     line-height: 1.4 !important;
     margin: 0 !important;
@@ -189,13 +259,13 @@
   .dark html,
   .dark body {
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #1F2A37 !important;
   }
 
   /* Print Agency Letterhead Header */
   .print-only-header {
     display: block !important;
-    border-bottom: 2px solid #0f172a !important;
+    border-bottom: 2px solid #1F2A37 !important;
     padding-bottom: 12px !important;
     margin-bottom: 20px !important;
   }
@@ -211,7 +281,7 @@
 
   #packages h2,
   #umrah h2 {
-    color: #0f172a !important;
+    color: #1F2A37 !important;
     font-size: 17pt !important;
     font-weight: 800 !important;
     margin-top: 4px !important;
@@ -230,7 +300,7 @@
   #packages .grid > div,
   #umrah .grid > div {
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #1F2A37 !important;
     border: 1.5px solid #cbd5e1 !important;
     border-radius: 8px !important;
     box-shadow: none !important;
@@ -243,7 +313,7 @@
   /* Headings inside cards */
   #packages h3,
   #umrah h3 {
-    color: #0f172a !important;
+    color: #1F2A37 !important;
     font-size: 12pt !important;
     font-weight: 700 !important;
     margin-top: 4px !important;
@@ -252,7 +322,7 @@
   /* Pricing visibility */
   #packages .font-mono,
   #umrah .font-mono {
-    color: #1d4ed8 !important;
+    color: #14533A !important;
     font-size: 13pt !important;
     font-weight: 800 !important;
     margin-bottom: 6px !important;
@@ -287,7 +357,7 @@
   .faq-a4-preview-sheet {
     display: block !important;
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #1F2A37 !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
@@ -299,7 +369,7 @@
 
   .faq-print-item {
     background: #ffffff !important;
-    color: #0f172a !important;
+    color: #1F2A37 !important;
     border: 1.5px solid #cbd5e1 !important;
     border-radius: 8px !important;
     box-shadow: none !important;
