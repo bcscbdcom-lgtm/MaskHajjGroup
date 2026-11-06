@@ -84,11 +84,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           ))}
 
           {/* Seamless Soft Linear Horizontal Gradient Mask: Left side remains high-contrast & clean while blending into right photo */}
-          <div className="absolute inset-y-0 left-0 w-full lg:w-3/5 bg-gradient-to-r from-white via-white/90 to-transparent pointer-events-none z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-white/40 pointer-events-none z-10"></div>
-          
-          {/* Subtle geometric overlay pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(#059669_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none z-10"></div>
+          {/* হালকা সাদা আভা শুধু বাম পাশে (লেখা পড়ার জন্য); ডান পাশের ছবি পুরো পরিষ্কার */}
+          <div className="absolute inset-y-0 left-0 w-full lg:w-[55%] bg-gradient-to-r from-white/85 via-white/45 to-transparent pointer-events-none z-10"></div>
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
