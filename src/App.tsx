@@ -23,7 +23,6 @@ import { MapAndCtaSection } from './components/MapAndCtaSection';
 import { Footer } from './components/Footer';
 import { PreRegModal } from './components/PreRegModal';
 import { PackageDetailModal } from './components/PackageDetailModal';
-import { StaffPortalModal } from './components/StaffPortalModal';
 import { PrintSummaryModal } from './components/PrintSummaryModal';
 import { PilgrimageWalkthroughModal } from './components/PilgrimageWalkthroughModal';
 import { AskScholarModal } from './components/AskScholarModal';
@@ -39,7 +38,6 @@ function AppContent() {
   const [isPreRegOpen, setIsPreRegOpen] = useState(false);
   const [preRegPackage, setPreRegPackage] = useState<string | undefined>(undefined);
   const [selectedPackageForModal, setSelectedPackageForModal] = useState<PackageItem | null>(null);
-  const [isStaffPortalOpen, setIsStaffPortalOpen] = useState(false);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
   const [selectedPackageForPrint, setSelectedPackageForPrint] = useState<PackageItem | null>(null);
   const [printModalTab, setPrintModalTab] = useState<'selectedPkg' | 'full' | 'packages' | 'planner' | 'checklist' | 'faqs'>('full');
@@ -115,11 +113,10 @@ function AppContent() {
 
       // Escape key to close any modal
       if (e.key === 'Escape' || e.key === 'Esc') {
-        if (isPreRegOpen || selectedPackageForModal || isStaffPortalOpen || isPrintModalOpen || isWalkthroughOpen) {
+        if (isPreRegOpen || selectedPackageForModal || isPrintModalOpen || isWalkthroughOpen) {
           e.preventDefault();
           setIsPreRegOpen(false);
           setSelectedPackageForModal(null);
-          setIsStaffPortalOpen(false);
           setIsPrintModalOpen(false);
           setIsWalkthroughOpen(false);
         }
@@ -173,27 +170,20 @@ function AppContent() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isPreRegOpen, selectedPackageForModal, isStaffPortalOpen, isPrintModalOpen, isWalkthroughOpen]);
+  }, [isPreRegOpen, selectedPackageForModal, isPrintModalOpen, isWalkthroughOpen]);
 
   // Notice Banner state (with LocalStorage persistence)
   const defaultNotice: NoticeItem = {
     id: 'default-notice',
-    textEn: '📢 Hajj 2026–2027 Pre-Registration is Active! Priority allocation available at our Naya Paltan office.',
-    textBn: '📢 হজ ২০২৬–২০২৭ এর সরকারি প্রাক-নিবন্ধন চলছে! অগ্রাধিকার ভিত্তিতে বুকিং করতে যোগাযোগ করুন।',
+    textEn: '📢 Hajj 2028 Pre-Registration is open • Ramadan 2027 Umrah bookings now taken at our Naya Paltan office.',
+    textBn: '📢 হজ ২০২৮-এর প্রাক-নিবন্ধন চলছে • রমজান ২০২৭ ওমরাহ বুকিং চলছে — নয়াপল্টন অফিসে যোগাযোগ করুন।',
     active: true,
     type: 'urgent',
     date: new Date().toISOString(),
   };
 
-  const [notice, setNotice] = useState<NoticeItem | null>(() => {
-    try {
-      const saved = localStorage.getItem('mask_live_notice');
-      if (saved) return JSON.parse(saved);
-    } catch {
-      // ignore
-    }
-    return defaultNotice;
-  });
+  // নোটিশ ব্যানার: এখন কোডের defaultNotice থেকেই আসে (পরে Google Sheet-এর "Notice" ট্যাব থেকে আসবে)
+  const [notice, setNotice] = useState<NoticeItem | null>(defaultNotice);
 
   const handleOpenPreReg = (packageName?: string) => {
     setPreRegPackage(packageName);
@@ -217,19 +207,6 @@ function AppContent() {
     }
     setCustomFaqsForPrint(faqs);
     setIsPrintModalOpen(true);
-  };
-
-  const handleSaveNotice = (newNotice: NoticeItem | null) => {
-    setNotice(newNotice);
-    try {
-      if (newNotice) {
-        localStorage.setItem('mask_live_notice', JSON.stringify(newNotice));
-      } else {
-        localStorage.removeItem('mask_live_notice');
-      }
-    } catch {
-      // ignore
-    }
   };
 
   const handleDismissNotice = () => {
@@ -257,7 +234,6 @@ function AppContent() {
       <TopBar
         lang={lang}
         onToggleLang={toggleLanguage}
-        onOpenPortal={() => setIsStaffPortalOpen(true)}
         darkMode={darkMode}
         onToggleDarkMode={toggleDarkMode}
       />
@@ -283,8 +259,8 @@ function AppContent() {
           </div>
           <div className="text-right text-xs text-slate-600">
             <div className="font-bold">Official Package Brochure</div>
-            <div>Season 2026–2027</div>
-            <div className="text-[10px] text-slate-400 mt-1">Printed from maskhajj.com.bd</div>
+            <div>Season 2027–2028</div>
+            <div className="text-[10px] text-slate-400 mt-1">Printed from maskintbd.com</div>
           </div>
         </div>
       </div>
@@ -461,14 +437,6 @@ function AppContent() {
         isOpen={isAskScholarOpen}
         onClose={() => setIsAskScholarOpen(false)}
         lang={lang}
-      />
-
-      <StaffPortalModal
-        isOpen={isStaffPortalOpen}
-        onClose={() => setIsStaffPortalOpen(false)}
-        lang={lang}
-        currentNotice={notice}
-        onSaveNotice={handleSaveNotice}
       />
 
       <FloatingActions

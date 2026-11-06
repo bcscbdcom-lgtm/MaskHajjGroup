@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Award, Phone, Clock, Lock, Sun, Moon, Globe } from 'lucide-react';
+import { Award, Phone, Clock, Sun, Moon, Globe } from 'lucide-react';
 import { Language } from '../types';
 
 interface TopBarProps {
   lang: Language;
   onToggleLang: () => void;
-  onOpenPortal: () => void;
   darkMode: boolean;
   onToggleDarkMode: () => void;
 }
@@ -13,7 +12,6 @@ interface TopBarProps {
 export const TopBar: React.FC<TopBarProps> = ({
   lang,
   onToggleLang,
-  onOpenPortal,
   darkMode,
   onToggleDarkMode,
 }) => {
@@ -82,15 +80,6 @@ export const TopBar: React.FC<TopBarProps> = ({
             <span>+88 01711-258708</span>
           </a>
 
-          <span className="text-emerald-700/60 hidden sm:inline">•</span>
-
-          <button
-            onClick={onOpenPortal}
-            className="text-amber-300 hover:text-amber-200 hover:underline flex items-center gap-1 font-semibold transition cursor-pointer"
-          >
-            <Lock className="w-3 h-3" />
-            <span>{lang === 'en' ? 'Staff Portal' : 'অফিস ড্যাশবোর্ড'}</span>
-          </button>
 
           <span className="text-emerald-700/60 hidden sm:inline">•</span>
 

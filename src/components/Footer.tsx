@@ -257,7 +257,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             </li>
             <li>
               <a href="#packages" className="hover:text-blue-600 dark:hover:text-blue-400 transition">
-                {lang === 'en' ? 'Hajj Packages (2026–2027)' : 'হজ প্যাকেজসমূহ (২০২৬–২৭)'}
+                {lang === 'en' ? 'Hajj Packages (2027–2028)' : 'হজ প্যাকেজসমূহ (২০২৭–২৮)'}
               </a>
             </li>
             <li>

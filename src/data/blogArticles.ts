@@ -1,54 +1,60 @@
 import { BlogArticle, Testimonial } from '../types';
 
 export const testimonialsData: Testimonial[] = [
+  // সব মতামত MASK Hajj Group-এর অফিসিয়াল ইউটিউব চ্যানেলে প্রকাশিত আসল হাজী সাহেবদের ভিডিও থেকে নেওয়া।
+  // নতুন লিখিত রিভিউ যোগ করতে চাইলে হাজী সাহেবের অনুমতি নিয়ে নাম, এলাকা, বছর ও মন্তব্য বসান।
   {
     id: 'test-1',
-    name: 'Muhammad Aadil Bin Shaahid',
-    locationEn: 'Dhanmondi, Dhaka',
-    locationBn: 'ধানমন্ডি, ঢাকা',
+    name: 'মঈনুল ইসলাম (Moinul Islam)',
+    locationEn: 'Government Employee • Pilgrim',
+    locationBn: 'সরকারি চাকরিজীবী • হাজী',
     rating: 5,
-    packageTypeEn: 'Standard Hajj Package',
-    packageTypeBn: 'স্ট্যান্ডার্ড হজ প্যাকেজ',
+    packageTypeEn: 'Video Review',
+    packageTypeBn: 'ভিডিও মতামত',
     year: '2025',
-    textEn: 'Alhamdulillah! It has been a pleasure to do Hajj with the MASK Hajj Group team. From spiritual motivation, pre-hajj training to tackling airport and Mina crowd problems while keeping Hajis united — they deserve high appreciation.',
-    textBn: 'আলহামদুলিল্লাহ! মাস্ক হজ গ্রুপের সাথে আমাদের হজ সফর ছিল অত্যন্ত প্রশান্তিদায়ক। শুরু থেকে শেষ পর্যন্ত প্রতিটি পদক্ষেপে বিজ্ঞ আলেমদের সঠিক সহায়তা পেয়েছি। মিনা-আরাফাতে তাদের খাবারের মান ও আন্তরিকতা ছিল অসাধারণ।'
+    textEn: 'Our respected pilgrim Mr. Moinul Islam (government employee) shares his opinion about MASK Hajj Group — watch the full video.',
+    textBn: 'আমাদের সম্মানিত হাজি জনাব মঈনুল ইসলাম সাহেব (সরকারি চাকরিজীবী) ওনার মাস্ক হজ গ্রুপ সম্পর্কে মন্তব্য জানাচ্ছেন — পুরো ভিডিওটি দেখুন।',
+    videoUrl: 'https://www.youtube.com/shorts/wk8jl8PE9P8',
   },
   {
     id: 'test-2',
-    name: 'Engr. Ananto Alam & Parents',
-    locationEn: 'Uttara, Dhaka',
-    locationBn: 'উত্তরা, ঢাকা',
+    name: 'সায়েম মজুমদার (Sayem Mojumder)',
+    locationEn: 'Umrah Pilgrim',
+    locationBn: 'ওমরাহ যাত্রী',
     rating: 5,
-    packageTypeEn: 'VIP Umrah Comfort',
-    packageTypeBn: 'ভিআইপি ওমরাহ কমফোর্ট',
-    year: '2025',
-    textEn: 'I had the honor of going to Umrah with my elderly parents. So well-organized and spiritually uplifting that my father who had performed Hajj twice before became a true admirer of MASK Hajj Group\'s dedication.',
-    textBn: 'বাবা-মাকে নিয়ে ওমরাহ পালন করেছিলাম। হোটেল আবাসন এবং খাবারের ব্যবস্থা ছিল চমৎকার। প্রবীণদের যেভাবে তারা যত্ন নিয়েছেন এবং হুইলচেয়ার সাপোর্ট দিয়েছেন তা সত্যিই প্রশংসনীয়। জাযাকাল্লাহু খাইরান!'
+    packageTypeEn: 'Video Review',
+    packageTypeBn: 'ভিডিও মতামত',
+    year: '2024',
+    textEn: 'Umrah pilgrim Sayem Mojumder shares his Umrah experience with MASK Hajj Group — watch the full video.',
+    textBn: 'ওমরাহ যাত্রী সায়েম মজুমদার মাস্ক হজ গ্রুপের সাথে তাঁর ওমরাহ অভিজ্ঞতা জানাচ্ছেন — পুরো ভিডিওটি দেখুন।',
+    videoUrl: 'https://www.youtube.com/shorts/gjB5nR5b9M8',
   },
   {
     id: 'test-3',
-    name: 'Dr. Farhana Yasmin & Family',
-    locationEn: 'Gulshan, Dhaka',
-    locationBn: 'গুলশান, ঢাকা',
+    name: 'মাস্ক হজ গ্রুপের হাজী সাহেব',
+    locationEn: 'Returning Pilgrim • 2026',
+    locationBn: 'সফর শেষে ফিরে আসা হাজী • ২০২৬',
     rating: 5,
-    packageTypeEn: 'VIP Luxury Hajj (Clock Tower)',
-    packageTypeBn: 'ভিআইপি লাক্সারি হজ (ক্লক টাওয়ার)',
-    year: '2024',
-    textEn: 'The Clock Tower hotel overlooking the Kaaba was an unforgettable spiritual highlight. The Haramain bullet train journey was seamless. Maulana Khalilur Rahman guided every step with great wisdom.',
-    textBn: 'ক্লক টাওয়ারের কাবা ভিউ রুম থেকে নামাজ আদায়ের অনুভূতি ভাষায় প্রকাশ করার মতো নয়। বুলেট ট্রেনে আরামদায়ক যাতায়াত এবং সার্বক্ষণিক মুয়াল্লিম সাপোর্ট আমাদের পুরো পরিবারকে নিশ্চিন্ত রেখেছিল।'
+    packageTypeEn: 'Video Review',
+    packageTypeBn: 'ভিডিও মতামত',
+    year: '2026',
+    textEn: '"We got exactly what was promised. Thank you, MASK Hajj Group." — watch the full video.',
+    textBn: '"যেমন কথা তেমন কাজ পেয়েছি। মাস্ক হজ গ্রুপকে ধন্যবাদ।" — পুরো ভিডিওটি দেখুন।',
+    videoUrl: 'https://www.youtube.com/watch?v=AFBKfUiFS_s',
   },
   {
     id: 'test-4',
-    name: 'Al-Haj Shamsuddin Ahmed',
-    locationEn: 'Chittagong',
-    locationBn: 'চট্টগ্রাম',
+    name: 'ওমরাহ যাত্রী',
+    locationEn: 'Umrah Pilgrim • 2026',
+    locationBn: 'ওমরাহ যাত্রী • ২০২৬',
     rating: 5,
-    packageTypeEn: 'Economy Hajj Caravan',
-    packageTypeBn: 'ইকোনমি হজ কাফেলা',
-    year: '2025',
-    textEn: 'Honest agency with no hidden costs. Everything promised in the agreement was delivered 100%. Delicious Bengali food every day and punctual transportation. Highly recommended.',
-    textBn: 'কোনো লুকানো খরচ ছাড়া সম্পূর্ণ সততার সাথে তারা সেবা দিয়েছেন। চুক্তিতে যা ছিল তার চেয়ে বেশি যত্ন পেয়েছি। প্রতিদিন মানসম্মত দেশীয় খাবার ও সুশৃঙ্খল পরিবহন ব্যবস্থা পেয়েছি।'
-  }
+    packageTypeEn: 'Video Review',
+    packageTypeBn: 'ভিডিও মতামত',
+    year: '2026',
+    textEn: '"I am satisfied after performing Umrah through MASK Hajj Group." — watch the full video.',
+    textBn: '"মাস্ক হজ গ্রুপের মাধ্যমে ওমরাহ এসে আমি সন্তুষ্ট।" — পুরো ভিডিওটি দেখুন।',
+    videoUrl: 'https://www.youtube.com/watch?v=j8HMDNcM25s',
+  },
 ];
 
 export const blogArticlesData: BlogArticle[] = [

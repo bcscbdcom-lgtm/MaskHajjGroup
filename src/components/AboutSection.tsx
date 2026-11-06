@@ -54,7 +54,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ lang, onOpenPreReg }
           {/* Floating Experience Badge */}
           <div className="absolute -bottom-5 -right-2 sm:-right-4 bg-white rounded-2xl p-4 shadow-lg border border-emerald-100 flex items-center gap-3 z-20">
             <div className="w-11 h-11 rounded-xl bg-[#065F46] text-white font-extrabold text-lg flex items-center justify-center shadow-xs font-mono">
-              11+
+              21+
             </div>
             <div className="text-left">
               <div className="text-xs font-bold text-slate-900">

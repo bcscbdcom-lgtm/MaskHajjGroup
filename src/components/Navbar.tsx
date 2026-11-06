@@ -26,8 +26,8 @@ export const Navbar: React.FC<NavbarProps> = ({ lang = 'bn', onToggleLang, onOpe
       <div className="bg-[#064E3B] text-emerald-100 text-xs py-1.5 px-4 text-center font-medium border-b border-emerald-900/40">
         <span>
           🌙 {lang === 'en'
-            ? 'Govt. Pre-Registration for Hajj 2026–2027 is Active • Limited Quota Allocation'
-            : 'পবিত্র হজ ২০২৬–২০২৭ এর সরকারি প্রাক-নিবন্ধন চলছে • সীমিত কোটা বরাদ্দ'}
+            ? 'Hajj 2028 Pre-Registration Open • Ramadan 2027 Umrah Bookings Open'
+            : 'হজ ২০২৮-এর প্রাক-নিবন্ধন চলছে • রমজান ২০২৭ ওমরাহ বুকিং চলছে'}
         </span>
       </div>
 

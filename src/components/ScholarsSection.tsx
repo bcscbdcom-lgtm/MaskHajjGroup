@@ -89,7 +89,7 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
             <div className="lg:col-span-5 flex flex-col items-center">
               <div className="relative w-full max-w-md rounded-2xl overflow-hidden border-2 border-emerald-400/30 shadow-2xl bg-[#031d16]">
                 <img
-                  src="https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/khalilur-rahman.jpg"
+                  src="/images/scholars/khalilur-rahman.jpg"
                   alt={lang === 'en' ? 'Alhaj Hazrat Maulana Khalilur Rahman' : 'আলহাজ্জ হযরত মাওলানা খলিলুর রহমান'}
                   className="w-full h-80 sm:h-96 object-cover [object-position:50%_32%]"
                   referrerPolicy="no-referrer"
@@ -112,8 +112,8 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
                 </p>
                 <p className="text-[11px] font-semibold text-[#065F46] mt-1">
                   {lang === 'en'
-                    ? 'CEO & Chief Caravan Mentor'
-                    : 'সিইও ও কাফেলা প্রধান'}
+                    ? 'Chairman & Chief Caravan Mentor'
+                    : 'চেয়ারম্যান ও কাফেলা প্রধান'}
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ export const ScholarsSection: React.FC<ScholarsSectionProps> = ({
               
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-400/10 border border-amber-400/30 px-3 py-1 rounded-full uppercase tracking-wider">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-300" />
-                <span>{lang === 'en' ? 'CEO & Chief Caravan Mentor' : 'সিইও ও কাফেলা প্রধান'}</span>
+                <span>{lang === 'en' ? 'Chairman & Chief Caravan Mentor' : 'চেয়ারম্যান ও কাফেলা প্রধান'}</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-serif tracking-tight">

@@ -404,9 +404,9 @@ ${item.tags ? `Keywords: ${item.tags.join(', ')}` : ''}
 
 ════════════════════════════════════════════════════════════
 ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ আলেমদের পরামর্শ ও জরুরি যোগাযোগ:'}
-- Hotline: +88 01711-258708 / +88 01713-000000
-- Email: maskhajjbd@gmail.com
-- Office: Suite 1302, China Town Building, Naya Paltan, Dhaka
+- Hotline: +88 01711-258708 / +88 02-222229612
+- Email: maskbd99@gmail.com
+- Office: China Town (East Tower), 20th Floor, Suite 21/2, 67/1 Naya Paltan, Dhaka-1000
 ════════════════════════════════════════════════════════════`;
     return header;
   };
@@ -783,10 +783,10 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '1,450+' : `${toBengaliNumber('1450')}+`}
+                {lang === 'en' ? '15630' : toBengaliNumber('15630')}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                {lang === 'en' ? 'Questions Answered' : 'প্রশ্ন সমাধান সম্পন্ন'}
+                {lang === 'en' ? 'Govt. Hajj Licence No.' : 'সরকারি হজ লাইসেন্স নং'}
               </p>
             </div>
           </div>
@@ -798,10 +798,10 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '99.2%' : `${toBengaliNumber('99.2')}%`}
+                {lang === 'en' ? '1200+' : `${toBengaliNumber('1200')}+`}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                {lang === 'en' ? 'Community Trust Score' : 'গ্রাহক সন্তুষ্টি স্কোর'}
+                {lang === 'en' ? 'Pilgrims Served' : 'হাজী সেবা পেয়েছেন'}
               </p>
             </div>
           </div>
@@ -813,7 +813,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '3 Scholars' : `${toBengaliNumber('3')} জন আলেম`}
+                {lang === 'en' ? 'Since 2005' : `${toBengaliNumber('2005')} থেকে`}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {lang === 'en' ? 'Resident Shariah Board' : 'সার্বক্ষণিক শরিয়াহ বোর্ড'}
@@ -828,7 +828,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
             </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono tracking-tight">
-                {lang === 'en' ? '< 2 Hours' : `< ${toBengaliNumber('2')} ঘণ্টা`}
+                {lang === 'en' ? '10AM–7PM' : `${toBengaliNumber('10')}টা–${toBengaliNumber('7')}টা`}
               </p>
               <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 {lang === 'en' ? 'Avg. Response Time' : 'গড় উত্তর প্রদানের সময়'}

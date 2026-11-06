@@ -330,7 +330,7 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
             {printSection === 'full' && (
               <div className="space-y-3">
                 <div className="font-bold text-sm text-blue-900">
-                  {lang === 'en' ? 'Official Hajj & Umrah 2026–2027 Summary' : 'পবিত্র হজ ও ওমরাহ ২০২৬–২৭ প্যাকেজ ও নির্দেশিকা'}
+                  {lang === 'en' ? 'Official Hajj & Umrah 2027–2028 Summary' : 'পবিত্র হজ ও ওমরাহ ২০২৬–২৭ প্যাকেজ ও নির্দেশিকা'}
                 </div>
                 <p className="text-slate-600 leading-relaxed">
                   {lang === 'en'
@@ -350,7 +350,7 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
             {printSection === 'packages' && (
               <div className="space-y-2">
                 <div className="font-bold text-sm text-blue-900">
-                  {lang === 'en' ? 'Hajj 2026–2027 Package Pricing Matrix' : 'হজ ২০২৬–২৭ প্যাকেজ মূল্যতালিকা'}
+                  {lang === 'en' ? 'Hajj 2027–2028 Package Pricing Matrix' : 'হজ ২০২৭–২৮ প্যাকেজ মূল্যতালিকা'}
                 </div>
                 <table className="w-full text-[11px] border border-slate-200 text-left">
                   <thead className="bg-slate-100 font-bold">

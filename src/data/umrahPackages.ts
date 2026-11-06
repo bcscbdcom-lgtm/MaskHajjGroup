@@ -10,8 +10,8 @@ export const umrahPackages: PackageItem[] = [
     categoryTagsEn: ['Budget', 'Popular', '15-Day', 'Direct Flight'],
     categoryTagsBn: ['বাজেট', 'জনপ্রিয়', '১৫ দিন', 'সরাসরি ফ্লাইট'],
     isPopular: true,
-    nameEn: 'August & September Umrah',
-    nameBn: 'আগস্ট ও সেপ্টেম্বর ওমরাহ প্যাকেজ',
+    nameEn: 'Regular 15-Day Umrah',
+    nameBn: 'নিয়মিত ১৫ দিনের ওমরাহ প্যাকেজ',
     durationEn: '15 Days • 2026-2027',
     durationBn: '১৫ দিন • ২০২৬-২০২৭',
     priceEn: '৳ 160,000',
@@ -280,24 +280,6 @@ export const umrahPackages: PackageItem[] = [
 ];
 
 export const upcomingUmrahSchedules: UmrahSchedule[] = [
-  {
-    monthEn: 'SEPTEMBER 2026',
-    monthBn: 'সেপ্টেম্বর ২০২৬',
-    datesEn: '26/09/2026 TO 10/10/2026',
-    datesBn: '২৬/০৯/২০২৬ থেকে ১০/১০/২০২৬',
-    statusEn: 'Seats Available',
-    statusBn: 'বুকিং চলছে',
-    badgeColor: 'bg-emerald-500 text-white'
-  },
-  {
-    monthEn: 'OCTOBER 2026',
-    monthBn: 'অক্টোবর ২০২৬',
-    datesEn: '10/10/2026 TO 24/10/2026',
-    datesBn: '১০/১০/২০২৬ থেকে ২৪/১০/২০২৬',
-    statusEn: 'Filling Fast',
-    statusBn: 'সীমিত আসন',
-    badgeColor: 'bg-amber-500 text-white'
-  },
   {
     monthEn: 'NOVEMBER 2026',
     monthBn: 'নভেম্বর ২০২৬',

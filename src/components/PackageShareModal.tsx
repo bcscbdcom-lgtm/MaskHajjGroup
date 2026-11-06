@@ -27,7 +27,7 @@ export const PackageShareModal: React.FC<PackageShareModalProps> = ({
   const pkgHotel = lang === 'en' ? pkg.hotelMakkahEn : pkg.hotelMakkahBn;
 
   // Generate shareable URL with package anchor/query
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://maskhajj.com.bd';
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://maskintbd.com';
   const shareUrl = `${origin}/#${pkg.type === 'hajj' ? 'packages' : 'umrah'}?package=${pkg.id}`;
 
   const shareTitle = `MASK Hajj Group — ${pkgName} (${pkgPrice})`;

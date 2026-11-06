@@ -50,7 +50,7 @@ export interface LeadershipMember {
   titleEn: string;
   titleBn: string;
   yearsOfService: number;
-  hajjCaravansLed: number;
+  hajjCaravansLed?: number;
   image: string;
   bioEn: string;
   bioBn: string;
@@ -102,6 +102,7 @@ export interface Testimonial {
   year: string;
   textEn: string;
   textBn: string;
+  videoUrl?: string; // আসল ইউটিউব ভিডিও মতামতের লিংক
 }
 
 export interface BlogArticle {

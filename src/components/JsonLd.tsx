@@ -4,18 +4,18 @@ export const JsonLd: React.FC = () => {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': ['TravelAgency', 'LocalBusiness'],
-    '@id': 'https://maskhajj.com.bd/#agency',
+    '@id': 'https://maskintbd.com/#agency',
     name: 'MASK Hajj Group',
     alternateName: 'মাস্ক হজ গ্রুপ',
     description:
       'Official Ministry of Religious Affairs approved Hajj & Umrah Travel Agency in Bangladesh (Licence #15630). Offering Hajj packages, Umrah group packages, visa assistance, and scholar guidance.',
-    url: 'https://maskhajj.com.bd',
+    url: 'https://maskintbd.com',
     telephone: '+8801711258708',
     email: 'maskbd99@gmail.com',
     license: 'Ministry of Religious Affairs Licence No. 15630',
     priceRange: '৳৳৳',
-    logo: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=500&q=80',
-    image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+    logo: 'https://maskintbd.com/images/makkah.jpg',
+    image: 'https://maskintbd.com/images/makkah.jpg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '67/1 Naya Paltan, China Town (East Tower), [20th floor] Suite-21/2',

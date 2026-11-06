@@ -69,7 +69,7 @@ export const PackageDetailModal: React.FC<PackageDetailModalProps> = ({
   const bookingUrl =
     typeof window !== 'undefined'
       ? `${window.location.origin}${window.location.pathname}?pkg=${encodeURIComponent(pkg.id)}#preregistration`
-      : `https://maskhajj.com/?pkg=${encodeURIComponent(pkg.id)}#preregistration`;
+      : `https://maskintbd.com/?pkg=${encodeURIComponent(pkg.id)}#preregistration`;
 
   const handleCopyLink = () => {
     if (navigator.clipboard) {

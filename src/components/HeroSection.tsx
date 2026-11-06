@@ -21,8 +21,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       nameBn: 'পবিত্র মক্কা মুকাররমা • বাইতুল্লাহ শরিফ',
       labelBn: '📍 পবিত্র মক্কা মুকাররমা • বাইতুল্লাহ শরিফ',
       labelEn: '📍 Makkah Al-Mukarramah • Holy Kaaba',
-      url: 'https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/makkah.jpg',
-      fallback: 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=1920&q=80',
+      url: '/images/makkah.jpg',
+      fallback: '/images/makkah.jpg',
     },
     {
       id: 'madinah',
@@ -30,8 +30,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       nameBn: 'পবিত্র মদিনা মোনাওয়ারা • মসজিদে নববী',
       labelBn: '📍 পবিত্র মদিনা মুনাওয়ারা • মসজিদে নববী',
       labelEn: '📍 Madinah Al-Munawwarah • Masjid an-Nabawi',
-      url: 'https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/madinah.jpg',
-      fallback: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1920&q=80',
+      url: '/images/madinah.jpg',
+      fallback: '/images/madinah.jpg',
     },
     {
       id: 'arafat',
@@ -39,8 +39,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       nameBn: 'আরাফাতের ময়দান • জাবালে রহমত',
       labelBn: '📍 জাবালে রহমত • আরাফাতের ময়দান',
       labelEn: '📍 Jabal al-Rahmah • Plains of Arafat',
-      url: 'https://raw.githubusercontent.com/bcscbdcom-lgtm/MaskHajjGroup/main/public/images/scholars/arafat.jpg',
-      fallback: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1920&q=80',
+      url: '/images/arafat.jpg',
+      fallback: '/images/arafat.jpg',
     },
   ];
 
@@ -162,10 +162,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               <div>
                 <p className="text-2xl sm:text-3xl font-extrabold text-amber-600 font-mono tracking-tight">
-                  {lang === 'en' ? '★ 4.9' : '★ ৪.৯'}
+                  {lang === 'en' ? '15630' : '১৫৬৩০'}
                 </p>
                 <p className="text-xs sm:text-sm text-slate-700 font-semibold mt-1">
-                  {lang === 'en' ? 'Pilgrim Rating' : 'হাজী সন্তুষ্টি রেটিং'}
+                  {lang === 'en' ? 'Govt. Licence No.' : 'সরকারি লাইসেন্স নং'}
                 </p>
               </div>
             </div>
