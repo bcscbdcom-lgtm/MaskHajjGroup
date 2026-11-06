@@ -1,6 +1,6 @@
 # ওয়েবসাইটের দাম/তারিখ/নোটিশ — Google Sheet থেকে চালানো
 
-শিট: **MASK Hajj Leads** (একই শিট)। ৪টি ট্যাব সাইট পড়ে: `HajjPackages`, `UmrahPackages`, `Schedule`, `Notice`।
+ফাইল: **MASK Website Content** (লিডের ফাইল থেকে আলাদা — https://docs.google.com/spreadsheets/d/1-P7zzOj26tbEfZLK8gGrCUPU935ngvJl4Mxw1RId3ic)। ৪টি ট্যাব সাইট পড়ে: `HajjPackages`, `UmrahPackages`, `Schedule`, `Notice`।
 শিটে কিছু বদলে Enter চাপলে **১–২ মিনিটের মধ্যে** সাইটে বদলে যায়। কোনো ঘর খালি রাখলে কোডের ডিফল্ট মান দেখায়।
 
 **নিয়ম**: প্রথম সারির ইংরেজি কলাম-নাম বদলাবেন না। কোনো সারি সাময়িকভাবে বন্ধ রাখতে `show` ঘরে `no` লিখুন।

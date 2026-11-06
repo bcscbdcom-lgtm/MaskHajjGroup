@@ -6,6 +6,8 @@
  */
 
 var LEADS_SHEET = 'Leads';
+// দাম/তারিখ/নোটিশের আলাদা ফাইল: "MASK Website Content"
+var CONTENT_SPREADSHEET_ID = '1-P7zzOj26tbEfZLK8gGrCUPU935ngvJl4Mxw1RId3ic';
 var CONTENT_TABS = ['HajjPackages', 'UmrahPackages', 'Schedule', 'Notice'];
 
 function doPost(e) {
@@ -57,7 +59,7 @@ function doGet(e) {
     if (cached) {
       return json_(JSON.parse(cached));
     }
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = SpreadsheetApp.openById(CONTENT_SPREADSHEET_ID);
     var data = {};
     CONTENT_TABS.forEach(function (name) {
       var sh = ss.getSheetByName(name);
