@@ -22,7 +22,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { Language, PackageItem } from '../types';
-import { umrahPackages, upcomingUmrahSchedules } from '../data/umrahPackages';
+import { useLiveContent } from '../context/LiveContentContext';
 import { localizeDateRange, localizeDuration, localizeSeason, localizeNumber, toBengaliNumber } from '../utils/dateFormatter';
 import { PackageCardSkeleton } from './skeletons/PackageCardSkeleton';
 import {
@@ -124,6 +124,8 @@ export const UmrahPackagesSection: React.FC<UmrahPackagesSectionProps> = ({
     setPriceFilter('all');
     setSortBy('recommended');
   };
+
+  const { umrahPackages, schedules: upcomingUmrahSchedules } = useLiveContent();
 
   const filteredPackages = umrahPackages
     .filter((pkg) => {

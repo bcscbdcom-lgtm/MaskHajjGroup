@@ -1,17 +1,21 @@
 /**
- * MASK Hajj Group — ওয়েবসাইট লিড → Google Sheet
- * এই কোডটি Google Sheet-এর Extensions → Apps Script-এ পেস্ট করে Web App হিসেবে Deploy করতে হয়।
- * সেটআপ গাইড: docs/LEADS_SETUP.md
+ * MASK Hajj Group — Google Sheet ↔ ওয়েবসাইট
+ *  - doPost : ওয়েবসাইটের ফর্ম থেকে লিড → "Leads" ট্যাবে জমা
+ *  - doGet  : ?action=content → HajjPackages / UmrahPackages / Schedule / Notice ট্যাবের তথ্য JSON হিসেবে সাইটে পাঠায়
+ * সেটআপ গাইড: docs/LEADS_SETUP.md, কলাম-ব্যাখ্যা: docs/CONTENT_SHEET.md
  */
 
-var SHEET_NAME = 'Leads';
+var LEADS_SHEET = 'Leads';
+// দাম/তারিখ/নোটিশের আলাদা ফাইল: "MASK Website Content"
+var CONTENT_SPREADSHEET_ID = '1-P7zzOj26tbEfZLK8gGrCUPU935ngvJl4Mxw1RId3ic';
+var CONTENT_TABS = ['HajjPackages', 'UmrahPackages', 'Schedule', 'Notice'];
 
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName(SHEET_NAME);
+    var sheet = ss.getSheetByName(LEADS_SHEET);
     if (!sheet) {
-      sheet = ss.insertSheet(SHEET_NAME);
+      sheet = ss.insertSheet(LEADS_SHEET);
     }
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
@@ -27,7 +31,7 @@ function doPost(e) {
       now,
       p.source || '',
       p.name || '',
-      "'" + (p.phone || ''),   // ফোন নম্বরের সামনের 0 যেন না হারায়
+      "'" + (p.phone || ''),
       p.interest || '',
       p.pilgrims || '',
       p.message || '',
@@ -37,17 +41,62 @@ function doPost(e) {
       p.lang || '',
       'নতুন'
     ]);
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: true }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return json_({ ok: true });
   } catch (err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return json_({ ok: false, error: String(err) });
   }
 }
 
-// ব্রাউজারে URL খুলে চেক করার জন্য
-function doGet() {
-  return ContentService.createTextOutput('MASK Hajj Group leads endpoint is live.');
+function doGet(e) {
+  var action = (e && e.parameter && e.parameter.action) || '';
+  if (action !== 'content') {
+    return ContentService.createTextOutput('MASK Hajj Group leads endpoint is live.');
+  }
+  try {
+    // ৬০ সেকেন্ড ক্যাশ — শিটে বদলালে সর্বোচ্চ ১ মিনিটে সাইটে বদলায়
+    var cache = CacheService.getScriptCache();
+    var cached = cache.get('content_v1');
+    if (cached) {
+      return json_(JSON.parse(cached));
+    }
+    var ss = SpreadsheetApp.openById(CONTENT_SPREADSHEET_ID);
+    var data = {};
+    CONTENT_TABS.forEach(function (name) {
+      var sh = ss.getSheetByName(name);
+      data[name] = sh ? readTab_(sh) : [];
+    });
+    var payload = { ok: true, updatedAt: new Date().toISOString(), data: data };
+    cache.put('content_v1', JSON.stringify(payload), 60);
+    return json_(payload);
+  } catch (err) {
+    return json_({ ok: false, error: String(err) });
+  }
+}
+
+/** প্রথম সারি = কলামের নাম (ইংরেজি key); বাকি সারি = ডেটা। "#" দিয়ে শুরু সারি/খালি id বাদ। */
+function readTab_(sheet) {
+  var values = sheet.getDataRange().getDisplayValues();
+  if (values.length < 2) return [];
+  var keys = values[0].map(function (k) { return String(k).trim(); });
+  var rows = [];
+  for (var i = 1; i < values.length; i++) {
+    var row = {};
+    var empty = true;
+    for (var c = 0; c < keys.length; c++) {
+      if (!keys[c]) continue;
+      var v = String(values[i][c] == null ? '' : values[i][c]).trim();
+      if (v) empty = false;
+      row[keys[c]] = v;
+    }
+    if (empty) continue;
+    if (String(values[i][0]).trim().charAt(0) === '#') continue;
+    rows.push(row);
+  }
+  return rows;
+}
+
+function json_(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
 }

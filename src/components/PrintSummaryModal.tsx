@@ -19,8 +19,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { Language, PackageItem, FAQItem } from '../types';
-import { hajjPackages } from '../data/hajjPackages';
-import { umrahPackages } from '../data/umrahPackages';
+import { useLiveContent } from '../context/LiveContentContext';
 import { faqsData } from '../data/faqs';
 import { toBengaliNumber } from '../utils/dateFormatter';
 
@@ -45,6 +44,7 @@ export const PrintSummaryModal: React.FC<PrintSummaryModalProps> = ({
   initialTab,
   customFaqs,
 }) => {
+  const { hajjPackages } = useLiveContent();
   const [printSection, setPrintSection] = useState<PrintTab>(
     initialTab || (selectedPackage ? 'selectedPkg' : 'full')
   );

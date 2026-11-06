@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Language, PackageItem, NoticeItem } from './types';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { LiveContentProvider, useLiveContent } from './context/LiveContentContext';
 import { NoticeBanner } from './components/NoticeBanner';
 import { TopBar } from './components/TopBar';
 import { Navbar } from './components/Navbar';
@@ -182,8 +183,12 @@ function AppContent() {
     date: new Date().toISOString(),
   };
 
-  // নোটিশ ব্যানার: এখন কোডের defaultNotice থেকেই আসে (পরে Google Sheet-এর "Notice" ট্যাব থেকে আসবে)
+  // নোটিশ ব্যানার: Google Sheet-এর "Notice" ট্যাব থেকে আসে; শিটে না থাকলে কোডের defaultNotice
+  const { notice: sheetNotice } = useLiveContent();
   const [notice, setNotice] = useState<NoticeItem | null>(defaultNotice);
+  useEffect(() => {
+    if (sheetNotice) setNotice(sheetNotice);
+  }, [sheetNotice]);
 
   const handleOpenPreReg = (packageName?: string) => {
     setPreRegPackage(packageName);
@@ -480,7 +485,9 @@ function AppContent() {
 export default function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <LiveContentProvider>
+        <AppContent />
+      </LiveContentProvider>
     </LanguageProvider>
   );
 }

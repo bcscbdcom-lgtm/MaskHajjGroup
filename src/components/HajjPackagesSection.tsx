@@ -21,7 +21,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { Language, PackageItem } from '../types';
-import { hajjPackages } from '../data/hajjPackages';
+import { useLiveContent } from '../context/LiveContentContext';
 import { localizeDuration, localizeSeason, localizeNumber, toBengaliNumber } from '../utils/dateFormatter';
 import { PackageCardSkeleton } from './skeletons/PackageCardSkeleton';
 import {
@@ -133,6 +133,8 @@ export const HajjPackagesSection: React.FC<HajjPackagesSectionProps> = ({
     setPriceRange('all');
     setSortBy('recommended');
   };
+
+  const { hajjPackages } = useLiveContent();
 
   const filteredPackages = hajjPackages
     .filter((pkg) => {
