@@ -67,9 +67,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               <img
                 src={slide.url}
+                srcSet={`${slide.url.replace('.jpg', '-md.jpg')} 1024w, ${slide.url} 1920w`}
+                sizes="100vw"
                 alt={lang === 'en' ? slide.nameEn : slide.nameBn}
                 className="w-full h-full object-cover object-center"
-                referrerPolicy="no-referrer"
+                loading={idx === 0 ? 'eager' : 'lazy'}
+                decoding="async"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   if (target.src !== slide.fallback) {
