@@ -988,7 +988,6 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
           {/* Popular Items 3-Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
             {popularFaqs.map((faq, index) => {
-              const views = clickCounts[faq.id] || faq.initialClicks || 100;
               return (
                 <button
                   key={faq.id}
@@ -1002,7 +1001,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
                       </span>
                       <span className="text-[10px] text-slate-600 dark:text-slate-300 font-mono font-bold flex items-center gap-1">
                         <Flame className="w-3 h-3 text-amber-500" />
-                        {lang === 'en' ? `${views} views` : `${toBengaliNumber(views)} বার পড়া হয়েছে`}
+                        {lang === 'en' ? 'Popular' : 'জনপ্রিয়'}
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2 transition-colors">
@@ -1012,7 +1011,7 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
                   <div className="mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/40 flex items-center justify-between text-[11px] text-blue-600 dark:text-blue-400 font-semibold">
                     <span className="flex items-center gap-1">
                       <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      <span>{faq.helpfulScore || 98}% Helpful</span>
+                      <span>{lang === 'en' ? 'Read answer' : 'উত্তর পড়ুন'}</span>
                     </span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -1104,10 +1103,6 @@ ${isEn ? 'DIRECT SHARIAH CONSULTATION & EMERGENCY HOTLINE:' : 'বিজ্ঞ �
                                   {faq.segment}
                                 </span>
                               )}
-                              <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 flex items-center gap-0.5">
-                                <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                                {faq.helpfulScore || 98}%
-                              </span>
                             </div>
                             <p className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
                               {lang === 'en' ? faq.questionEn : faq.questionBn}

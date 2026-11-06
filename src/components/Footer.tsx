@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Compass, MapPin, Phone, Mail, Clock, ShieldCheck, Send, CheckCircle2, Bell } from 'lucide-react';
 import { Language } from '../types';
 
@@ -9,15 +9,6 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ lang }) => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [visitorCount, setVisitorCount] = useState<number>(() => {
-    try {
-      const saved = localStorage.getItem('mask_visitor_count');
-      if (saved) return parseInt(saved, 10);
-    } catch {
-      // ignore
-    }
-    return 12845;
-  });
   const [subscribed, setSubscribed] = useState(() => {
     try {
       return !!localStorage.getItem('mask_subscribed_email');
@@ -26,55 +17,6 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
     }
   });
 
-  useEffect(() => {
-    let isMounted = true;
-
-    // 1. Immediately increment local fallback count so a real integer is always displayed without delay
-    let currentFallback = 12845;
-    try {
-      const saved = localStorage.getItem('mask_visitor_count');
-      const base = saved ? parseInt(saved, 10) : 12845;
-      currentFallback = base + 1;
-      localStorage.setItem('mask_visitor_count', String(currentFallback));
-      setVisitorCount(currentFallback);
-    } catch {
-      // ignore
-    }
-
-    // 2. Fetch and increment from official CounterAPI endpoint
-    const fetchVisitorCount = async () => {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 4000);
-
-        const res = await fetch('https://api.counterapi.dev/v1/maskhajjgroup_prod_2026/visits/up', {
-          signal: controller.signal,
-        });
-        clearTimeout(timeoutId);
-
-        if (!res.ok) throw new Error('CounterAPI request failed');
-        const data = await res.json();
-        const countVal = data?.count ?? data?.value ?? data?.up ?? null;
-
-        if (typeof countVal === 'number' && countVal > 0 && isMounted) {
-          setVisitorCount(countVal);
-          try {
-            localStorage.setItem('mask_visitor_count', String(countVal));
-          } catch {
-            // ignore
-          }
-        }
-      } catch {
-        // Fallback count is already active and stored via localStorage
-      }
-    };
-
-    fetchVisitorCount();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -299,7 +241,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             </p>
             <p className="flex items-center gap-2.5">
               <Phone className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-              <span className="font-mono">+88 01713-009567, +88 01713-009567, +88 02-222229612</span>
+              <span className="font-mono">+88 01713-009567, +88 01711-258708, +88 02-222229612</span>
             </p>
             <p className="flex items-center gap-2.5">
               <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />
@@ -357,12 +299,6 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           © {new Date().getFullYear()} MASK Hajj Group. All rights reserved. Dhaka, Bangladesh.
         </div>
 
-        {/* Simple Clean Visitor Count Text */}
-        <div className="font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/80 px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700/80">
-          {lang === 'en'
-            ? `Total Visitors: ${visitorCount.toLocaleString('en-US')}`
-            : `মোট ভিজিটর: ${visitorCount.toLocaleString('bn-BD')}`}
-        </div>
 
         <div className="flex items-center gap-6 font-semibold text-slate-600 dark:text-slate-400">
           <a href="#about" className="hover:underline">

@@ -188,8 +188,8 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({
       speakerRoleEn: 'Official Announcement',
       speakerRoleBn: 'অফিসিয়াল ঘোষণা',
       thumbnailUrl: thumb('2L7JlM9zNX0'),
-      summaryEn: 'Announcement video about Hajj pre-registration through MASK Hajj Group. Call 01711-258708.',
-      summaryBn: 'মাস্ক হজ গ্রুপের মাধ্যমে হজের প্রাক-নিবন্ধন সংক্রান্ত ঘোষণা। যোগাযোগ: ০১৭১১-২৫৮৭০৮।',
+      summaryEn: 'Announcement video about Hajj pre-registration through MASK Hajj Group. Call 01713-009567.',
+      summaryBn: 'মাস্ক হজ গ্রুপের মাধ্যমে হজের প্রাক-নিবন্ধন সংক্রান্ত ঘোষণা। যোগাযোগ: ০১৭১৩-০০৯৫৬৭।',
       year: '2026',
     },
     {
