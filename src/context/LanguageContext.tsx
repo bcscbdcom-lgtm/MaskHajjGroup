@@ -24,12 +24,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     } catch {
       // ignore
     }
-    return 'en';
+    return 'bn'; // ডিফল্ট বাংলা — মূল দর্শক বাংলাভাষী হাজী
   });
 
   useEffect(() => {
     try {
       localStorage.setItem('mask_lang', lang);
+      document.documentElement.lang = lang;
     } catch {
       // ignore
     }
