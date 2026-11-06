@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Compass, MapPin, Phone, Mail, Clock, ShieldCheck, Send, CheckCircle2, Bell } from 'lucide-react';
 import { Language } from '../types';
+import { navigate } from '../utils/router';
 
 interface FooterProps {
   lang: Language;
@@ -298,6 +299,11 @@ export const Footer: React.FC<FooterProps> = ({ lang, onOpenLegal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-500 dark:text-slate-400">
         <div>
           © {new Date().getFullYear()} MASK Hajj Group. All rights reserved. Dhaka, Bangladesh.
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 font-semibold text-slate-600 dark:text-slate-400">
+            <button onClick={() => navigate('/umrah')} className="hover:underline cursor-pointer">{lang === 'en' ? 'Umrah Packages' : 'ওমরাহ প্যাকেজ'}</button>
+            <button onClick={() => navigate('/hajj-from-bangladesh')} className="hover:underline cursor-pointer">{lang === 'en' ? 'Hajj from all Bangladesh' : 'সারা বাংলাদেশ থেকে হজ'}</button>
+            <button onClick={() => navigate('/nri')} className="hover:underline cursor-pointer">{lang === 'en' ? 'For Bangladeshis Abroad' : 'প্রবাসীদের জন্য'}</button>
+          </div>
           <div className="mt-1 text-[10px] text-slate-400">
             {lang === 'en' ? 'Mina photo: ' : 'মিনার ছবি: '}
             <a href="https://commons.wikimedia.org/wiki/File:Mina_saudi_arabia.jpg" target="_blank" rel="noopener noreferrer" className="hover:underline">saudipics, Wikimedia Commons</a>, CC BY-SA 4.0

@@ -34,9 +34,52 @@ import { PackageCompareBar } from './components/PackageCompareBar';
 import { FloatingActions } from './components/FloatingActions';
 import { ReadingProgressBar } from './components/ReadingProgressBar';
 import { JsonLd } from './components/JsonLd';
+import { LandingHeader } from './components/LandingHeader';
+import { usePath } from './utils/router';
+import { findLandingPage } from './data/landingPages';
 
 function AppContent() {
-  const { lang, toggleLanguage } = useLanguage();
+  const { lang, toggleLanguage, setLanguage } = useLanguage();
+
+  // আলাদা ঠিকানার ল্যান্ডিং পেজ (/umrah, /hajj/sylhet, /nri ...)
+  const path = usePath();
+  const landing = findLandingPage(path);
+
+  // পেজ অনুযায়ী ব্রাউজার টাইটেল, বিবরণ ও canonical ঠিকানা (SEO)
+  useEffect(() => {
+    const base = 'https://maskintbd.com';
+    const title = landing
+      ? (lang === 'en' ? landing.metaTitleEn : landing.metaTitleBn)
+      : 'মাস্ক হজ গ্রুপ | MASK Hajj Group — সরকার অনুমোদিত হজ ও ওমরাহ এজেন্সি (লাইসেন্স #15630)';
+    const desc = landing
+      ? (lang === 'en' ? landing.metaDescEn : landing.metaDescBn)
+      : 'ধর্ম বিষয়ক মন্ত্রণালয় অনুমোদিত হজ এজেন্সি (লাইসেন্স নং ১৫৬৩০)। ঢাকা থেকে হজ ও ওমরাহ প্যাকেজ, ভিসা, সরাসরি ফ্লাইট, হারামের কাছে হোটেল ও আলেম মুয়াল্লিমের তত্ত্বাবধান। Hajj & Umrah packages from Bangladesh.';
+    document.title = title;
+    const setMeta = (sel: string, attr: string, value: string) => {
+      const el = document.querySelector<HTMLMetaElement>(sel);
+      if (el) el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', desc);
+    setMeta('meta[property="og:title"]', 'content', title);
+    setMeta('meta[property="og:description"]', 'content', desc);
+    setMeta('meta[property="og:url"]', 'content', base + (landing ? landing.path : ''));
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = base + (landing ? landing.path : '/');
+  }, [landing, lang]);
+
+  // প্রবাসী পেজ প্রথমবার ইংরেজিতে খুলবে (ব্যবহারকারী পরে বদলাতে পারেন)
+  useEffect(() => {
+    if (landing?.defaultLang && !sessionStorage.getItem('mask_lang_touched_' + landing.path)) {
+      setLanguage(landing.defaultLang);
+      sessionStorage.setItem('mask_lang_touched_' + landing.path, '1');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [landing?.path]);
   const [isPreRegOpen, setIsPreRegOpen] = useState(false);
   const [preRegPackage, setPreRegPackage] = useState<string | undefined>(undefined);
   const [selectedPackageForModal, setSelectedPackageForModal] = useState<PackageItem | null>(null);
@@ -274,13 +317,17 @@ function AppContent() {
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        {/* 4. Hero Section */}
-        <HeroSection
-          lang={lang}
-          onOpenPreReg={handleOpenPreReg}
-          onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
-          onOpenPrintModal={() => handleOpenPrintDialog()}
-        />
+        {/* 4. Hero Section (হোম) অথবা ল্যান্ডিং পেজের হেডার */}
+        {landing ? (
+          <LandingHeader page={landing} lang={lang} onOpenPreReg={handleOpenPreReg} />
+        ) : (
+          <HeroSection
+            lang={lang}
+            onOpenPreReg={handleOpenPreReg}
+            onOpenWalkthrough={() => setIsWalkthroughOpen(true)}
+            onOpenPrintModal={() => handleOpenPrintDialog()}
+          />
+        )}
 
         {/* 5. Trust & Accreditations Strip */}
         <TrustBadges lang={lang} />
