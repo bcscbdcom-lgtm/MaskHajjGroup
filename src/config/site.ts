@@ -15,7 +15,7 @@ export const HOTLINE_DISPLAY = '+88 01713-009567';
  * সেটআপ গাইড: docs/LEADS_SETUP.md
  * খালি থাকলে শুধু WhatsApp খুলবে, শিটে কিছু জমা হবে না।
  */
-export const LEADS_ENDPOINT = '';
+export const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxI7rTy4p0woefvoYp8ObT7GIT4IXIbXjsvObXwXKbhV9JRzwtNgN9fraUKWAdg5fBQ/exec';
 
 /** canonical ওয়েবসাইট ঠিকানা */
 export const SITE_URL = 'https://maskintbd.com';
